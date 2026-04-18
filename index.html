@@ -1473,6 +1473,24 @@ tabs.forEach(tab => {
 		setActiveTab(type);
 		updateSectionTitle(type);
     });
+document.querySelector('a[href="#home"]').addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    document.querySelector('[data-tab="all"]').classList.add("active");
+
+    setActiveTab("home");
+
+    showAllGames();
+});
+
+document.querySelector('a[href="#giochi"]').addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    document.querySelector('[data-tab="all"]').classList.add("active");
+
+    setActiveTab("all");
+
+    showAllGames();
+});
+
 });
 
 let lastScroll = 0;
@@ -1547,6 +1565,15 @@ function updateSectionTitle(type) {
     } else {
         title.textContent = "🔥 Giochi popolari";
     }
+}
+
+function showAllGames() {
+    games.forEach(game => {
+        game.style.display = "flex";
+    });
+
+    updateSectionTitle("all");
+    updateCount();
 }
 
 </script>
