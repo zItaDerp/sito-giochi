@@ -399,7 +399,7 @@ a:focus {
 }
 
 .game:active {
-    transform: scale(0.98);
+    transform: scale(0.96);
 }
 
 .size-badge {
@@ -549,6 +549,11 @@ a:focus {
 	text-shadow: 0 0 10px gold;
 }
 
+.favorite-btn.pop {
+    transform: scale(1.5);
+    transition: 0.2s;
+}
+
 .nav-fav {
     background: linear-gradient(135deg, #ffd700, #ffb300);
     color: #1a1a1a;
@@ -583,7 +588,8 @@ a:focus {
 }
 
 .tab.active {
-    background: #00ffcc;
+    background: linear-gradient(135deg, #00ffcc, #00ccff);
+	box-shadow: 0 0 15px rgba(0,255,204,0.6);
     color: black;
     font-weight: bold;
 }
@@ -1453,7 +1459,10 @@ favButtons.forEach(btn => {
             btn.classList.add("active");
         }
 
-        saveFavorites();
+		btn.classList.add("pop");
+		setTimeout(() => btn.classList.remove("pop"), 200);
+        
+		saveFavorites();
 
 		const activeTab = document.querySelector(".tab.active").dataset.tab;
 
