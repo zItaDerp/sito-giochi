@@ -1297,8 +1297,10 @@ counter.style.textAlign = "center";
 document.querySelector(".container").prepend(counter);
 updateCount();
 
+let activeTab = "all";
+
 function updateCount() {
-    const visible = [...games].filter(g => g.style.display !== "none").length;
+    const visible = [...games].filter(g => !g.classList.contains("hide") && g.style.display !== "none").length;
     counter.textContent = `🎮 ${visible} giochi disponibili`;
 }
 
@@ -1308,11 +1310,10 @@ searchInput.addEventListener("input", () => {
     const value = searchInput.value.toLowerCase();
     let visibleCount = 0;
 	
-    const activeTab = document.querySelector(".tab.active").dataset.tab;
+    const activeTab = document.querySelector(".tab.active")?.dataset.tab || "all";
 	games.forEach(game => {
         const title = game.querySelector("h2").textContent.toLowerCase();
 		const tags = game.querySelector(".tags")?.textContent.toLowerCase() || "";
-		let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 		const isFavorite = favorites.includes(title);
 		
         if ((title.includes(value) || tags.includes(value)) &&
@@ -1495,20 +1496,47 @@ favButtons.forEach(btn => {
 			if (pinned.includes(title)) {
 				pinned = pinned.filter(t => t !== title);
 				game.classList.remove("pinned");
+				btn.textContent = "⭐";
 			} else {
 				pinned.push(title);
 				game.classList.add("pinned");
+				btn.textContent = "📌";
+
+				// ⭐ AUTO-AGGIUNTA AI PREFERITI
+				if (!favorites.includes(title)) {
+					favorites.push(title);
+					btn.classList.add("active");
+				}
+				
+				showToast("Gioco pinnato 📌");
+				
 			}
-			
-			btn.textContent = pinned.includes(title) ? "📌" : "⭐";
-			
+
 			savePinned();
+			saveFavorites();
+			updateFavCount();
 			reorderGames();
-		}, 600); // 👈 tempo pressione
-});
+
+			const activeTab = document.querySelector(".tab.active").dataset.tab;
+			if (activeTab === "favorites") {
+				renderFavoritesView();
+			}
+
+		}, 600);
+	});
 
 	btn.addEventListener("mouseup", () => clearTimeout(pressTimer));
 	btn.addEventListener("mouseleave", () => clearTimeout(pressTimer));
+	btn.addEventListener("touchstart", startHold);
+	btn.addEventListener("touchend", cancelHold);
+});
+
+let timeout;
+searchInput.addEventListener("input", () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+        // filtro giochi
+    }, 150);
 });
 
 function reorderGames() {
@@ -1719,6 +1747,38 @@ function activateTab(type, scroll = true) {
 function updateFavCount() {
     const nav = document.getElementById("navPreferiti");
     nav.textContent = `⭐ Preferiti (${favorites.length})`;
+}
+
+function showToast(message) {
+    const toast = document.createElement("div");
+    toast.textContent = message;
+
+    toast.style.position = "fixed";
+    toast.style.bottom = "30px";
+    toast.style.left = "50%";
+    toast.style.transform = "translateX(-50%)";
+    toast.style.background = "rgba(0,0,0,0.8)";
+    toast.style.color = "#00ffcc";
+    toast.style.padding = "10px 16px";
+    toast.style.borderRadius = "10px";
+    toast.style.boxShadow = "0 0 15px rgba(0,255,204,0.3)";
+    toast.style.zIndex = "9999";
+    toast.style.fontSize = "14px";
+    toast.style.opacity = "0";
+    toast.style.transition = "0.3s";
+
+    document.body.appendChild(toast);
+
+    // fade in
+    setTimeout(() => {
+        toast.style.opacity = "1";
+    }, 10);
+
+    // fade out + remove
+    setTimeout(() => {
+        toast.style.opacity = "0";
+        setTimeout(() => toast.remove(), 300);
+    }, 1500);
 }
 
 </script>
