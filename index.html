@@ -1289,6 +1289,9 @@ a:focus {
 
 
 <script>
+let activeTab = "all";
+let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let pinned = JSON.parse(localStorage.getItem("pinned")) || [];
 const searchInput = document.getElementById("searchInput");
 const games = document.querySelectorAll(".game");
 const noResults = document.getElementById("noResults");
@@ -1297,10 +1300,8 @@ counter.style.textAlign = "center";
 document.querySelector(".container").prepend(counter);
 updateCount();
 
-let activeTab = "all";
-
 function updateCount() {
-    const visible = [...games].filter(g => !g.classList.contains("hide") && g.style.display !== "none").length;
+    const visible = [...games].filter(g => g.style.display !== "none").length;
     counter.textContent = `🎮 ${visible} giochi disponibili`;
 }
 
@@ -1308,33 +1309,28 @@ updateCount();
 
 searchInput.addEventListener("input", () => {
     const value = searchInput.value.toLowerCase();
-    let visibleCount = 0;
-	
-    const activeTab = document.querySelector(".tab.active")?.dataset.tab || "all";
+	let visibleCount = 0;
+
 	games.forEach(game => {
-        const title = game.querySelector("h2").textContent.toLowerCase();
+		const title = game.querySelector("h2").textContent.toLowerCase();
 		const tags = game.querySelector(".tags")?.textContent.toLowerCase() || "";
-		const isFavorite = favorites.includes(title);
-		
-        if ((title.includes(value) || tags.includes(value)) &&
-		   (activeTab === "all" || (activeTab === "favorites" && isFavorite))) {
-            game.style.display = "flex";
-			setTimeout(() => game.classList.remove("hide"), 10);
-            visibleCount++;
-        } else {
-            game.classList.add("hide");
+		const isFavorite = favorites.includes(game.querySelector("h2").textContent);
+
+		const matchSearch = title.includes(value) || tags.includes(value);
+
+		const matchTab =
+			activeTab === "all" ||
+			(activeTab === "favorites" && isFavorite);
+
+		if (matchSearch && matchTab) {
+			game.style.display = "flex";
+			game.classList.remove("hide");
+			visibleCount++;
+		} else {
+			game.classList.add("hide");
 			setTimeout(() => game.style.display = "none", 200);
-        }
-    });
-
-    if (visibleCount === 0) {
-        noResults.classList.add("show");
-    } else {
-        noResults.classList.remove("show");
-    }
-	
-	updateCount();
-
+		}
+	});
 });
 </script>
 
@@ -1423,24 +1419,28 @@ window.addEventListener("resize", () => {
 const favButtons = document.querySelectorAll(".favorite-btn");
 
 // Carica preferiti salvati
-let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-let pinned = JSON.parse(localStorage.getItem("pinned")) || [];
 
 function saveFavorites() {
     localStorage.setItem("favorites", JSON.stringify(favorites));
 }
 
 function renderFavoritesView() {
+    let visibleCount = 0;
+
     games.forEach(game => {
         const title = game.querySelector("h2").textContent;
-		const btn = game.querySelector(".favorite-btn");
+        const btn = game.querySelector(".favorite-btn");
 
-        if (favorites.includes(title)) {
+        const isFav = favorites.includes(title);
+
+        if (isFav) {
             game.style.display = "flex";
-			btn.classList.add("active");
+            game.classList.remove("hide");
+            btn.classList.add("active");
+            visibleCount++;
         } else {
             game.style.display = "none";
-			btn.classList.remove("active");
+            btn.classList.remove("active");
         }
     });
 
@@ -1478,7 +1478,7 @@ favButtons.forEach(btn => {
         
 		saveFavorites();
 
-		const activeTab = document.querySelector(".tab.active").dataset.tab;
+		activeTab = document.querySelector(".tab.active").dataset.tab;
 
 		if (activeTab === "favorites") {
 			renderFavoritesView();
@@ -1527,17 +1527,9 @@ favButtons.forEach(btn => {
 
 	btn.addEventListener("mouseup", () => clearTimeout(pressTimer));
 	btn.addEventListener("mouseleave", () => clearTimeout(pressTimer));
-	btn.addEventListener("touchstart", startHold);
-	btn.addEventListener("touchend", cancelHold);
 });
 
 let timeout;
-searchInput.addEventListener("input", () => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-        // filtro giochi
-    }, 150);
-});
 
 function reorderGames() {
     const container = document.querySelector(".container");
@@ -1557,6 +1549,7 @@ function reorderGames() {
 }
 
 function setActiveTab(type) {
+	activeTab = type;
     localStorage.setItem("activeTab", type);
     updateNavbarActive(type);
 }
