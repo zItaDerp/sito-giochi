@@ -369,6 +369,11 @@ html {
 	animation: fadeIn 0.5s ease forwards;
 }
 
+.game.pinned {
+    border: 1px solid gold;
+    box-shadow: 0 0 15px rgba(255,215,0,0.5);
+}
+
 .game.hide {
     opacity: 0;
     transform: translateY(10px);
@@ -1418,6 +1423,7 @@ const favButtons = document.querySelectorAll(".favorite-btn");
 
 // Carica preferiti salvati
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+let pinned = JSON.parse(localStorage.getItem("pinned")) || [];
 
 function saveFavorites() {
     localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -1444,6 +1450,12 @@ function renderFavoritesView() {
 favButtons.forEach(btn => {
     const game = btn.closest(".game");
     const title = game.querySelector("h2").textContent;
+	
+	if (pinned.includes(title)) {
+		btn.textContent = "📌";
+	} else {
+		btn.textContent = "⭐";
+	}
 
     // Se già salvato → attiva
     if (favorites.includes(title)) {
@@ -1458,7 +1470,8 @@ favButtons.forEach(btn => {
             favorites.push(title);
             btn.classList.add("active");
         }
-
+		
+		btn.classList.toggle("pinned", pinned.includes(title));
 		btn.classList.add("pop");
 		setTimeout(() => btn.classList.remove("pop"), 200);
         
@@ -1472,7 +1485,48 @@ favButtons.forEach(btn => {
 		
 		updateFavCount();
     });
+	let pressTimer;
+
+	btn.addEventListener("mousedown", () => {
+		pressTimer = setTimeout(() => {
+			const game = btn.closest(".game");
+			const title = game.querySelector("h2").textContent;
+
+			if (pinned.includes(title)) {
+				pinned = pinned.filter(t => t !== title);
+				game.classList.remove("pinned");
+			} else {
+				pinned.push(title);
+				game.classList.add("pinned");
+			}
+			
+			btn.textContent = pinned.includes(title) ? "📌" : "⭐";
+			
+			savePinned();
+			reorderGames();
+		}, 600); // 👈 tempo pressione
 });
+
+	btn.addEventListener("mouseup", () => clearTimeout(pressTimer));
+	btn.addEventListener("mouseleave", () => clearTimeout(pressTimer));
+});
+
+function reorderGames() {
+    const container = document.querySelector(".container");
+    const gamesArray = Array.from(games);
+
+    gamesArray.sort((a, b) => {
+        const aTitle = a.querySelector("h2").textContent;
+        const bTitle = b.querySelector("h2").textContent;
+
+        const aPinned = pinned.includes(aTitle);
+        const bPinned = pinned.includes(bTitle);
+
+        return bPinned - aPinned; // pinnati sopra
+    });
+
+    gamesArray.forEach(g => container.appendChild(g));
+}
 
 function setActiveTab(type) {
     localStorage.setItem("activeTab", type);
@@ -1557,6 +1611,16 @@ window.addEventListener("load", () => {
     }
 	
 	updateFavCount();
+	
+	games.forEach(game => {
+		const title = game.querySelector("h2").textContent;
+
+		if (pinned.includes(title)) {
+			game.classList.add("pinned");
+		}
+});
+
+reorderGames();
 });
 
 const navPreferiti = document.getElementById("navPreferiti");
@@ -1580,8 +1644,12 @@ navPreferiti.addEventListener("click", (e) => {
     renderFavoritesView();
     updateCount();
     updateSectionTitle("favorites");
-	uptadeFavCount();
+	updateFavCount();
 });
+
+function savePinned() {
+    localStorage.setItem("pinned", JSON.stringify(pinned));
+}
 
 function updateNavbarActive(tabType) {
     document.querySelectorAll(".nav-links a").forEach(a => a.classList.remove("active"));
