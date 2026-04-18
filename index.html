@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LA CASA DEI GIOCHI</title>
+
+<style>
+body {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(180deg, #0f0f0f,  #1a1a1a);
+    color: white;
+    margin: 0;
+	position: relative;
+	overflow-x: hidden;
+	padding-top: 70px;
+}
+
+#home, #giochi {
+    scroll-margin-top: 80px;
+}
+
+#particles {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background: transparent;
+}
+
+.logo {
+    justify-self: start;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    background: linear-gradient(90deg, #00ffcc, #00ccff, #00ffcc);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientMove 3s linear infinite;
+
+    white-space: nowrap;
+}
+
+@keyframes neonPulse {
+    0% {
+        text-shadow:
+            0 0 5px #00ffcc,
+            0 0 10px #00ffcc,
+            0 0 20px #00ffcc,
+            0 0 40px #00ffcc;
+    }
+
+    100% {
+        text-shadow:
+            0 0 2px #00ffcc,
+            0 0 6px #00ffcc,
+            0 0 12px #00ffcc,
+            0 0 25px #00ffcc;
+    }
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% }
+    100% { background-position: 200% }
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 20px;
+    background: rgba(15, 15, 15, 0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,255,204,0.15);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.nav-links {
+	justify-self: end;
+	display: flex;
+	gap: 15px;
+	flex-wrap: nowrap;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #00ffcc;
+}
+
+.nav-links a[href*="discord"] {
+    background: #5865F2;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.nav-links a[href*="discord"]:hover {
+    background: #4752c4;
+}
+
+.nav-links a[href*="#home"] {
+    background: #0cf0a0;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.nav-links a[href*="#home"]:hover {
+    background: #059e68;
+}
+
+.nav-links a[href*="#giochi"] {
+    background: #f21616;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.nav-links a[href*="#giochi"]:hover {
+    background: #910404;
+}
+
+.updated-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    
+    background: linear-gradient(135deg, #ffcc00, #ff6600);
+    color: black;
+    
+    padding: 5px 10px;
+    border-radius: 8px;
+    
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    
+    box-shadow: 0 0 10px rgba(255, 170, 0, 0.6);
+    animation: pulseUpdate 1.8s infinite;
+}
+
+@keyframes pulseUpdate {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 6px rgba(255, 170, 0, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 14px rgba(255, 170, 0, 0.8);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 6px rgba(255, 170, 0, 0.4);
+    }
+}
+
+.hero {
+	text-align: center;
+	padding: 60px 20px;
+	background: radial-gradient(circle, #00ffcc22, transparent);
+}
+
+.hero h1 {
+	font-size: 40px;
+	margin-bottom: 10px;
+	color: #00ffcc;
+}
+
+.hero p {
+	color: #aaa;
+}
+
+.section-title {
+	margin-top: 30px;
+	color: #00ffcc;
+}
+
+h1 {
+    text-align: center;
+    color: #00ffcc;
+	font-size: 32px;
+	letter-spacing: 1px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.game {
+    display: flex;
+	gap: 20px;
+    background: rgba(30, 30, 30, 0.8);
+	backdrop-filter: blur(6px);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 14px;
+    transition: transform .25s ease, box-shadow .25s ease, border .25s ease;
+	position: relative;
+	border: 1px solid transparent;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+	cursor: pointer;
+	animation: fadeIn 0.5s ease forwards;
+}
+
+.game:nth-child(1) { animation-delay: 0.05s; }
+.game:nth-child(2) { animation-delay: 0.1s; }
+.game:nth-child(3) { animation-delay: 0.15s; }
+
+a, button {
+    outline: none;
+}
+
+a:focus {
+    outline: 2px solid #00ffcc;
+    outline-offset: 3px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.game:active {
+    transform: scale(0.98);
+}
+
+.size-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #00ffcc;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+	letter-spacing: 0.5px;
+    font-weight: bold;
+	
+	animation: none;
+	transition: 0.3s;
+}
+
+.game:hover .size-badge {
+	transform: translateY(-8px) scale(1.02);
+	box-shadow: 0 0 12px rgba(0,255,204,0.9);
+	border: 1px solid rgba(0,255,204,0.3);
+}
+
+.game:hover {
+    background: #2a2a2a;
+	transform: translateY(-6px) scale(1.01);
+	transition: 0.3s ease;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.6),
+				0 0 15px rgba(0,255,204,0.2);
+	border: 1px solid #00ffcc55;
+}
+
+.game img {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game img:hover {
+    transform: scale(1.05);
+	box-shadow: 0 0 15px rgba(0,255,204,0.5);
+}
+
+.tags span {
+    transition: 0.2s;
+}
+
+.tags span:hover {
+    transform: translateY(-2px);
+}
+
+.download:active {
+    transform: scale(0.97);
+}
+
+.info {
+    flex: 1;
+}
+
+.info h2 {
+    margin: 0 0 10px 0;
+}
+
+.info p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.tags {
+	margin: 10px 0;
+}
+
+.tags span {
+	background: #00ffcc22;
+	color: #00ffcc;
+	padding: 4px 8px;
+	border-radius: 6px;
+	font-size: 12px;
+	margin-right: 5px;
+}
+
+.download {
+    display: inline-block;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #00ffcc, #00ccaa);
+    color: black;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+	transition: 0.3s;
+}
+
+.download:hover {
+    background: #00ccaa;
+	transform: scale(1.05);
+}
+
+.search-box {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-box input {
+    width: 80%;
+    max-width: 400px;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #1e1e1e;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    box-shadow: 0 0 10px #00ffcc;
+}
+
+#noResults {
+    text-align: center;
+    color: #aaa;
+    margin-top: 20px;
+    display: none;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+#noResults.show {
+	opacity: 1;
+	display: block;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .game {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .game img {
+        width: 100px;
+        height: 140px;
+    }
+	
+	.nav-links {
+		gap: 10px;
+	}
+	
+	.nav-links a {
+		font-size: 12px;
+		margin-left: 8px;
+	}
+	
+	.logo {
+		font-size: 14px;
+	}
+	
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav class="navbar">
+    <div class="logo">🎮 LA CASA DEI GIOCHI 🎮</div>
+
+    <div class="nav-links">
+        <a href="#home">🏠 Home</a>
+        <a href="#giochi">🧩 Giochi</a>
+		<a href="https://discord.gg/FGud7AgaCs" target="_blank">📲 Discord</a>
+		
+    </div>
+</nav>
+
+<header class="hero" id="home">
+    <h1>🎮 LA CASA DEI GIOCHI 🎮</h1>
+    <p>Scopri giochi multiplayer da giocare con amici</p>
+</header>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="🔍 Cerca un gioco...">
+	<p id="noResults">❌ Nessun gioco trovato</p>
+</div>
+
+<div class="container" id="giochi">
+
+    <h2 class="section-title">🔥 Giochi popolari</h2>
+
+    <div class="game">
+        <div class="size-badge">110MB</div>
+		
+		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL0WXn_iamhbdfFY-0U9MLNR4XDL9IHn4JKA&s">
+
+        <div class="info">
+            <h2>Scam Line</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Co-op</span>
+                <span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/wtYU1QDI#ULifsS48f9fSh2j4e9rniw">Scarica</a>
+        </div>
+    </div>
+
+    <div class="game">
+        <div class="size-badge">DEMO</div>
+
+        <img src="https://static-cdn.jtvnw.net/ttv-boxart/894011338_IGDB-272x380.jpg">
+
+        <div class="info">
+            <h2>Approximately Up</h2>
+
+            <div class="tags">
+                <span>Platform</span>
+                <span>Fisica</span>
+                <span>Chaos & Building</span>
+            </div>
+
+            <a class="download" href="https://store.steampowered.com/app/3904850/Approximately_Up/" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+	
+    <div class="game">
+        <div class="size-badge">1,1GB</div>
+		
+		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
+
+        <img src="https://cdn.loaded.com/496x700/media/catalog/product/s/u/super_battle_golf_pc.png">
+
+        <div class="info">
+            <h2>Super Battle Golf</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Divertente</span>
+                <span>Chaos</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/R1R3zSQa#z-8DLe7SjKg1aGnqc2DI1Q" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">DEMO</div>
+
+        <img src="https://shared.fastly.steamstatic.com/community_assets/images/apps/4187140/e3cc3e309a050efb2c4c0561303a67bc98afac30.ico">
+
+        <div class="info">
+            <h2>Don't panic! It is just a turbolence</h2>
+
+            <div class="tags">
+                <span>Co-op</span>
+                <span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://store.steampowered.com/app/4187140/Dont_Panic_It_is_Just_Turbulence/" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">7,51GB</div>
+
+        <img src="https://cdn.loaded.com/496x700/media/catalog/product/t/h/the_headliners_cdkeys.png">
+
+        <div class="info">
+            <h2>The Headliners</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Divertente</span>
+				<span>Horror</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/Z9Q3gLAS#4m8ofz0K7e38tigY6kVybA" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">426MB</div>
+		
+		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
+
+        <img src="https://store-images.s-microsoft.com/image/apps.29720.13852432964379814.8cf60b96-a78e-4030-98e0-256e5a6886bb.e5838f21-d711-4f5c-b2c5-6479aff42078">
+
+        <div class="info">
+            <h2>Content Warning</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Divertente</span>
+				<span>Horror</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/p4Rk0IiD#0ODF_OjA4SaxpF1yxf8i9Q" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">555MB</div>
+
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/Guilty_as_Sock%21_cover.jpg/250px-Guilty_as_Sock%21_cover.jpg">
+
+        <div class="info">
+            <h2>Guilty As Sock!</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Divertente</span>
+				<span>+6 persone</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/N5hmSbJb#guV9TUITtqdoygjUvDL69w" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+	
+<div class="game">
+        <div class="size-badge">2,89GB</div>
+
+        <img src="https://assets.playin.gg/e9ac8554-95c8-4110-9ee6-f81460558d90.jpg">
+
+        <div class="info">
+            <h2>FizzQuiz</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Cultura</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/glpxzQiI#59zCOjYb8cmaOruTr4KhRg" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+	
+<div class="game">
+        <div class="size-badge">1,22GB</div>
+
+        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co7v7d.jpg">
+
+        <div class="info">
+            <h2>Oh, Deer</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Caccia</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/0tJFQAoT#QeVoD7qj0Sa8Agj4K5Dimg" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">600MB</div>
+		
+		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
+
+        <img src="https://m.media-amazon.com/images/M/MV5BNTQ4MThmYWYtNDQyYS00YTQ2LTgzMmMtYzJhMzkxOGI1N2JkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+        <div class="info">
+            <h2>Lethal Company</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Horror</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/JoJBTIrb#nEWqqUTxYJ2zpxzXfHbveQ" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">736MB</div>
+
+        <img src="https://m.media-amazon.com/images/M/MV5BZDAwMTMzZDUtZDE4OC00MjE3LWFiMzgtN2Q2NzcwMWNjMGMzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+        <div class="info">
+            <h2>Buckshot Roulette</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Armi</span>
+				<span>2-4 giocatori</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/M4ZnnRjY#99j96RcTOFJfMTr7DOIM5w" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+	
+<div class="game">
+        <div class="size-badge">330MB</div>
+		
+		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJarvVHMu1JEynN1DX_D0fBjxI2RnSeb-Vhw&s">
+
+        <div class="info">
+            <h2>Exploding Kittens 2</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Card game</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/1goxzL7B#sXiN8JX2JxovDV-FIGl2Qw" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>	
+	
+<div class="game">
+        <div class="size-badge">4,70GB</div>
+		
+		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScUHekl5f9zXmwJFvSG60urzprxFysNWylxw&s">
+
+        <div class="info">
+            <h2>Liar's Bar</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Armi</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://1cloudfile.com/2asol" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">321MB</div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIe-heHdAYIs-x0Vpf9xAIwsSyZw86fB2GmQ&s">
+
+        <div class="info">
+            <h2>Mage Arena</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Magia</span>
+				<span>Medievale</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/VxIxRT6C#SFn5fZzYRw6VUN_ZEqyEkw" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">1,60GB</div>
+		
+		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
+
+        <img src="https://m.media-amazon.com/images/M/MV5BY2NkZTAxNTQtNDg0YS00ZDdhLTk4OTgtZWQyMzJmODJlYmVkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+
+        <div class="info">
+            <h2>PEAK</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Avventura</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/5hxCTRAS#osOyKoUApqFxXfNXDPfV6A" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">822MB</div>
+		
+		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
+
+        <img src="https://content-assets.eneba.games/clp/9159e220-79f7-4fab-9521-8d21e2a25eac.png">
+
+        <div class="info">
+            <h2>R.E.P.O.</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Horror</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/tlgwAY7L#12DDg8qL-nEmh_OkEo48Ow" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">1,72GB</div>
+		
+		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
+
+        <img src="https://data.xxlgamer.com/products/6250/vqLF3ijebpqnNX-medium.jpg">
+
+        <div class="info">
+            <h2>RV There Yet?</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Avventura</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/IoAglCiC#ESKqmQlacLOic3K8dni1_A" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">1,54GB</div>
+
+        <img src="https://imgproxy.eneba.games/YuVkrPMIM99TPE4XfGEa-q34j7ve596RSxBNEl4MyrE/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9a/cDQ4clEwcm1ncnZY/ajE1bk85enhQT2V3/ZkV3ZlZfYUZVQmdp/TGhLMFE0LnBuZw">
+
+        <div class="info">
+            <h2>Perfect Heist 2</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Armi</span>
+				<span>Rapine</span>
+            </div>
+
+            <a class="download" href="https://drive.google.com/drive/folders/1G0iaZKGlYvMceSFKgHsppj5QxDmz0K39?usp=drive_link" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">DEMO</div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxUr3m3fnf_grpqgvq0TUPhQMOkmY095OUyQ&s">
+
+        <div class="info">
+            <h2>Burglin' Gnomes</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Divertente</span>
+				<span>PvP</span>
+            </div>
+
+            <a class="download" href="https://store.steampowered.com/app/3844970/Burglin_Gnomes/" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">228MB</div>
+
+        <img src="https://sm.ign.com/ign_za/cover/i/it-has-my-/it-has-my-face_g912.jpg">
+
+        <div class="info">
+            <h2>It Has My Face</h2>
+
+            <div class="tags">
+                <span>PvP</span>
+                <span>Armi</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://mega.nz/folder/Zl4yXDDS#cxwdPNpE2GQZMMdFXxhkRw" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">539MB DEMO</div>
+
+        <img src="https://static-cdn.jtvnw.net/ttv-boxart/326968126_IGDB-272x380.jpg">
+
+        <div class="info">
+            <h2>Airport Security Sucks</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Armi</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://store.steampowered.com/app/4285690/Airport_Security_Sucks/" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">-</div>
+		
+		<div class="updated-badge">⚠️ IN ATTESA DELLA CRACK ⚠️</div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIwizO_DsycQ23pM_V687CIwU0jk2rCBZiSw&s">
+
+        <div class="info">
+            <h2>We Gotta Go!</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Horror</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://store.steampowered.com/app/3967470/We_Gotta_Go/" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">1,42GB</div>
+
+        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobh60.webp">
+
+        <div class="info">
+            <h2>I Know A Guy</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Mafia</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://1cloudfile.com/2b0qm" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">3,54GB</div>
+
+        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/cobhf3.jpg">
+
+        <div class="info">
+            <h2>Anomaly Company</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Horror</span>
+				<span>Paranormale</span>
+            </div>
+
+            <a class="download" href="https://1cloudfile.com/4SRwx" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">3,02GB</div>
+
+        <img src="https://www.cdkeyit.it/wp-content/uploads/buy-the-escape-together-cd-key-compare-prices.jpg">
+
+        <div class="info">
+            <h2>The Escape Togheter</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Horror</span>
+				<span>1-3 giocatori</span>
+            </div>
+
+            <a class="download" href="https://1cloudfile.com/5yPHA" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">2,18GB</div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB2iOW0Fw8JL061FqRvmiZg0dajReAac7baw&s">
+
+        <div class="info">
+            <h2>Chained Wheels</h2>
+
+            <div class="tags">
+                <span>Coop</span>
+                <span>Avventura</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://1cloudfile.com/1v22x" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">7,74GB</div>
+
+        <img src="https://images.g2a.com/470x276/1x1x0/cooking-simulator-2-better-together-pc-steam-key-europe-i10000513749004/027fa1cf5a7241a494207f45">
+
+        <div class="info">
+            <h2>Cooking Simulator 2</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Cucina</span>
+				<span>Divertente</span>
+            </div>
+
+            <a class="download" href="https://1cloudfile.com/1v0kt" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+<div class="game">
+        <div class="size-badge">658MB</div>
+
+        <img src="https://cdn.loaded.com/496x700/media/catalog/product/n/i/nine_ball_roulette_pc.png">
+
+        <div class="info">
+            <h2>Nine-Ball Roulette</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Armi</span>
+				<span>Biliardo</span>
+            </div>
+
+            <a class="download" href="https://1cloudfile.com/Mikw" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const games = document.querySelectorAll(".game");
+const noResults = document.getElementById("noResults");
+const counter = document.createElement("p");
+counter.style.textAlign = "center";
+document.querySelector(".container").prepend(counter);
+updateCount();
+
+function updateCount() {
+    const visible = [...games].filter(g => g.style.display !== "none").length;
+    counter.textContent = `🎮 ${visible} giochi disponibili`;
+}
+
+updateCount();
+
+searchInput.addEventListener("input", () => {
+    const value = searchInput.value.toLowerCase();
+    let visibleCount = 0;
+	
+    games.forEach(game => {
+        const title = game.querySelector("h2").textContent.toLowerCase();
+		const tags = game.querySelector(".tags")?.textContent.toLowerCase() || "";
+		
+        if (title.includes(value) || tags.includes(value)) {
+            game.style.display = "flex";
+            visibleCount++;
+        } else {
+            game.style.display = "none";
+        }
+    });
+
+    if (visibleCount === 0) {
+        noResults.classList.add("show");
+    } else {
+        noResults.classList.remove("show");
+    }
+
+});
+</script>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 1.5 + 0.2;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+    }
+
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+
+    draw() {
+        ctx.fillStyle = "#00ffcc";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function init() {
+    particlesArray = [];
+    for (let i = 0; i < 80; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+
+function connect() {
+    for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a; b < particlesArray.length; b++) {
+            let dx = particlesArray[a].x - particlesArray[b].x;
+            let dy = particlesArray[a].y - particlesArray[b].y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 120) {
+                ctx.strokeStyle = "rgba(0,255,204,0.15)";
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+    }
+
+    connect();
+    requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+// Resize
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+});
+</script>
+</body>
+</html>
