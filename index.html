@@ -361,12 +361,13 @@ html {
     border-radius: 14px;
 	opacity: 1;
 	transform: translateY(0);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    transition: all 0.3s ease;
 	position: relative;
 	border: 1px solid transparent;
 	box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 	cursor: pointer;
 	animation: fadeIn 0.5s ease forwards;
+	touch-action: manipulation;
 }
 
 .game.pinned {
@@ -592,6 +593,15 @@ a:focus {
     transition: 0.3s;
 }
 
+select.tab {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    padding-right: 30px;
+    position: relative;
+}
+
 .tab.active {
     background: linear-gradient(135deg, #00ffcc, #00ccff);
 	box-shadow: 0 0 15px rgba(0,255,204,0.6);
@@ -673,9 +683,25 @@ a:focus {
 </div>
 
 <div class="container" id="giochi">
-	<div class="tabs">
-		<button class="tab active" data-tab="all">🔥 Giochi popolari</button>
-		<button class="tab" data-tab="favorites">⭐ Preferiti</button>
+	<div class="tabs" style="justify-content: space-between; align-items: center;">
+
+		<div style="display:flex; gap:8px; align-items:center; width: 100%;">
+			<button class="tab active" data-tab="all">🔥 Giochi popolari</button>
+			<button class="tab" data-tab="favorites">⭐ Preferiti</button>
+		</div>
+
+		<select id="sortSelect" class="tab">
+			<option value="default">🎮 Predefinito</option>
+			<option value="az">🔤 A → Z</option>
+			<option value="size">💾 Peso</option>
+		</select>
+
+		<select id="orderSelect" class="tab" style="display:none; margin-left: 8px;">
+			<option value="desc">⬇️ Descrescente</option>
+			<option value="asc">⬆️ Crescente</option>
+		</select>
+
+
 	</div>
 
     <h2 class="section-title" id="sectionTitle">🔥 Giochi popolari</h2>
@@ -1305,6 +1331,27 @@ a:focus {
             </a>
         </div>
     </div>
+
+<div class="game">		
+        <div class="size-badge">3,84GB</div>
+		<div class="favorite-btn">⭐</div>
+
+        <img src="https://cdn1.epicgames.com/offer/659883a1ecfc4aeeb5fb69dd4688e734/EGS_TaxiLifeACityDrivingSimulator_Simteract_S2_1200x1600-01eb1ee7f3ff396cff9347719eb3394c">
+
+        <div class="info">
+            <h2>Taxi Life A City Driving Simulator</h2>
+
+            <div class="tags">
+                <span>Singleplayer</span>
+                <span>Simulazione</span>
+				<span>Citta'</span>
+            </div>
+
+            <a class="download" href="https://1cloudfile.com/1v60p" target="_blank">
+                Scarica
+            </a>
+        </div>
+    </div>
 	
 </div>
 
@@ -1314,7 +1361,11 @@ let activeTab = "all";
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 let pinned = JSON.parse(localStorage.getItem("pinned")) || [];
 const searchInput = document.getElementById("searchInput");
-const games = document.querySelectorAll(".game");
+function getGames() {
+    return Array.from(document.querySelectorAll(".game"));
+}
+let games = getGames();
+const originalOrder = games.map(g => g);
 const noResults = document.getElementById("noResults");
 const counter = document.createElement("p");
 counter.style.textAlign = "center";
@@ -1328,30 +1379,41 @@ function updateCount() {
 
 updateCount();
 
+let debounce;
+
 searchInput.addEventListener("input", () => {
-    const value = searchInput.value.toLowerCase();
-	let visibleCount = 0;
+    clearTimeout(debounce);
 
-	games.forEach(game => {
-		const title = game.querySelector("h2").textContent.toLowerCase();
-		const tags = game.querySelector(".tags")?.textContent.toLowerCase() || "";
-		const isFavorite = favorites.includes(game.querySelector("h2").textContent);
+    debounce = setTimeout(() => {
 
-		const matchSearch = title.includes(value) || tags.includes(value);
+        const value = searchInput.value.toLowerCase();
+        let visibleCount = 0;
 
-		const matchTab =
-			activeTab === "all" ||
-			(activeTab === "favorites" && isFavorite);
+        games.forEach(game => {
+            const title = game.querySelector("h2").textContent.toLowerCase();
+            const tags = game.querySelector(".tags")?.textContent.toLowerCase() || "";
+            const isFavorite = favorites.includes(game.querySelector("h2").textContent);
 
-		if (matchSearch && matchTab) {
-			game.style.display = "flex";
-			game.classList.remove("hide");
-			visibleCount++;
-		} else {
-			game.classList.add("hide");
-			setTimeout(() => game.style.display = "none", 200);
-		}
-	});
+            const matchSearch = title.includes(value) || tags.includes(value);
+
+            const matchTab =
+                activeTab === "all" ||
+                (activeTab === "favorites" && isFavorite);
+
+            if (matchSearch && matchTab) {
+                game.style.display = "flex";
+                game.classList.remove("hide");
+                visibleCount++;
+            } else {
+                game.classList.add("hide");
+                setTimeout(() => game.style.display = "none", 200);
+            }	
+        });
+
+        counter.textContent = `🎮 ${visibleCount} giochi disponibili`;
+        noResults.classList.toggle("show", visibleCount === 0);
+
+    }, 150); // ⏱ ritardo
 });
 </script>
 
@@ -1537,6 +1599,7 @@ favButtons.forEach(btn => {
 			saveFavorites();
 			updateFavCount();
 			reorderGames();
+			sortGames(sortSelect.value);
 
 			const activeTab = document.querySelector(".tab.active").dataset.tab;
 			if (activeTab === "favorites") {
@@ -1567,6 +1630,90 @@ function reorderGames() {
     });
 
     gamesArray.forEach(g => container.appendChild(g));
+}
+
+const orderSelect = document.getElementById("orderSelect");
+
+sortSelect.addEventListener("change", () => {
+    const type = sortSelect.value;
+	
+	localStorage.setItem("sortType", type);
+
+    if (type === "size") {
+        orderSelect.style.display = "inline-block";
+    } else {
+        orderSelect.style.display = "none";
+    }
+
+    sortGames(type);
+});
+
+orderSelect.addEventListener("change", () => {
+	localStorage.setItem("sortOrder", orderSelect.value);
+    sortGames(sortSelect.value);
+});
+
+function parseSize(sizeText) {
+    if (sizeText.includes("DEMO") || sizeText === "-") return 0;
+
+    let value = parseFloat(sizeText.replace(",", "."));
+
+    if (sizeText.toUpperCase().includes("GB")) {
+        return value * 1024;
+    }
+    if (sizeText.toUpperCase().includes("MB")) {
+        return value;
+    }
+
+    return 0;
+}
+
+function sortGames(type) {
+    const container = document.querySelector(".container");
+    let gamesArray = Array.from(document.querySelectorAll(".game"));
+
+    const order = orderSelect.value;
+
+    // 📌 PREDEFINITO
+    if (type === "default") {
+		const fragment = document.createDocumentFragment();
+		
+        originalOrder.forEach(g => container.appendChild(g));
+		container.appendChild(fragment);
+		
+        reorderGames(); // mantiene i pinnati sopra
+        return;
+    }
+
+    gamesArray.sort((a, b) => {
+        const titleA = a.querySelector("h2").textContent.toLowerCase();
+        const titleB = b.querySelector("h2").textContent.toLowerCase();
+
+        const sizeA = parseSize(a.querySelector(".size-badge").textContent);
+        const sizeB = parseSize(b.querySelector(".size-badge").textContent);
+
+        const aPinned = pinned.includes(a.querySelector("h2").textContent);
+        const bPinned = pinned.includes(b.querySelector("h2").textContent);
+
+        // 📌 pinned sempre sopra
+        if (aPinned !== bPinned) return bPinned - aPinned;
+
+        if (type === "az") {
+            return titleA.localeCompare(titleB);
+        }
+
+        if (type === "size") {
+            return order === "asc"
+                ? sizeA - sizeB
+                : sizeB - sizeA;
+        }
+
+        return 0;
+    });
+
+    const fragment = document.createDocumentFragment();
+	gamesArray.forEach(g => fragment.appendChild(g));
+	container.appendChild(fragment);
 }
 
 function setActiveTab(type) {
@@ -1604,6 +1751,8 @@ tabs.forEach(tab => {
         updateCount();
 		setActiveTab(type);
 		updateSectionTitle(type);
+		sortGames(sortSelect.value);
+		
     });
 
 });
@@ -1640,10 +1789,25 @@ window.addEventListener("scroll", () => {
         navbar.style.boxShadow = "0 0 10px rgba(0,255,204,0.08)";
     }
 
+	if (currentScroll > 100) {
+		navbar.style.border = "1px solid rgba(0,255,204,0.3)";
+	}
+	
     lastScroll = currentScroll;
 });
 
 window.addEventListener("load", () => {
+	const savedType = localStorage.getItem("sortType") || "default";
+	const savedOrder = localStorage.getItem("sortOrder");
+
+	if (savedType) sortSelect.value = savedType;
+	if (savedOrder) orderSelect.value = savedOrder;
+
+	// mostra il menu peso se serve
+	if (savedType === "size") {
+		orderSelect.style.display = "block";
+	}
+	
     const savedTab = localStorage.getItem("activeTab") || "all";
     updateNavbarActive(savedTab);
 	updateSectionTitle(savedTab);
@@ -1663,6 +1827,9 @@ window.addEventListener("load", () => {
 });
 
 reorderGames();
+sortGames(sortSelect.value);
+sortGames(savedType);
+
 });
 
 const navPreferiti = document.getElementById("navPreferiti");
@@ -1687,6 +1854,8 @@ navPreferiti.addEventListener("click", (e) => {
     updateCount();
     updateSectionTitle("favorites");
 	updateFavCount();
+	sortGames(sortSelect.value);
+	
 });
 
 function savePinned() {
