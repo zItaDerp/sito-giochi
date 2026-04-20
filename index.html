@@ -613,6 +613,69 @@ select.tab {
     transform: translateY(-2px);
 }
 
+.votes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* base button */
+.votes button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 8px 12px;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: white;
+    cursor: pointer;
+
+    transition: 0.25s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* 👍 LIKE */
+.upvote {
+    border-color: rgba(0,255,120,0.25);
+}
+
+.upvote:hover {
+    background: rgba(0,255,120,0.12);
+    box-shadow: 0 0 14px rgba(0,255,120,0.25);
+    transform: translateY(-2px);
+}
+
+/* 👎 DISLIKE */
+.downvote {
+    border-color: rgba(255,60,60,0.25);
+}
+
+.downvote:hover {
+    background: rgba(255,60,60,0.12);
+    box-shadow: 0 0 14px rgba(255,60,60,0.25);
+    transform: translateY(-2px);
+}
+
+.vote-percent {
+    font-weight: bold;
+    font-size: 13px;
+    min-width: 50px;
+    text-align: center;
+
+    padding: 0;               /* niente “box” */
+    border: none;             /* niente bordo */
+    background: transparent;  /* niente sfondo */
+	box-shadow: none;
+
+    transition: 0.3s ease;
+    text-shadow: 0 0 8px rgba(255,255,255,0.2);
+}
+
 #noResults {
     text-align: center;
     color: #aaa;
@@ -706,7 +769,7 @@ select.tab {
 
     <h2 class="section-title" id="sectionTitle">🔥 Giochi popolari</h2>
 
-    <div class="game">
+    <div class="game" data-id="scam-line">
         <div class="size-badge">110MB</div>
 		<div class="favorite-btn">⭐</div>
 		
@@ -724,10 +787,15 @@ select.tab {
             </div>
 
             <a class="download" href="https://mega.nz/folder/wtYU1QDI#ULifsS48f9fSh2j4e9rniw">Scarica</a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-    <div class="game">
+    <div class="game" data-id="approximately-up">
         <div class="size-badge">DEMO</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -745,10 +813,15 @@ select.tab {
             <a class="download" href="https://store.steampowered.com/app/3904850/Approximately_Up/" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 	
-    <div class="game">
+    <div class="game" data-id="super-battle-golf">
         <div class="size-badge">1,1GB</div>
 		<div class="favorite-btn">⭐</div>
 		
@@ -768,10 +841,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/R1R3zSQa#z-8DLe7SjKg1aGnqc2DI1Q" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="dont-panic">
         <div class="size-badge">DEMO</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -788,10 +866,15 @@ select.tab {
             <a class="download" href="https://store.steampowered.com/app/4187140/Dont_Panic_It_is_Just_Turbulence/" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="the-headliners">
         <div class="size-badge">7,51GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -809,10 +892,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/Z9Q3gLAS#4m8ofz0K7e38tigY6kVybA" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="content-warning">
         <div class="size-badge">426MB</div>
 		<div class="favorite-btn">⭐</div>
 		
@@ -832,10 +920,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/p4Rk0IiD#0ODF_OjA4SaxpF1yxf8i9Q" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="guilty-as-sock">
         <div class="size-badge">555MB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -853,10 +946,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/N5hmSbJb#guV9TUITtqdoygjUvDL69w" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 	
-<div class="game">
+<div class="game" data-id="fizzquiz">
         <div class="size-badge">2,89GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -874,10 +972,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/glpxzQiI#59zCOjYb8cmaOruTr4KhRg" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 	
-<div class="game">
+<div class="game" data-id="oh-deer">
         <div class="size-badge">1,22GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -895,10 +998,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/0tJFQAoT#QeVoD7qj0Sa8Agj4K5Dimg" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="lethal-company">
         <div class="size-badge">600MB</div>
 		<div class="favorite-btn">⭐</div>
 		
@@ -918,10 +1026,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/JoJBTIrb#nEWqqUTxYJ2zpxzXfHbveQ" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="buckshot-roulette">
         <div class="size-badge">736MB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -939,10 +1052,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/M4ZnnRjY#99j96RcTOFJfMTr7DOIM5w" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 	
-<div class="game">
+<div class="game" data-id="exploding-kittens2">
         <div class="size-badge">330MB</div>
 		<div class="favorite-btn">⭐</div>
 		
@@ -962,10 +1080,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/1goxzL7B#sXiN8JX2JxovDV-FIGl2Qw" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>	
 	
-<div class="game">
+<div class="game" data-id="liars-bar">
         <div class="size-badge">4,70GB</div>
 		<div class="favorite-btn">⭐</div>
 		
@@ -985,10 +1108,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/2asol" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="mage-arena">
         <div class="size-badge">321MB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1006,10 +1134,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/VxIxRT6C#SFn5fZzYRw6VUN_ZEqyEkw" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="peak">
         <div class="size-badge">1,60GB</div>
 		<div class="favorite-btn">⭐</div>
 		
@@ -1029,10 +1162,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/5hxCTRAS#osOyKoUApqFxXfNXDPfV6A" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="repo">
         <div class="size-badge">822MB</div>
 		<div class="favorite-btn">⭐</div>
 		
@@ -1052,10 +1190,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/tlgwAY7L#12DDg8qL-nEmh_OkEo48Ow" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="rv-there-yet">
         <div class="size-badge">1,72GB</div>
 		<div class="favorite-btn">⭐</div>
 		
@@ -1075,10 +1218,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/IoAglCiC#ESKqmQlacLOic3K8dni1_A" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="perfect-heist2">
         <div class="size-badge">1,54GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1096,10 +1244,15 @@ select.tab {
             <a class="download" href="https://drive.google.com/drive/folders/1G0iaZKGlYvMceSFKgHsppj5QxDmz0K39?usp=drive_link" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="burglin-gnomes">
         <div class="size-badge">DEMO</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1117,10 +1270,15 @@ select.tab {
             <a class="download" href="https://store.steampowered.com/app/3844970/Burglin_Gnomes/" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="ithas-myface">
         <div class="size-badge">228MB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1138,10 +1296,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/Zl4yXDDS#cxwdPNpE2GQZMMdFXxhkRw" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="airport-security-sucks">
         <div class="size-badge">539MB DEMO</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1159,10 +1322,15 @@ select.tab {
             <a class="download" href="https://store.steampowered.com/app/4285690/Airport_Security_Sucks/" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="we-gotta-go">
         <div class="size-badge">-</div>
 		<div class="favorite-btn">⭐</div>
 		
@@ -1182,10 +1350,15 @@ select.tab {
             <a class="download" href="https://store.steampowered.com/app/3967470/We_Gotta_Go/" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="iknow-aguy">
         <div class="size-badge">1,42GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1203,10 +1376,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/2b0qm" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="anomaly-company">
         <div class="size-badge">3,54GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1224,17 +1402,22 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/4SRwx" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="the-escape-together">
         <div class="size-badge">3,02GB</div>
 		<div class="favorite-btn">⭐</div>
 
         <img src="https://www.cdkeyit.it/wp-content/uploads/buy-the-escape-together-cd-key-compare-prices.jpg">
 
         <div class="info">
-            <h2>The Escape Togheter</h2>
+            <h2>The Escape Together</h2>
 
             <div class="tags">
                 <span>Multiplayer</span>
@@ -1245,10 +1428,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/5yPHA" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="chained-wheels">
         <div class="size-badge">2,18GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1266,10 +1454,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/1v22x" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">
+<div class="game" data-id="cooking-simulator2">
         <div class="size-badge">7,74GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1287,10 +1480,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/1v0kt" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">		
+<div class="game" data-id="nineball-roulette">		
         <div class="size-badge">658MB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1308,10 +1506,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/Mikw" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 	
-<div class="game">		
+<div class="game" data-id="side-effects">		
         <div class="size-badge">379MB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1329,10 +1532,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/2a7gk" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 	
-<div class="game">		
+<div class="game" data-id="yapyap">		
         <div class="size-badge">1,03GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1350,10 +1558,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/3wOb4" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">		
+<div class="game" data-id="police-simulator">		
         <div class="size-badge">3,89GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1371,10 +1584,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/2Pjrm" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">		
+<div class="game" data-id="ktane">		
         <div class="size-badge">220MB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1392,10 +1610,15 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/0vlFQQjZ#lIV9HwhEn5cg1jJGppyXXw" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 	
-<div class="game">		
+<div class="game" data-id="super-meat-boy3d">		
         <div class="size-badge">3,00GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1413,10 +1636,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/2b3fv" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 
-<div class="game">		
+<div class="game" data-id="taxi-life">		
         <div class="size-badge">3,84GB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1434,10 +1662,15 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/1v60p" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 	
-<div class="game">		
+<div class="game" data-id="cloverpit">		
         <div class="size-badge">100MB</div>
 		<div class="favorite-btn">⭐</div>
 
@@ -1455,12 +1688,19 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/sqsRgabb#pRrBCLWGwi6re7kJ70j-9Q" target="_blank">
                 Scarica
             </a>
+			<div class="votes">
+				<button class="upvote">👍 <span>0</span></button>
+				<button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
         </div>
     </div>
 	
 </div>
 
-
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script>
 let activeTab = "all";
 let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -1520,9 +1760,7 @@ searchInput.addEventListener("input", () => {
 
     }, 150); // ⏱ ritardo
 });
-</script>
 
-<script>
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
@@ -2069,6 +2307,162 @@ function showToast(message) {
     }, 1500);
 }
 
+const firebaseConfig = {
+  apiKey: "AIzaSyBziQMB8prSDn4XS7calKH8JEYpi7ja2g8",
+  authDomain: "giochi-commenti.firebaseapp.com",
+  projectId: "giochi-commenti",
+  storageBucket: "giochi-commenti.firebasestorage.app",
+  messagingSenderId: "878667417604",
+  appId: "1:878667417604:web:460f2de9a188fe0adb0d51"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+const auth = firebase.auth();
+
+auth.signInAnonymously().catch(console.error);
+
+function getVoteRef(gameId) {
+    return db.collection("votes").doc(gameId);
+}
+
+function vote(gameId, type) {
+    const user = auth.currentUser;
+    if (!user) return;
+
+    const ref = getVoteRef(gameId);
+
+    ref.get().then(doc => {
+        let data = doc.exists ? doc.data() : {};
+
+        // toggle voto
+        if (data[user.uid] === type) {
+            delete data[user.uid]; // rimuove voto
+        } else {
+            data[user.uid] = type; // assegna voto
+        }
+
+        ref.set(data);
+    });
+}
+
+function initVotes() {
+    document.querySelectorAll(".game").forEach(game => {
+        const id = game.dataset.id;
+        if (!id) return;
+
+        const up = game.querySelector(".upvote");
+        const down = game.querySelector(".downvote");
+
+        if (!up || !down) return;
+
+        up.onclick = () => vote(id, "up");
+        down.onclick = () => vote(id, "down");
+
+        listenVotes(id, game);
+    });
+}
+
+function listenVotes(gameId, gameEl) {
+    const ref = db.collection("votes").doc(gameId);
+
+    ref.onSnapshot(doc => {
+        const data = doc.exists ? doc.data() : {};
+
+        let up = 0;
+        let down = 0;
+
+        Object.values(data).forEach(v => {
+            if (v === "up") up++;
+            if (v === "down") down++;
+        });
+
+        // update counters
+        gameEl.querySelector(".upvote span").textContent = up;
+        gameEl.querySelector(".downvote span").textContent = down;
+
+        const percentEl = gameEl.querySelector(".vote-percent");
+
+        const total = up + down;
+
+        let percent = 0;
+
+        if (total > 0) {
+            percent = Math.round((up / total) * 100);
+        }
+
+        const current = parseInt(percentEl.textContent) || 0;
+
+		animatePercent(percentEl, current, percent);
+
+		// reset base (IMPORTANTISSIMO)
+		percentEl.style.boxShadow = "none";
+		percentEl.style.border = "none";
+		percentEl.style.background = "transparent";
+
+		// 🎨 SOLO GLOW (niente box)
+		if (percent > 50) {
+			percentEl.style.color = "#00ff7b";
+			percentEl.style.textShadow =
+				"0 0 8px rgba(0,255,120,0.9), 0 0 18px rgba(0,255,120,0.4)";
+		} 
+		else if (percent < 50) {
+			percentEl.style.color = "#ff3b3b";
+			percentEl.style.textShadow =
+				"0 0 8px rgba(255,60,60,0.9), 0 0 18px rgba(255,60,60,0.4)";
+		} 
+		else {
+			percentEl.style.color = "#aaa";
+			percentEl.style.textShadow = "none";
+		}
+		
+		const user = auth.currentUser;
+		if (!user) return;
+
+		const userVote = data[user.uid];
+
+		const upBtn = gameEl.querySelector(".upvote");
+		const downBtn = gameEl.querySelector(".downvote");
+
+		upBtn.style.background = "";
+		downBtn.style.background = "";
+
+		if (userVote === "up") {
+			upBtn.style.background = "rgba(0,255,120,0.15)";
+		}
+
+		if (userVote === "down") {
+			downBtn.style.background = "rgba(255,60,60,0.15)";
+	}
+    });
+}
+
+auth.onAuthStateChanged(user => {
+    if (user) {
+        console.log("User logged:", user.uid);
+        initVotes();
+    }
+});
+
+function animatePercent(el, start, end, duration = 600) {
+    let startTime = null;
+
+    function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const value = Math.round(start + (end - start) * progress);
+
+        el.textContent = value + "%";
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    }
+
+    requestAnimationFrame(step);
+}
 </script>
 </body>
 </html>
