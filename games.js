@@ -718,7 +718,7 @@ function sendComment() {
       text,
       user: name,
       color,
-      style: commentStyle,
+      style: null,
       date: Date.now()
     });
 
