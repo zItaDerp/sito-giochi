@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Game</title>
+</head>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    color: white;
+    line-height: 1.6;
+
+    background: linear-gradient(-45deg, #0f0f1a, #0a0a12, #001a1a, #0f0f1a);
+    background-size: 400% 400%;
+    animation: bgMove 12s ease infinite;
+
+    overflow-x: hidden;
+}
+
+/* animazione base */
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.bg-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0,255,204,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,204,0.05) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+    animation: gridMove 8s linear infinite;
+
+    z-index: -1;
+}
+
+@keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(40px); }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgba(0,255,204,0.12),
+        transparent 40%
+    ),
+    radial-gradient(
+        circle at 80% 60%,
+        rgba(0,100,255,0.10),
+        transparent 45%
+    );
+
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Titolo */
+#title {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 20px;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #00ffcc;
+}
+
+h3 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Container media */
+#mainMedia {
+    width: 100%;
+    max-width: 900px;
+    height: 500px;              /* 🔥 stessa altezza del video */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* video iframe */
+#mainMedia iframe {
+    width: 100%;
+    height: 100%;
+	transition: opacity 0.3s ease;
+}
+
+/* immagini */
+#mainMedia img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;	/* 🔥 riempie senza deformare */
+	transition: opacity 0.3s ease;
+}
+
+/* barra sotto stile Steam */
+#mediaBar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px auto 30px;
+    max-width: 900px;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.thumb {
+    width: 120px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.2s;
+    border: 2px solid transparent;
+}
+
+.thumb:hover {
+    opacity: 1;
+	transform: scale(1.08);
+}
+
+.thumb.active {
+    border: 2px solid #00ffcc;
+    opacity: 1;
+}
+
+/* Descrizione */
+#description {
+    font-size: 15.5px;
+    color: #cfcfcf;
+    line-height: 1.75;
+    letter-spacing: 0.2px;
+}
+
+/* Requisiti */
+#requirements {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,255,204,0.15);
+    border-radius: 12px;
+
+    backdrop-filter: blur(10px);
+	transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* effetto hover principale */
+#requirements:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 255, 204, 0.35);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* effetto glow leggero interno */
+#requirements:hover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    pointer-events: none;
+
+    background: radial-gradient(
+        circle at top,
+        rgba(0, 255, 204, 0.08),
+        transparent 60%
+    );
+    opacity: 1;
+}
+
+#requirements h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00ffcc;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* Download button stile gaming */
+#downloadBtn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #00ffcc, #0066ff);
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,255,204,0.4);
+    transition: 0.3s;
+}
+
+#downloadBtn:hover {
+    transform: scale(1.05);
+}
+
+/* Commenti */
+#commentInput {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: #1a1a2a;
+    color: white;
+}
+
+.commentsBox {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.commentsBox h2 {
+    color: #00ffcc;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* form */
+.commentFormTable {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    border-top: none; /* 🔥 importante */
+    background: rgba(0,0,0,0.2);
+    flex-wrap: wrap;
+}
+
+.commentFormTable input[type="text"] {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: #1a1a2a;
+    color: white;
+
+    flex: 1; /* 🔥 fondamentale */
+    min-width: 150px;
+}
+
+.commentFormTable input[type="color"] {
+    width: 34px;
+    height: 34px;
+    border: none;
+    padding: 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.commentFormTable input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: 6px;
+}
+
+.commentFormTable input[type="color"]::-webkit-color-swatch {
+    border: 1px solid rgba(0,255,204,0.3);
+    border-radius: 6px;
+}
+
+.commentFormTable .sendBtn {
+    width: 90px;
+    height: 38px;
+    background: linear-gradient(90deg, #00ffcc, #0066ff);
+    color: black;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.commentFormTable .sendBtn:hover {
+    transform: scale(1.05);
+}
+
+.commentDivider {
+    height: 1px;
+    margin: 10px 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0,255,204,0.4),
+        transparent
+    );
+}
+
+/* lista commenti */
+#comments {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* comment card */
+.comment {
+    background: rgba(255,255,255,0.05);
+    padding: 12px;
+    border-radius: 10px;
+    text-align: left;
+
+    border-left: 3px solid #00ffcc;
+    transition: 0.2s;
+}
+
+.comment:hover {
+    transform: translateX(5px);
+    background: rgba(0,255,204,0.08);
+}
+
+#nicknameInput {
+    width: 140px;
+    padding: 9px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: #1a1a2a;
+    color: white;
+}
+
+.commentsTable {
+    max-width: 900px;
+    margin: 30px auto;
+    border-radius: 12px;
+    overflow: visible;
+    border: 1px solid rgba(0,255,204,0.2);
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(8px);
+	position: relative;
+	z-index: 1;
+}
+
+.commentsHeader {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 12px;
+    background: rgba(0,255,204,0.08);
+    font-weight: 600;
+    color: #00ffcc;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.commentRow {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: 12px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    transition: 0.2s;
+}
+
+.commentRow:hover {
+    background: rgba(0,255,204,0.05);
+}
+
+.commentUser {
+    font-weight: 600;
+}
+
+.commentText {
+    color: #ddd;
+    word-break: break-word;
+}
+
+.commentDate {
+    font-size: 12px;
+    color: #888;
+}
+
+button {
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    background: #00ffcc;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover {
+    background: #00ccaa;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.infoBox {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(0,255,204,0.2);
+    backdrop-filter: blur(6px);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+/* hover effetto identico ai requisiti */
+.infoBox:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 255, 204, 0.35);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* glow interno */
+.infoBox:hover::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    pointer-events: none;
+
+    background: radial-gradient(
+        circle at top,
+        rgba(0, 255, 204, 0.08),
+        transparent 60%
+    );
+    opacity: 1;
+}
+
+.infoBox h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #00ffcc;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.infoBox p {
+    color: #d1d1d1;
+    line-height: 1.7;
+}
+
+.reqGrid {
+    display: flex;
+    gap: 30px;
+}
+
+/* ❗ NIENTE CARD SEPARATE */
+.reqGrid > div {
+    flex: 1;
+    padding: 0;              /* importante */
+    background: transparent; /* importantissimo */
+    border: none;            /* importantissimo */
+}
+
+/* titoli colonne */
+.reqGrid h3 {
+    color: #00ffcc;
+    font-size: 13px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+/* testo uniforme */
+.reqGrid p {
+    color: #d0d0d0;
+    font-size: 14px;
+    line-height: 1.7;
+
+    background: rgba(255,255,255,0.03);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.emojiWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.emojiBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    border: none;
+    background: #1a1a2a;
+    color: white;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    line-height: 1;
+    padding: 0;
+}
+
+/* PICKER sopra il bottone */
+.emojiPicker {
+    position: absolute;
+    bottom: 45px;   /* 🔥 questo lo mette sopra */
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: none;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    padding: 10px;
+    background: rgba(20,20,30,0.95);
+    border: 1px solid rgba(0,255,204,0.3);
+    border-radius: 10px;
+
+    width: 220px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 9999;
+}
+
+.emojiPicker span {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: 0.2s;
+}
+
+.emojiPicker span:hover {
+    transform: scale(1.3);
+}
+
+</style>
+
+<body>
+
+<div class="bg-grid"></div>
+
+<div class="container">
+
+<h1 id="title"></h1>
+
+<div id="mainMedia"></div>
+
+<div id="mediaBar"></div>
+
+<div class="infoBox">
+    <h2>Informazioni sul gioco</h2>
+    <p id="description"></p>
+</div>
+
+<div id="requirements">
+    <h2>Requisiti di sistema</h2>
+
+    <div class="reqGrid">
+        <div>
+            <h3>Minimi</h3>
+            <p id="minReq"></p>
+        </div>
+
+        <div>
+            <h3>Consigliati</h3>
+            <p id="recReq"></p>
+        </div>
+    </div>
+</div>
+
+<a id="downloadBtn">Scarica</a>
+
+<div class="commentsBox">
+
+    <h2>COMMENTI</h2>
+
+    <div class="commentsTable">
+
+		<div class="commentsHeader">
+			<div>Utente</div>
+			<div>Commento</div>
+			<div>Data</div>
+		</div>
+
+		<div id="comments"></div>
+		
+		<div class="commentDivider"></div>
+
+		<!-- FORM DENTRO LA STESSA TABELLA -->
+		<div class="commentFormTable">
+
+			<input type="text" id="nicknameInput" placeholder="Nickname">
+			<input type="color" id="colorPicker" value="#00ffcc">
+
+			<input type="text" id="commentInput" placeholder="Scrivi un commento...">
+
+			<div class="emojiWrapper">
+				<button type="button" class="emojiBtn" onclick="toggleEmojiPicker()">🙂</button>
+
+				<div id="emojiPicker" class="emojiPicker">
+					<span onclick="addEmoji('😀')">😀</span>
+					<span onclick="addEmoji('😂')">😂</span>
+					<span onclick="addEmoji('😍')">😍</span>
+					<span onclick="addEmoji('🔥')">🔥</span>
+					<span onclick="addEmoji('💀')">💀</span>
+					<span onclick="addEmoji('👍')">👍</span>
+					<span onclick="addEmoji('😎')">😎</span>
+					<span onclick="addEmoji('🎮')">🎮</span>
+				</div>
+			</div>
+			
+			<button class="sendBtn" onclick="sendComment()">Invia</button>
+
+		</div>
+
+	</div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+<script src="games.js"></script>
+<script src="game.js"></script>
+
+</div>
+</body>
+</html>

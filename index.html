@@ -2383,19 +2383,25 @@ function vote(gameId, type) {
     const user = auth.currentUser;
     if (!user) return;
 
-    const ref = getVoteRef(gameId);
+    const ref = db.collection("votes").doc(gameId);
 
-    ref.get().then(doc => {
+    return db.runTransaction(async (transaction) => {
+
+        const doc = await transaction.get(ref);
+
         let data = doc.exists ? doc.data() : {};
+        const currentVote = data[user.uid];
 
-        // toggle voto
-        if (data[user.uid] === type) {
-            delete data[user.uid]; // rimuove voto
+        if (currentVote === type) {
+            // 🔥 rimuove voto
+            delete data[user.uid];
         } else {
-            data[user.uid] = type; // assegna voto
+            // 🔥 assegna / cambia voto
+            data[user.uid] = type;
         }
 
-        ref.set(data);
+        transaction.set(ref, data);
+
     });
 }
 
@@ -2515,6 +2521,25 @@ function animatePercent(el, start, end, duration = 600) {
 
     requestAnimationFrame(step);
 }
+
+document.querySelectorAll(".game").forEach(game => {
+  game.addEventListener("click", (e) => {
+
+    // ❌ blocca click su bottoni e link
+    if (e.target.tagName === "BUTTON") return;
+    if (e.target.tagName === "A") return;
+
+    const id = game.dataset.id;
+    window.location.href = `game.html?id=${id}`;
+  });
+});
+
+document.querySelectorAll(".votes button, .download, .favorite-btn")
+.forEach(el => {
+  el.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+});
 </script>
 </body>
 </html>
