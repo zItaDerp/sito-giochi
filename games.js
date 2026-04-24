@@ -437,7 +437,7 @@ const gamesData = {
 			min: "<br><strong>SISTEMA OPERATIVO:</strong> Windows 10 x64<br><strong>PROCESSORE:</strong> Intel i5 (i5-10600K) or AMD (Ryzen5 5600X)<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> Intel Arc A750 / Nvidia RTX 2060 6GB / AMD Radeon 5600XT/RX6600<br><strong>DIRECTX:</strong> Versione 11<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 20GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> DirectX compatible sound card<br><strong>NOTE AGGIUNTIVE:</strong> Windows 7 is not supported",
 			rec: "<br><strong>SISTEMA OPERATIVO:</strong> Windows 10 x64<br><strong>PROCESSORE:</strong> Intel (i7-10700K) or AMD (5800X / 5800X 3D)<br><strong>MEMORIA:</strong> 16GB di RAM<br><strong>SCHEDA VIDEO:</strong> Intel Arc A770 / Nvidia RTX 3070 8GB / AMD Radeon 6700XT/RX6800<br><strong>DIRECTX:</strong> Versione 12<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 20GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> DirectX compatible sound card<br><strong>NOTE AGGIUNTIVE:</strong> Windows 7 is not supported"
 		},
-		download: "https://1cloudfile.com/1v0kt"
+		download: "https://1cloudfile.com/1v8ip"
 	},
 	
 	"nineball-roulette": {
@@ -518,6 +518,38 @@ const gamesData = {
 			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10 64-Bit<br><strong>PROCESSORE:</strong> Intel® Core™ i7-4790 o superiore<br><strong>MEMORIA:</strong> 16GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce GTX 1060 (6 GB VRAM) o superiore<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 12GB di spazio disponibile"
 		},
 		download: "https://1cloudfile.com/2Pjrm"
+	},
+
+	"pratfall": {
+		title: "Pratfall",
+		description: "Un gioco cooperativo in cui dovrai cadere, scavare ed esplodere per farti strada in un pericoloso sistema di grotte alla ricerca del tuo cane smarrito. Raggiungi i tuoi amici e fai attenzione a dove metti i piedi in questo viaggio pieno di trappole, pericoli e della forza più letale di tutte: la gravità. Avrai il coraggio di lanciarti nell'ignoto per salvare il tuo cane? Aspetta, perché c'è un cantiere in questo parco per cani? Il tuo migliore amico è caduto in una buca e ha bisogno del tuo aiuto! Prendi un casco, un piccone e un po' di amici per andare a cercarlo. Laggiù c'è un enorme sistema di grotte e questa missione di salvataggio potrebbe essere più difficile del previsto! Per fortuna, qualcuno ha ordinato un sacco di oggetti che sono sparsi e sepolti dappertutto. Trova del cibo per riprenderti dalle ferite, usa le teleferiche per attraversare i crepacci o crea il tuo percorso con il piccone, il trapano e i fagioli magici. Non dimenticare di illuminare la strada con i razzi, laggiù è buio! A quanto pare, non sei l'unico a sentire la mancanza del loro migliore amico! Tutti i cani sono spariti! Fai attenzione ai tuoi amici, prendili se cadono. Troppo goffi per essere presi? Rianimali se sono a terra. Oppure no. Dagli da mangiare cose strane, lanciagli una bomba e guarda cosa succede.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/CVD6ZCQCujs?si=pje1u8CG0y6Is4GL" },
+			{ type: "image", src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4244510/7466683155c61bda5940c6a80a646e5f01615a48/ss_7466683155c61bda5940c6a80a646e5f01615a48.1920x1080.jpg?t=1776803939" },
+			{ type: "image", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuzIRJy_WHv0zZMlXp5T-a_ck1P7hPWIsJEg&s" },
+			{ type: "image", src: "https://img.gg.deals/a2/52/76d7509a5770985e8d4b54aace2d2c99aaa3_1920xt1080_S1000.jpg" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10 64-Bit<br><strong>PROCESSORE:</strong> Intel Core i5 / AMD FX-6300<br><strong>MEMORIA:</strong> 8 GB di RAM<br><strong>SCHEDA VIDEO:</strong> GTX 970 / Radeon RX580<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 1 GB di spazio disponibile",
+			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 11 64-Bit<br><strong>PROCESSORE:</strong> Intel i7 / AMD Ryzen 7<br><strong>MEMORIA:</strong> 16 GB di RAM<br><strong>SCHEDA VIDEO:</strong> GTX 1070 / Radeon RX 5700XT<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 1 GB di spazio disponibile"
+		},
+		download: "https://mega.nz/folder/cqtTWJIB#I9jgQ2Zm-2jL3oHvThtkYQ"
+	},
+
+	"night-shippers": {
+		title: "Night Shippers",
+		description: "Hai accettato un incarico di consegna di cibo negli inferi, da solo o con un massimo di 8 amici. Ogni notte le tue condizioni di lavoro cambiano. Accetta gli ordini, schiva i mostri e sopravvivi alla notte, altrimenti rimarrai intrappolato all'inferno per sempre.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/k6TNgPnpD7o?si=l1dR7iSaehHcnhW4" },
+			{ type: "image", src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3761880/f35455ec6a04ae05c24a58206b50f3946a6bf93a/ss_f35455ec6a04ae05c24a58206b50f3946a6bf93a.jpg" },
+			{ type: "image", src: "https://img.itch.zone/aW1hZ2UvMzk5MjMyNi8yMzgwNzA2NS5qcGc=/original/nYP80q.jpg" },
+			{ type: "image", src: "https://img.itch.zone/aW1hZ2UvMzk5MjMyNi8yMzgwNzA3OC5qcGc=/original/CLQJjt.jpg" }
+		],
+		requirements: {
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel Core i5-7400 CPU @ 3.00GHz or AMD Ryzen 5 1400<br><strong>MEMORIA:</strong> 8 GB di RAM<br><strong>SCHEDA VIDEO:</strong> GeForce GTX 1050ti or AMD R9 270X<br><strong>DIRECTX:</strong> Versione 11<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 2 GB di spazio disponibile",
+			rec: "<strong>SISTEMA OPERATIVO:</strong> Windows 11<br><strong>PROCESSORE:</strong> Intel Core i7-8700<br><strong>MEMORIA:</strong> 16 GB di RAM<br><strong>SCHEDA VIDEO:</strong> GeForce GTX 1070<br><strong>DIRECTX:</strong> Versione 12<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 2 GB di spazio disponibile"
+		},
+		download: "https://mega.nz/folder/wjV2mRTR#3Kq8nsg_ygS7s5m2rDTm8g"
 	},
 	
 	"ktane": {
