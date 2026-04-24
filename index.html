@@ -615,9 +615,9 @@ select.tab {
 
 .votes {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 12px;
+    align-items: center;   /* allinea verticalmente */
+    justify-content: center;
+    gap: 10px;             /* spazio tra bottoni e % */
 }
 
 /* base button */
@@ -642,6 +642,15 @@ select.tab {
 /* 👍 LIKE */
 .upvote {
     border-color: rgba(0,255,120,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 32px;
+    min-width: 60px;
+
+    padding: 0 10px;
+    border-radius: 10px;
 }
 
 .upvote:hover {
@@ -653,6 +662,15 @@ select.tab {
 /* 👎 DISLIKE */
 .downvote {
     border-color: rgba(255,60,60,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 32px;
+    min-width: 60px;
+
+    padding: 0 10px;
+    border-radius: 10px;
 }
 
 .downvote:hover {
@@ -663,9 +681,12 @@ select.tab {
 
 .vote-percent {
     font-weight: bold;
-    font-size: 13px;
+    font-size: 14px;
     min-width: 50px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     padding: 0;               /* niente “box” */
     border: none;             /* niente bordo */
@@ -674,6 +695,134 @@ select.tab {
 
     transition: 0.3s ease;
     text-shadow: 0 0 8px rgba(255,255,255,0.2);
+}
+
+.proposal-form {
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* spazio tra i campi */
+}
+
+.proposal-form input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #1e1e1e;
+    color: white;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.proposal-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00ffcc, #00ccff);
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.proposal-card {
+    background: rgba(30,30,30,0.8);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+#proposteSection {
+    margin-top: 120px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+}
+
+#proposalsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(30,30,30,0.8);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#proposalsTable th,
+#proposalsTable td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    vertical-align: middle;
+}
+
+#proposalsTable th {
+    background: rgba(0,255,204,0.1);
+    color: #00ffcc;
+    font-weight: bold;
+}
+
+#proposalsTable tr:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+.vote-box {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.vote-btn {
+    padding: 6px 12px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background: rgba(255,255,255,0.05);
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+    backdrop-filter: blur(6px);
+}
+
+/* 👍 */
+.vote-btn.up:hover {
+    background: rgba(0,255,120,0.15);
+    box-shadow: 0 0 12px rgba(0,255,120,0.5);
+}
+
+/* 👎 */
+.vote-btn.down:hover {
+    background: rgba(255,60,60,0.15);
+    box-shadow: 0 0 12px rgba(255,60,60,0.5);
+}
+
+/* ATTIVO */
+.vote-btn.active.up {
+    background: rgba(0,255,120,0.25);
+    box-shadow: 0 0 15px rgba(0,255,120,0.7);
+}
+
+.vote-btn.active.down {
+    background: rgba(255,60,60,0.25);
+    box-shadow: 0 0 15px rgba(255,60,60,0.7);
+}
+
+.game .votes {
+    display: flex;
+    flex-direction: row; /* oppure column se li vuoi uno sotto l’altro */
+    gap: 8px;
+    margin-top: 10px;
+    justify-content: flex-start; /* NON centrato */
+}
+
+.proposals-votes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 #noResults {
@@ -751,6 +900,7 @@ select.tab {
 		<div style="display:flex; gap:8px; align-items:center; width: 100%;">
 			<button class="tab active" data-tab="all">🔥 Giochi popolari</button>
 			<button class="tab" data-tab="favorites">⭐ Preferiti</button>
+            <button class="tab" id="goToProposals">🧠 Proposte</button>
 		</div>
 
 		<select id="sortSelect" class="tab">
@@ -763,7 +913,6 @@ select.tab {
 			<option value="desc">⬇️ Descrescente</option>
 			<option value="asc">⬆️ Crescente</option>
 		</select>
-
 
 	</div>
 
@@ -787,9 +936,9 @@ select.tab {
             </div>
 
             <a class="download" href="https://mega.nz/folder/wtYU1QDI#ULifsS48f9fSh2j4e9rniw">Scarica</a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+				<button class="upvote" onclick="voteGame('scam-line', 'up')">👍 <span>0</span></button>
+				<button class="downvote" onclick="voteGame('scam-line', 'down')">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -813,9 +962,9 @@ select.tab {
             <a class="download" href="https://store.steampowered.com/app/3904850/Approximately_Up/" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+				<button class="upvote" onclick="voteGame('approximately-up', 'up')">👍 <span>0</span></button>
+				<button class="downvote" onclick="voteGame('approximately-up', 'down')">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -841,9 +990,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/R1R3zSQa#z-8DLe7SjKg1aGnqc2DI1Q" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -866,9 +1015,9 @@ select.tab {
             <a class="download" href="https://store.steampowered.com/app/4187140/Dont_Panic_It_is_Just_Turbulence/" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -892,9 +1041,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/Z9Q3gLAS#4m8ofz0K7e38tigY6kVybA" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -920,9 +1069,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/p4Rk0IiD#0ODF_OjA4SaxpF1yxf8i9Q" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -946,9 +1095,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/N5hmSbJb#guV9TUITtqdoygjUvDL69w" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -972,9 +1121,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/glpxzQiI#59zCOjYb8cmaOruTr4KhRg" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -998,9 +1147,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/0tJFQAoT#QeVoD7qj0Sa8Agj4K5Dimg" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1026,9 +1175,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/JoJBTIrb#nEWqqUTxYJ2zpxzXfHbveQ" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1052,9 +1201,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/M4ZnnRjY#99j96RcTOFJfMTr7DOIM5w" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1080,9 +1229,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/1goxzL7B#sXiN8JX2JxovDV-FIGl2Qw" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1108,9 +1257,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/2asol" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1134,9 +1283,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/VxIxRT6C#SFn5fZzYRw6VUN_ZEqyEkw" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1162,9 +1311,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/5hxCTRAS#osOyKoUApqFxXfNXDPfV6A" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1190,9 +1339,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/tlgwAY7L#12DDg8qL-nEmh_OkEo48Ow" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1218,9 +1367,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/IoAglCiC#ESKqmQlacLOic3K8dni1_A" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1244,9 +1393,9 @@ select.tab {
             <a class="download" href="https://drive.google.com/drive/folders/1G0iaZKGlYvMceSFKgHsppj5QxDmz0K39?usp=drive_link" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1270,9 +1419,9 @@ select.tab {
             <a class="download" href="https://store.steampowered.com/app/3844970/Burglin_Gnomes/" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1296,9 +1445,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/Zl4yXDDS#cxwdPNpE2GQZMMdFXxhkRw" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1322,9 +1471,9 @@ select.tab {
             <a class="download" href="https://store.steampowered.com/app/4285690/Airport_Security_Sucks/" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1350,9 +1499,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/Fm0SzIaC#TgmjZKmRLJLBnfY2X6XfTQ" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1376,9 +1525,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/2b0qm" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1402,9 +1551,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/4SRwx" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1428,9 +1577,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/5yPHA" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1454,9 +1603,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/1v22x" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1480,9 +1629,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/1v0kt" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1506,9 +1655,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/Mikw" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1532,9 +1681,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/Fms3DIJD#Xv2vYaPKdCovjSOvjeUIBw" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1558,9 +1707,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/2a7gk" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1584,9 +1733,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/3wOb4" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1610,9 +1759,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/2Pjrm" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1636,9 +1785,9 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/0vlFQQjZ#lIV9HwhEn5cg1jJGppyXXw" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1662,9 +1811,9 @@ select.tab {
             <a class="download" href="https://store.steampowered.com/app/2551020/Onearmed_robber/" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1688,9 +1837,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/2b3fv" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1714,9 +1863,9 @@ select.tab {
             <a class="download" href="https://1cloudfile.com/1v60p" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
@@ -1740,14 +1889,44 @@ select.tab {
             <a class="download" href="https://mega.nz/folder/sqsRgabb#pRrBCLWGwi6re7kJ70j-9Q" target="_blank">
                 Scarica
             </a>
-			<div class="votes">
-				<button class="upvote">👍 <span>0</span></button>
-				<button class="downvote">👎 <span>0</span></button>
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
 				<div class="vote-percent">0%</div>
 			</div>
         </div>
     </div>
-	
+
+</div>
+
+<div id="proposteSection">
+    <div class="container">
+
+        <h2 class="section-title">🧠 Proponi un gioco</h2>
+
+        <div class="proposal-form">
+            <input type="text" id="propName" placeholder="🎮 Nome gioco">
+            <input type="text" id="propUser" placeholder="👤 Nickname">
+            <input type="text" id="propLink" placeholder="🔗 Link">
+            <input type="text" id="propReason" placeholder="💬 Perché aggiungerlo?">
+            <button id="submitProposal">Invia proposta</button>
+        </div>
+
+        <h3 class="section-title">🔥 In votazione</h3>
+        <table id="proposalsTable">
+            <thead>
+                <tr>
+                    <th>🎮 Gioco</th>
+                    <th>👤 Utente</th>
+                    <th>🔗 Link</th>
+                    <th>💬 Motivo</th>
+                    <th>👍👎 Voti</th>
+                </tr>
+            </thead>
+            <tbody id="proposalsList"></tbody>
+        </table>
+
+    </div>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
@@ -2370,6 +2549,15 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+firebase.auth().onAuthStateChanged(async (user) => {
+    if (!user) {
+        await firebase.auth().signInAnonymously();
+        console.log("Login anonimo effettuato");
+    } else {
+        console.log("UID:", user.uid);
+    }
+});
+
 const db = firebase.firestore();
 const auth = firebase.auth();
 
@@ -2379,33 +2567,101 @@ function getVoteRef(gameId) {
     return db.collection("votes").doc(gameId);
 }
 
-function vote(gameId, type) {
+function hasVoted(id) {
+    const voted = JSON.parse(localStorage.getItem("voted")) || {};
+    return voted[id];
+}
+
+function setVoted(id) {
+    const voted = JSON.parse(localStorage.getItem("voted")) || {};
+    voted[id] = true;
+    localStorage.setItem("voted", JSON.stringify(voted));
+}
+
+async function voteProposal(id, type) {
+    const user = firebase.auth().currentUser;
+
+    if (!user) {
+        alert("Attendi un attimo...");
+        return;
+    }
+
+    const uid = user.uid;
+    const ref = db.collection("proposals").doc(id);
+
+    try {
+        await db.runTransaction(async (transaction) => {
+            const doc = await transaction.get(ref);
+            if (!doc.exists) return;
+
+            const data = doc.data();
+            const voters = data.voters || {};
+            const currentVote = voters[uid];
+
+            if (currentVote === type) {
+                // ❌ RIMUOVE voto
+                delete voters[uid];
+
+                transaction.update(ref, {
+                    upvotes: (data.upvotes || 0) - (type === "up" ? 1 : 0),
+                    downvotes: (data.downvotes || 0) - (type === "down" ? 1 : 0),
+                    voters: voters
+            });
+
+            } else {
+                // 🔁 CAMBIA o AGGIUNGE voto
+
+                let newUp = data.upvotes || 0;
+                let newDown = data.downvotes || 0;
+
+                if (currentVote === "up") newUp--;
+                if (currentVote === "down") newDown--;
+
+                if (type === "up") newUp++;
+                if (type === "down") newDown++;
+
+                voters[uid] = type;
+
+                transaction.update(ref, {
+                    upvotes: newUp,
+                    downvotes: newDown,
+                    voters: voters
+                });
+            }
+        });
+
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+async function voteGameFirebase(gameId, type) {
     const user = auth.currentUser;
     if (!user) return;
 
+    const uid = user.uid;
     const ref = db.collection("votes").doc(gameId);
 
-    return db.runTransaction(async (transaction) => {
+    const doc = await ref.get();
+    const data = doc.exists ? doc.data() : {};
 
-        const doc = await transaction.get(ref);
-
-        let data = doc.exists ? doc.data() : {};
-        const currentVote = data[user.uid];
-
-        if (currentVote === type) {
-            // 🔥 rimuove voto
-            delete data[user.uid];
-        } else {
-            // 🔥 assegna / cambia voto
-            data[user.uid] = type;
-        }
-
-        transaction.set(ref, data);
-
-    });
+    // 🔁 TOGGLE
+    if (data[uid] === type) {
+        // ❌ rimuove voto
+        await ref.update({
+            [uid]: firebase.firestore.FieldValue.delete()
+        });
+    } else {
+        // ✔ aggiunge / cambia voto
+        await ref.set({
+            [uid]: type
+        }, { merge: true });
+    }
 }
 
 function initVotes() {
+    console.log("INIT VOTES PARTITO");
+
     document.querySelectorAll(".game").forEach(game => {
         const id = game.dataset.id;
         if (!id) return;
@@ -2415,8 +2671,20 @@ function initVotes() {
 
         if (!up || !down) return;
 
-        up.onclick = () => vote(id, "up");
-        down.onclick = () => vote(id, "down");
+        // ⚠️ RIMUOVE eventuali onclick HTML
+        up.onclick = null;
+        down.onclick = null;
+
+        // ✅ EVENTI CORRETTI
+        up.addEventListener("click", (e) => {
+            e.stopPropagation();
+            voteGameFirebase(id, "up");
+        });
+
+        down.addEventListener("click", (e) => {
+            e.stopPropagation();
+            voteGameFirebase(id, "down");
+        });
 
         listenVotes(id, game);
     });
@@ -2540,6 +2808,156 @@ document.querySelectorAll(".votes button, .download, .favorite-btn")
     e.stopPropagation();
   });
 });
+
+document.getElementById("submitProposal").addEventListener("click", async () => {
+    const name = document.getElementById("propName").value.trim();
+    const user = document.getElementById("propUser").value.trim();
+    const link = document.getElementById("propLink").value.trim();
+    const reason = document.getElementById("propReason").value;
+
+    if (!name || !user) {
+        alert("Compila almeno nome gioco e nickname");
+        return;
+    }
+
+    await db.collection("proposals").add({
+        name,
+        user,
+        link,
+        reason,
+        upvotes: 0,
+        downvotes: 0,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    alert("Proposta inviata 🚀");
+
+    loadProposals();
+});
+
+const proposalPercents = {};
+
+function loadProposals() {
+    const container = document.getElementById("proposalsList");
+
+    db.collection("proposals")
+        .orderBy("createdAt", "desc")
+        .onSnapshot(snapshot => {
+
+            const previousPercents = {};
+
+            document.querySelectorAll("#proposalsList tr").forEach(row => {
+                const id = row.dataset.id;
+                const percentEl = row.querySelector(".vote-percent");
+
+                if (id && percentEl) {
+                previousPercents[id] = parseInt(percentEl.textContent) || 0;
+                }
+            });
+
+            container.innerHTML = "";
+
+            snapshot.forEach(doc => {
+                const data = doc.data();
+
+                const percent = getPercent(data.upvotes || 0, data.downvotes || 0);
+
+                const user = auth.currentUser;
+                const userVote = data.voters?.[user?.uid];
+
+                const row = document.createElement("tr");
+                row.dataset.id = doc.id;
+
+                row.innerHTML = `
+                    <td>${data.name}</td>
+                    <td>${data.user}</td>
+                    <td><a href="${data.link}" target="_blank">Apri</a></td>
+                    <td>${data.reason || "-"}</td>
+                    <td>
+                        <div class="votes proposals-votes">
+                            <button class="upvote ${userVote === 'up' ? 'active' : ''}"
+                                onclick="voteProposal('${doc.id}', 'up')">
+                                👍 <span>${data.upvotes}</span>
+                            </button>
+
+                            <button class="downvote ${userVote === 'down' ? 'active' : ''}"
+                                onclick="voteProposal('${doc.id}', 'down')">
+                                👎 <span>${data.downvotes}</span>
+                            </button>
+
+                            <div class="vote-percent">0%</div>
+                        </div>
+                    </td>
+                `;
+
+                container.appendChild(row);
+
+                // 🔥 ANIMAZIONE percentuale
+                const percentEl = row.querySelector(".vote-percent");
+
+                const previous = proposalPercents[doc.id] ?? percent;
+
+                animatePercent(percentEl, previous, percent);
+
+                // salva nuovo valore
+                proposalPercents[doc.id] = percent;
+
+                // 🎨 colore dinamico
+                if (percent > 50) {
+                    percentEl.style.color = "#00ff7b";
+                } else if (percent < 50) {
+                    percentEl.style.color = "#ff3b3b";
+                } else {
+                    percentEl.style.color = "#aaa";
+                }
+            });
+        });
+}
+
+loadProposals();
+
+function getPercent(up, down) {
+    const total = up + down;
+    if (total === 0) return 0;
+    return Math.round((up / total) * 100);
+}
+
+async function promoteGame(data) {
+    // 1. Aggiungi ai giochi (nuova collezione o dove vuoi)
+    await db.collection("approvedGames").add({
+        name: data.name,
+        link: data.link,
+        tags: data.tags,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    // 2. Rimuovi dalle proposte
+    const query = await db.collection("proposals")
+        .where("name", "==", data.name)
+        .get();
+
+    query.forEach(doc => doc.ref.delete());
+}
+
+// 🧠 SCROLL A PROPOSTE
+document.getElementById("goToProposals").addEventListener("click", () => {
+    document.getElementById("proposteSection").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    // evidenzia tab
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    document.getElementById("goToProposals").classList.add("active");
+});
+
+
+// 🔥 TORNA AI GIOCHI
+document.querySelector('[data-tab="all"]').addEventListener("click", () => {
+    document.getElementById("giochi").scrollIntoView({
+        behavior: "smooth"
+    });
+});
+
 </script>
 </body>
 </html>
