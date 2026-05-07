@@ -1,4 +1,21 @@
 const gamesData = {
+	"among-us": {
+		title: "Among Us",
+		description: "Gioca in partite da 4 a 15 giocatori online o in locale via WiFi. Dovrai preparare la tua astronave per la partenza, ma uno o più giocatori scelti a caso sono impostori decisi a uccidere tutti quanti! Among Us nasce come party game, perciò consigliamo di giocare con gli amici in un LAN party oppure online con chat vocale. Puoi sfruttare il gioco cross-platform tra Android, iOS e PC.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/0YKjFoGxbec?si=bSjOh-1lfsuipff8" },
+			{ type: "video", src: "https://www.youtube.com/embed/9pyYq9lpjls?si=xhyX0eO6liyxnQMb" },
+			{ type: "image", src: "https://games.gg/cdn-cgi/image/width=1920,quality=75,format=auto,fit=scale-down,metadata=none,onerror=redirect/https://assets.games.gg/1752229528504_gallery_image_1_a33840630b.jpeg" },
+			{ type: "image", src: "https://games.gg/cdn-cgi/image/width=1920,quality=75,format=auto,fit=scale-down,metadata=none,onerror=redirect/https://assets.games.gg/1752229530299_gallery_image_8_df4964110e.jpeg" }
+		],
+		requirements: {
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10 x32bit<br><strong>PROCESSORE:</strong> INTEL i3-4330<br><strong>MEMORIA:</strong> 1 GB di RAM<br><strong>SCHEDA VIDEO:</strong> INTEL HD Graphics 4600",
+			rec: "<strong>SISTEMA OPERATIVO:</strong> Windows 10 x64bit<br><strong>PROCESSORE:</strong> INTEL i3-4330<br><strong>MEMORIA:</strong> 4 GB di RAM<br><strong>SCHEDA VIDEO:</strong> Nvidia GTX 650"
+		},
+		download: "https://mega.nz/folder/NrtEQAZa#XMj5JIEvPLws2UvlG52UuA"
+
+	},
+
 	"scam-line": {
 		title: "Scam Line",
 		description: "Scam Line è un gioco di inganno sociale per 4–8 giocatori in cui il tuo gruppo affronterà diverse sfide. Diventa un bugiardo, un manipolatore, un impostore — oppure trova la tua strada verso la vittoria! Sei chiuso in una stanza. Non puoi vedere gli altri. Puoi parlare solo attraverso un vecchio telefono cellulare. La fiducia è facoltativa. Sopravvivere no. Scam Line è un gioco sociale multiplayer da 4 a 8 giocatori in cui competi in sfide psicologiche e sociali. Tutti i giocatori vengono collocati in stanze separate. La comunicazione è limitata. L’informazione è potere.",
@@ -278,6 +295,74 @@ const gamesData = {
 			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 11<br><strong>PROCESSORE:</strong> Ryzen 9 3900XT or equivalent<br><strong>MEMORIA:</strong> 12GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVidia 3060 or equivalent<br><strong>DIRECTX:</strong> Versione 12<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 3200MB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> One with a microphone jack in<br><strong>NOTE AGGIUNTIVE:</strong> Microphone to guide your friends"
 		},
 		download: "https://mega.nz/folder/IoAglCiC#ESKqmQlacLOic3K8dni1_A"
+	},
+
+	"gamblewith-yourfriends": {
+		title: "Gamble With Your Friends",
+		description: "Un 'casinò crawler' cooperativo online da 1 a 6 giocatori in cui tu e i tuoi amici condividete un conto bancario e un debito enorme. Gioca, acquista oggetti sospetti, prendi decisioni terribili e sali su una minacciosa torre del casinò per raggiungere la quota giornaliera del tuo strozzino in 5 minuti, altrimenti dovrai affrontarne le conseguenze. Non sono soldi miei, sono soldi nostri. Coordinati con i tuoi amici per gestire un conto bancario condiviso mentre giochi d'azzardo per uscire dai debiti… perché un all-in negativo può rovinare la corsa a tutti. Ogni ‘giorno’, si ottiene 5 minuti all'interno del casinò per guadagnare più contanti possibile. La torre ha 4 piani a tema distinto, ognuno con i propri giochi d'azzardo, randomizzati ogni volta che entri. Sblocca i piani più alti man mano che diventi più ricco (e audace). Raggiungi la tua quota, completa sfide uniche o addirittura vendi una o due parti del corpo per guadagnare Biglietti. Spendi i biglietti per oggetti sospetti per aumentare le probabilità a favore della tua squadra. Ma anche se fai tutto 'giusto'... Lady Luck ha ancora l'ultima parola. Spendi i biglietti per i cosmetici nel quartiere. È ottimale? No. È elegante? Assolutamente. (I tuoi amici potrebbero urlarti contro.). Il multiplayer è riservato agli amici. Invita fino a 5 amici tramite Steam. È possibile giocare da soli… ma non è consigliabile, a meno che non ci si senta davvero fortunati. Non tolleriamo il gioco d'azzardo! Questo è un gioco caotico cooperativo sul lavoro di squadra, l'avidità e le cattive decisioni. Se il gioco d'azzardo è un problema per te, chiedi aiuto. Siamo TENSTACK, un piccolo collettivo che crea giochi creativi e digeribili. Un gioco digeribile rispetta i tuoi soldi e il tuo tempo, è costruito attorno a un'idea forte e non si protrae troppo a lungo. Il nostro obiettivo: partite che puoi finire in un paio di sessioni, senza sentirti sazio.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/T9nPche0VhQ?si=O2SvtzVdp1ilGE02" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/22532/screenshot/gamble-with-your-friends-pc-steam-wallpaper-5.jpg?v=1777968433" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/22532/screenshot/gamble-with-your-friends-pc-steam-wallpaper-2.jpg?v=1777968433" },
+			{ type: "image", src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3892270/6cb70df6bbe1eb4c8527bd332eca51fb9ca0369d/ss_6cb70df6bbe1eb4c8527bd332eca51fb9ca0369d.1920x1080.jpg?t=1756824015" }
+		],
+		requirements: {
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Core i5 6600<br><strong>MEMORIA:</strong> 8 GB di RAM<br><strong>SCHEDA VIDEO:</strong> GTX 970<br><strong>DIRECTX:</strong> Versione 11<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 3 GB di spazio disponibile",
+			rec: "<strong>SISTEMA OPERATIVO:</strong> Windows 11<br><strong>PROCESSORE:</strong> Intel Core i7 8700<br><strong>MEMORIA:</strong> 8 GB di RAM<br><strong>SCHEDA VIDEO:</strong> GTX 1070<br><strong>DIRECTX:</strong> Versione 12<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 3 GB di spazio disponibile"
+		},
+		download: "https://mega.nz/folder/lnEWWDzY#IwugpeBafqwE8aiBq5YDJg"
+
+	},
+
+	"farfar-west": {
+		title: "Far Far West",
+		description: "Yahoo, Cowboy! Unitevi in questo sparatutto cooperativo per 4 giocatori. Affrontate mostri, lanciate incantesimi, completate missioni e incassate taglie nel Far Far West. Collaborate per entrare, farvi pagare e (quasi sempre) uscirne vivi. Forma una squadra di robot cowboy cacciatori di taglie per affrontare contratti pericolosi assegnati dallo Sceriffo del paese. Collabora con gli amici nella modalità a 4 giocatori per dare la caccia a bersagli pericolosi, eliminarli e tornare a casa con la taglia. È un lavoro sporco, ma qualcuno deve pur farlo! Questo è il Selvaggio West, ma non come lo conosci. Accanto ai bar polverosi e deserti infiniti, troverai miniere infestate, scheletri rianimati e tempeste mortali dietro ogni angolo. Porta a termine contratti rischiosi, esplora terre maledette e fai attenzione al gigantesco treno fantasma. Passa senza problemi dalla pistola a sei colpi alle palle di fuoco, personalizza il tuo equipaggiamento e combina i tuoi incantesimi mentre affronti orde di nemici e potenti boss. Lavora in squadra, adattati al volo e spingiti sempre più in profondità nell’ignoto per sbloccare sfide più grandi e ricompense migliori. Fai affari in città per potenziare pistole, incantesimi e abilità. Scegli i tuoi potenziamenti per creare il cacciatore di taglie definitivo. Specializzati in danni magici, cure o colpi alla testa. Personalizza il tuo robot cowboy e il tuo amato destriero con aspetti sbloccabili per attraversare il Far Far West con stile.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/djNthQt2Ve4?si=myq-laEojOfMv4ru" },
+			{ type: "image", src: "https://www.notebookcheck.it/fileadmin/_processed_/webp/Notebooks/News/_nc5/Far-Far-West-Hype-q82-w2560-h.webp" },
+			{ type: "image", src: "https://www.gamegrin.com/assets/games/far-far-west/screenshots/_resampled/SetWidth640-far-far-west-screenshot-8.jpg" },
+			{ type: "image", src: "https://wl-static.voidu.com/cdn-cgi/image/format=webp,fit=cover,width=891,height=497,quality=75/games/77283/7-full.jpg" }
+		],
+		requirements: {
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10 (64-BIT Required)<br><strong>PROCESSORE:</strong> Intel Core i5-7600K or AMD Ryzen 5 1600<br><strong>MEMORIA:</strong> 8 GB di RAM<br><strong>SCHEDA VIDEO:</strong> Nvidia GeForce GTX 1660 or AMD Radeon RX 590<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 10 GB di spazio disponibile<br><strong>NOTE AGGIUNTIVE:</strong> SSD Recommended",
+			rec: "<strong>SISTEMA OPERATIVO:</strong> Windows 11 (64-BIT Required)<br><strong>PROCESSORE:</strong> Intel Core i5-10600KF or AMD Ryzen 5 3600X<br><strong>MEMORIA:</strong> 16 GB di RAM<br><strong>SCHEDA VIDEO:</strong> Nvidia GeForce RTX 2060 or AMD Radeon RX 5600XT<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 10 GB di spazio disponibile<br><strong>NOTE AGGIUNTIVE:</strong> SSD Recommended"
+		},
+		download: "https://mega.nz/folder/BitlUIxY#mzMkOxSL6BPpoh2KoJXBtw"
+
+	},
+
+	"dangerous-mountain-together": {
+		title: "Dangerous Mountain Together",
+		description: "Unisciti a noi in questa caotica avventura cooperativa in auto per 2-4 giocatori! Percorri pericolose strade di montagna mentre sei legato insieme, tirandoti indietro a vicenda dal disastro. Sali su ripide colline, sopravvivi al clima selvaggio e raggiungi la cima senza cadere nell'abisso! Dangerous Mountain Together è un gioco di guida basato sulla fisica per 2 o 4 amici che pensano che le loro amicizie possano sopravvivere a un legame letterale. Sei legato da una corda e guidi auto traballanti su strade troppo sottili.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/glQ9N9QG11w?si=v8RuV7r7hDKb0gwg" },
+			{ type: "image", src: "https://cdn.playtester.io/screenshots/dangerous-mountain-together/dangerous-mountain-together-pipe-obstacle-course.webp" },
+			{ type: "image", src: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3955660/5f23dd0dccf174ebf6b72e50c8d481ef52fe9779/ss_5f23dd0dccf174ebf6b72e50c8d481ef52fe9779.600x338.jpg?t=1776853933" },
+			{ type: "image", src: "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/dangerous-mountain-together-scre-3e7141a9-file-3e714196.jpg.webp" }
+		],
+		requirements: {
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10/11 (64-bit)<br><strong>PROCESSORE:</strong> Intel Core i5-10400 / Ryzen 5 3600<br><strong>MEMORIA:</strong> 16 GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GTX 1060 (6GB) / RX 580<br><strong>DIRECTX:</strong> Versione 12<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 3000 MB di spazio disponibile",
+			rec: "<strong>SISTEMA OPERATIVO:</strong> Windows 10/11 (64-bit)<br><strong>PROCESSORE:</strong> Intel Core i7-12700 / Ryzen 7 5800X<br><strong>MEMORIA:</strong> 32 GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA RTX 3060 / AMD RX 6700 XT<br><strong>DIRECTX:</strong> Versione 12<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 3000 MB di spazio disponibile"
+		},
+		download: "https://mega.nz/folder/kjkjQYxA#JbDmoEOywi7Wl9AuS2Y1Iw"
+
+	},
+
+	"pummel-party": {
+		title: "Pummel Party",
+		description: "Pummel Party è un gioco di società online e multiplayer locale per 4-8 giocatori. Distruggi i tuoi amici o l'IA usando una vasta gamma di oggetti assurdi nella modalità 'da tavolo' e distruggi le tue amicizie con quest'esclusiva collezione di minigiochi. Gioca come vuoi. Pummel Party consente a 1-8 giocatori di gareggiare sia online che in locale sullo stesso schermo. Che sia online o di persona, è un gioco fantastico per rovinare le amicizie. Il vincitore è solo uno, e tu sai che devi essere tu! Combatti su terreni pericolosi per acquisire un arsenale di armi e oggetti e utilizzarli come puoi per assicurarti la meritata vittoria. E guerra sia! Usa un sacco di armi e oggetti assurdi per raggiungere la vittoria. Dal semplice 'Guantone da boxe' alla ridicola 'Melanzana telecomandata', gli oggetti di Pummel Party sono fonte di gioia e dolori. Distruggere i sogni di gloria dei tuoi amici non è mai stato così facile! Dal divertimento nostalgico all'innovazione unica, Pummel Party contiene una vasta gamma di minigiochi emozionanti. Getta i tuoi amici nell'abisso in 'Giro nella neve', scava buchi tridimensionali in 'Ricerca sabbiosa' per trovare il tesoro prima degli altri e fai attenzione a non avere la bomba in mano quando esplode in 'Scambio esplosivo'. Vuoi semplicemente passare all'azione? Pummel Party include una modalità minigioco per farti accedere direttamente ai giochi! Hai già rovinato tutte le tue amicizie, o magari hai qualche spazio in più? Pummel Party include l'integrazione completa dell'IA, il che significa che puoi comunque giocare o fare pratica con tutti i giocatori che vuoi.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/oiYG0Ov5jKE?si=OwvGEJhdCaWN-eZS" },
+			{ type: "image", src: "https://hot.game/uploads/media/slide_game/0001/60/55c73ef4b4b18a5aec965e07fd707b50b49a78f3.jpeg" },
+			{ type: "image", src: "https://i.ytimg.com/vi/_BeRF6g8W5g/maxresdefault.jpg"},
+			{ type: "image", src: "https://cdn-images-3.listennotes.com/podcasts/heiress-anonymous/play-pen-pummel-party-DuMxoLilneC-n3SEW85Bf4x.1280x720.jpg" }
+		],
+		requirements: {
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Dual Core 2.4Ghz<br><strong>MEMORIA:</strong> 3 GB di RAM<br><strong>SCHEDA VIDEO:</strong>  GeForce 8800 GT / AMD HD 6850 / Intel HD Graphics 4400 or above<br><strong>DIRECTX:</strong> Versione 11<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 1 GB di spazio disponibile",
+			rec: ""
+		},
+		download: "https://mega.nz/folder/A7lERZCa#9A3am18igu964tdXHXzPsg"
+
 	},
 	
 	"perfect-heist2": {
