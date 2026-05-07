@@ -863,8 +863,90 @@ select.tab {
 	.logo {
 		font-size: 14px;
 	}
-	
 }
+
+.new-badge {
+    position: absolute;
+
+    top: 12px;
+    left: -28px;
+
+    width: 90px;
+    padding: 2px 0;
+
+    background: linear-gradient(135deg, #ff3b3b, #b30000);
+
+    color: white;
+
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    transform: rotate(-45deg);
+
+    z-index: 20;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.25);
+
+    border-top: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+
+    pointer-events: none;
+}
+
+.new-badge::before,
+.new-badge::after {
+    content: "";
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    background: #8a0000;
+
+    z-index: -1;
+}
+
+.new-badge::before {
+    left: 0;
+    bottom: -3px;
+
+    transform:
+        skewY(-45deg);
+}
+
+.new-badge::after {
+    right: 0;
+    top: -3px;
+
+    transform:
+        skewY(-45deg);
+}
+
+@keyframes pulseNew {
+    0% {
+        box-shadow:
+            0 0 8px rgba(255,0,0,0.5),
+            0 0 18px rgba(255,0,0,0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 0 14px rgba(255,0,0,0.9),
+            0 0 28px rgba(255,0,0,0.5);
+    }
+
+    100% {
+        box-shadow:
+            0 0 8px rgba(255,0,0,0.5),
+            0 0 18px rgba(255,0,0,0.2);
+    }
+}
+
 </style>
 </head>
 
@@ -899,7 +981,8 @@ select.tab {
 
 		<div style="display:flex; gap:8px; align-items:center; width: 100%;">
 			<button class="tab active" data-tab="all">🔥 Giochi popolari</button>
-			<button class="tab" data-tab="favorites">⭐ Preferiti</button>
+            <button class="tab" data-tab="favorites">⭐ Preferiti</button>
+            <button class="tab" data-tab="new">🆕 Nuovi</button>
             <button class="tab" id="goToProposals">🧠 Proposte</button>
 		</div>
 
@@ -918,9 +1001,11 @@ select.tab {
 
     <h2 class="section-title" id="sectionTitle">🔥 Giochi popolari</h2>
 
-    <div class="game" data-id="among-us">
+    <div class="game new-game" data-id="among-us">
         <div class="size-badge">550MB</div>
 		<div class="favorite-btn">⭐</div>
+
+        <div class="new-badge">NUOVO</div>
 
         <img src="https://imgs.search.brave.com/7MJg8lY7uUuvQ2V923eUCY6xY0hiHwcRO0F8sZy0eMo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvZW4vdGh1bWIv/OS85YS9BbW9uZ19V/c19jb3Zlcl9hcnQu/anBnLzI1MHB4LUFt/b25nX1VzX2NvdmVy/X2FydC5qcGc">
 
@@ -1399,9 +1484,11 @@ select.tab {
         </div>
     </div>
 
-<div class="game" data-id="gamblewith-yourfriends">
+<div class="game new-game" data-id="gamblewith-yourfriends">
         <div class="size-badge">551MB</div>
 		<div class="favorite-btn">⭐</div>
+
+        <div class="new-badge">NUOVO</div>
 
         <img src="https://static-cdn.jtvnw.net/ttv-boxart/1143686580_IGDB-272x380.jpg">
 
@@ -1425,9 +1512,11 @@ select.tab {
         </div>
     </div>
 
-<div class="game" data-id="farfar-west">
+<div class="game new-game" data-id="farfar-west">
         <div class="size-badge">4,73GB</div>
 		<div class="favorite-btn">⭐</div>
+
+        <div class="new-badge">NUOVO</div>
 
         <img src="https://cdn.loaded.com/media/catalog/product/f/a/farfar.png">
 
@@ -1451,9 +1540,11 @@ select.tab {
         </div>
     </div>
 
-<div class="game" data-id="dangerous-mountain-together">
+<div class="game new-game" data-id="dangerous-mountain-together">
         <div class="size-badge">3,12GB</div>
 		<div class="favorite-btn">⭐</div>
+
+        <div class="new-badge">NUOVO</div>
 
         <img src="https://static-cdn.jtvnw.net/ttv-boxart/129636408_IGDB-272x380.jpg">
 
@@ -1477,9 +1568,11 @@ select.tab {
         </div>
     </div>
 
-<div class="game" data-id="pummel-party">
+<div class="game new-game" data-id="pummel-party">
         <div class="size-badge">1,32GB</div>
 		<div class="favorite-btn">⭐</div>
+
+        <div class="new-badge">NUOVO</div>
 
         <img src="https://cdn2.steamgriddb.com/thumb/5c8f9a6ca0f3295b17fde15204c61ba3.jpg">
 
@@ -2499,8 +2592,26 @@ tabs.forEach(tab => {
             });
         }
 
-        if (type === "favorites") {
+        else if (type === "favorites") {
             renderFavoritesView();
+        }
+
+        else if (type === "new") {
+
+            document.querySelector('[data-tab="new"]').classList.add("active");
+
+            games.forEach(game => {
+
+                const isNew = game.classList.contains("new-game");
+
+                game.style.display = isNew ? "flex" : "none";
+            });
+
+            if (scroll) {
+                document.getElementById("giochi").scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
         }
 
         updateCount();
@@ -2630,12 +2741,25 @@ function updateNavbarActive(tabType) {
 }
 
 function updateSectionTitle(type) {
+
     const title = document.getElementById("sectionTitle");
 
     if (type === "favorites") {
+
         title.textContent = "⭐ I tuoi giochi preferiti";
-    } else {
+
+    }
+
+    else if (type === "new") {
+
+        title.textContent = "🆕 Giochi nuovi";
+
+    }
+
+    else {
+
         title.textContent = "🔥 Giochi popolari";
+
     }
 }
 
