@@ -327,7 +327,7 @@ button:active {
 }
 
 .hero p {
-	color: #aaa;
+	color: #cfcfcf;
 }
 
 .section-title {
@@ -424,19 +424,23 @@ a:focus {
 	transition: 0.3s;
 }
 
-.game:hover .size-badge {
-	transform: translateY(-8px) scale(1.02);
-	box-shadow: 0 0 12px rgba(0,255,204,0.9);
-	border: 1px solid rgba(0,255,204,0.3);
+@media (hover: hover) {
+    .game:hover .size-badge {
+	    transform: translateY(-8px) scale(1.02);
+	    box-shadow: 0 0 12px rgba(0,255,204,0.9);
+	    border: 1px solid rgba(0,255,204,0.3);
+    }
 }
 
-.game:hover {
-    background: #2a2a2a;
-	transform: translateY(-8px) scale(1.02);
-	transition: 0.3s ease;
-	box-shadow: 0 10px 30px rgba(0,0,0,0.6),
-				0 0 15px rgba(0,255,204,0.2);
-	border: 1px solid #00ffcc55;
+@media (hover: hover) {
+    .game:hover {
+        background: #2a2a2a;
+	    transform: translateY(-8px) scale(1.02);
+	    transition: 0.3s ease;
+	    box-shadow: 0 10px 30px rgba(0,0,0,0.6),
+				    0 0 15px rgba(0,255,204,0.2);
+	    border: 1px solid #00ffcc55;
+    }
 }
 
 .game:hover img {
@@ -481,6 +485,139 @@ a:focus {
     color: #bbb;
 }
 
+.game-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:16px;
+
+    justify-content:flex-start;
+
+    flex-wrap:wrap;
+
+    align-items:flex-start;
+
+    margin-bottom:14px;
+}
+
+.game-buttons a{
+
+    min-width:105px;
+
+    max-width:125px;
+
+    padding:9px 14px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:700;
+
+    transition:0.25s;
+
+    position:relative;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(10px);
+
+    font-size:0.9rem;
+}
+
+.game-buttons a::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.18),
+        transparent
+    );
+
+    transition:0.6s;
+}
+
+.game-buttons a:hover::before{
+
+    left:120%;
+}
+
+.game-buttons a:hover{
+
+    transform:
+    translateY(-3px)
+    scale(1.03);
+}
+
+.download{
+
+    background:
+    linear-gradient(
+        135deg,
+        #00c853,
+        #00ff99
+    );
+
+    box-shadow:
+    0 0 18px rgba(0,255,153,0.35);
+}
+
+.download:hover{
+
+    box-shadow:
+    0 0 35px rgba(0,255,153,0.6);
+}
+
+.mods-btn{
+
+    background:
+    linear-gradient(
+        135deg,
+        #7b2cff,
+        #00d4ff
+    );
+
+    box-shadow:
+    0 0 18px rgba(123,44,255,0.35);
+}
+
+.mods-btn:hover{
+
+    box-shadow:
+    0 0 35px rgba(123,44,255,0.6);
+}
+
+@media(max-width:600px){
+
+    .game-buttons{
+
+        flex-direction:column;
+    }
+}
+
 .tags {
 	margin: 10px 0;
 }
@@ -492,23 +629,6 @@ a:focus {
 	border-radius: 6px;
 	font-size: 12px;
 	margin-right: 5px;
-}
-
-.download {
-    display: inline-block;
-    padding: 10px 18px;
-    background: linear-gradient(135deg, #00ffcc, #00ccaa);
-    color: black;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 10px;
-	transition: 0.3s;
-}
-
-.download:hover {
-    background: #00ccaa;
-	transform: scale(1.05);
 }
 
 .search-box {
@@ -588,7 +708,7 @@ a:focus {
     border: none;
     border-radius: 8px;
     background: #1e1e1e;
-    color: #aaa;
+    color: #cfcfcf;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -827,7 +947,7 @@ select.tab {
 
 #noResults {
     text-align: center;
-    color: #aaa;
+    color: #cfcfcf;
     margin-top: 20px;
     display: none;
 	opacity: 0;
@@ -947,6 +1067,7 @@ select.tab {
     }
 }
 
+
 </style>
 </head>
 
@@ -1001,13 +1122,13 @@ select.tab {
 
     <h2 class="section-title" id="sectionTitle">🔥 Giochi popolari</h2>
 
-    <div class="game new-game" data-id="among-us">
+    <div class="game new-game" data-id="among-us" data-added="2026-05-07">
         <div class="size-badge">550MB</div>
 		<div class="favorite-btn">⭐</div>
 
         <div class="new-badge">NUOVO</div>
 
-        <img src="https://imgs.search.brave.com/7MJg8lY7uUuvQ2V923eUCY6xY0hiHwcRO0F8sZy0eMo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvZW4vdGh1bWIv/OS85YS9BbW9uZ19V/c19jb3Zlcl9hcnQu/anBnLzI1MHB4LUFt/b25nX1VzX2NvdmVy/X2FydC5qcGc">
+        <img loading="lazy" src="https://imgs.search.brave.com/7MJg8lY7uUuvQ2V923eUCY6xY0hiHwcRO0F8sZy0eMo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvZW4vdGh1bWIv/OS85YS9BbW9uZ19V/c19jb3Zlcl9hcnQu/anBnLzI1MHB4LUFt/b25nX1VzX2NvdmVy/X2FydC5qcGc">
 
         <div class="info">
             <h2>Among Us</h2>
@@ -1017,8 +1138,12 @@ select.tab {
                 <span>Spazio</span>
                 <span>Divertente</span>
             </div>
+            
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/NrtEQAZa#XMj5JIEvPLws2UvlG52UuA">⬇ Scarica</a>
+                <a class="mods-btn" href="mods.html?id=among-us">🧩 Mods</a>
+            </div>
 
-            <a class="download" href="https://mega.nz/folder/NrtEQAZa#XMj5JIEvPLws2UvlG52UuA">Scarica</a>
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1033,7 +1158,7 @@ select.tab {
 		
 		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL0WXn_iamhbdfFY-0U9MLNR4XDL9IHn4JKA&s">
+        <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL0WXn_iamhbdfFY-0U9MLNR4XDL9IHn4JKA&s">
 
         <div class="info">
             <h2>Scam Line</h2>
@@ -1043,8 +1168,11 @@ select.tab {
                 <span>Co-op</span>
                 <span>Divertente</span>
             </div>
+            
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/wtYU1QDI#ULifsS48f9fSh2j4e9rniw">⬇ Scarica</a>
+            </div>
 
-            <a class="download" href="https://mega.nz/folder/wtYU1QDI#ULifsS48f9fSh2j4e9rniw">Scarica</a>
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1057,7 +1185,7 @@ select.tab {
         <div class="size-badge">DEMO</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://static-cdn.jtvnw.net/ttv-boxart/894011338_IGDB-272x380.jpg">
+        <img loading="lazy" src="https://static-cdn.jtvnw.net/ttv-boxart/894011338_IGDB-272x380.jpg">
 
         <div class="info">
             <h2>Approximately Up</h2>
@@ -1068,9 +1196,12 @@ select.tab {
                 <span>Chaos & Building</span>
             </div>
 
-            <a class="download" href="https://store.steampowered.com/app/3904850/Approximately_Up/" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://store.steampowered.com/app/3904850/Approximately_Up/" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1085,7 +1216,7 @@ select.tab {
 		
 		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://cdn.loaded.com/496x700/media/catalog/product/s/u/super_battle_golf_pc.png">
+        <img loading="lazy" src="https://cdn.loaded.com/496x700/media/catalog/product/s/u/super_battle_golf_pc.png">
 
         <div class="info">
             <h2>Super Battle Golf</h2>
@@ -1096,9 +1227,12 @@ select.tab {
                 <span>Chaos</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/R1R3zSQa#z-8DLe7SjKg1aGnqc2DI1Q" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/R1R3zSQa#z-8DLe7SjKg1aGnqc2DI1Q" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1111,7 +1245,7 @@ select.tab {
         <div class="size-badge">DEMO</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://shared.fastly.steamstatic.com/community_assets/images/apps/4187140/e3cc3e309a050efb2c4c0561303a67bc98afac30.ico">
+        <img loading="lazy" src="https://shared.fastly.steamstatic.com/community_assets/images/apps/4187140/e3cc3e309a050efb2c4c0561303a67bc98afac30.ico">
 
         <div class="info">
             <h2>Don't panic! It is just a turbolence</h2>
@@ -1121,9 +1255,12 @@ select.tab {
                 <span>Divertente</span>
             </div>
 
-            <a class="download" href="https://store.steampowered.com/app/4187140/Dont_Panic_It_is_Just_Turbulence/" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://store.steampowered.com/app/4187140/Dont_Panic_It_is_Just_Turbulence/" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1136,7 +1273,7 @@ select.tab {
         <div class="size-badge">7,51GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://cdn.loaded.com/496x700/media/catalog/product/t/h/the_headliners_cdkeys.png">
+        <img loading="lazy" src="https://cdn.loaded.com/496x700/media/catalog/product/t/h/the_headliners_cdkeys.png">
 
         <div class="info">
             <h2>The Headliners</h2>
@@ -1147,9 +1284,12 @@ select.tab {
 				<span>Horror</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/Z9Q3gLAS#4m8ofz0K7e38tigY6kVybA" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/Z9Q3gLAS#4m8ofz0K7e38tigY6kVybA" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1164,7 +1304,7 @@ select.tab {
 		
 		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://store-images.s-microsoft.com/image/apps.29720.13852432964379814.8cf60b96-a78e-4030-98e0-256e5a6886bb.e5838f21-d711-4f5c-b2c5-6479aff42078">
+        <img loading="lazy" src="https://store-images.s-microsoft.com/image/apps.29720.13852432964379814.8cf60b96-a78e-4030-98e0-256e5a6886bb.e5838f21-d711-4f5c-b2c5-6479aff42078">
 
         <div class="info">
             <h2>Content Warning</h2>
@@ -1175,9 +1315,12 @@ select.tab {
 				<span>Horror</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/p4Rk0IiD#0ODF_OjA4SaxpF1yxf8i9Q" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/p4Rk0IiD#0ODF_OjA4SaxpF1yxf8i9Q" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1190,7 +1333,7 @@ select.tab {
         <div class="size-badge">555MB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/Guilty_as_Sock%21_cover.jpg/250px-Guilty_as_Sock%21_cover.jpg">
+        <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/Guilty_as_Sock%21_cover.jpg/250px-Guilty_as_Sock%21_cover.jpg">
 
         <div class="info">
             <h2>Guilty As Sock!</h2>
@@ -1201,9 +1344,12 @@ select.tab {
 				<span>+6 persone</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/N5hmSbJb#guV9TUITtqdoygjUvDL69w" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/N5hmSbJb#guV9TUITtqdoygjUvDL69w" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1216,7 +1362,7 @@ select.tab {
         <div class="size-badge">2,89GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://assets.playin.gg/e9ac8554-95c8-4110-9ee6-f81460558d90.jpg">
+        <img loading="lazy" src="https://assets.playin.gg/e9ac8554-95c8-4110-9ee6-f81460558d90.jpg">
 
         <div class="info">
             <h2>FizzQuiz</h2>
@@ -1227,9 +1373,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/glpxzQiI#59zCOjYb8cmaOruTr4KhRg" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/glpxzQiI#59zCOjYb8cmaOruTr4KhRg" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1242,7 +1391,7 @@ select.tab {
         <div class="size-badge">1,22GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co7v7d.jpg">
+        <img loading="lazy" src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co7v7d.jpg">
 
         <div class="info">
             <h2>Oh, Deer</h2>
@@ -1253,9 +1402,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/0tJFQAoT#QeVoD7qj0Sa8Agj4K5Dimg" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/0tJFQAoT#QeVoD7qj0Sa8Agj4K5Dimg" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1270,7 +1422,7 @@ select.tab {
 		
 		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://m.media-amazon.com/images/M/MV5BNTQ4MThmYWYtNDQyYS00YTQ2LTgzMmMtYzJhMzkxOGI1N2JkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+        <img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BNTQ4MThmYWYtNDQyYS00YTQ2LTgzMmMtYzJhMzkxOGI1N2JkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
 
         <div class="info">
             <h2>Lethal Company</h2>
@@ -1281,9 +1433,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/JoJBTIrb#nEWqqUTxYJ2zpxzXfHbveQ" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/JoJBTIrb#nEWqqUTxYJ2zpxzXfHbveQ" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1296,7 +1451,7 @@ select.tab {
         <div class="size-badge">736MB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://m.media-amazon.com/images/M/MV5BZDAwMTMzZDUtZDE4OC00MjE3LWFiMzgtN2Q2NzcwMWNjMGMzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+        <img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BZDAwMTMzZDUtZDE4OC00MjE3LWFiMzgtN2Q2NzcwMWNjMGMzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
 
         <div class="info">
             <h2>Buckshot Roulette</h2>
@@ -1307,9 +1462,12 @@ select.tab {
 				<span>2-4 giocatori</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/M4ZnnRjY#99j96RcTOFJfMTr7DOIM5w" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/M4ZnnRjY#99j96RcTOFJfMTr7DOIM5w" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1324,7 +1482,7 @@ select.tab {
 		
 		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJarvVHMu1JEynN1DX_D0fBjxI2RnSeb-Vhw&s">
+        <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJarvVHMu1JEynN1DX_D0fBjxI2RnSeb-Vhw&s">
 
         <div class="info">
             <h2>Exploding Kittens 2</h2>
@@ -1335,9 +1493,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/1goxzL7B#sXiN8JX2JxovDV-FIGl2Qw" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/1goxzL7B#sXiN8JX2JxovDV-FIGl2Qw" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1352,7 +1513,7 @@ select.tab {
 		
 		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScUHekl5f9zXmwJFvSG60urzprxFysNWylxw&s">
+        <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScUHekl5f9zXmwJFvSG60urzprxFysNWylxw&s">
 
         <div class="info">
             <h2>Liar's Bar</h2>
@@ -1363,9 +1524,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/2asol" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/2asol" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1378,7 +1542,7 @@ select.tab {
         <div class="size-badge">321MB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIe-heHdAYIs-x0Vpf9xAIwsSyZw86fB2GmQ&s">
+        <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIe-heHdAYIs-x0Vpf9xAIwsSyZw86fB2GmQ&s">
 
         <div class="info">
             <h2>Mage Arena</h2>
@@ -1389,9 +1553,12 @@ select.tab {
 				<span>Medievale</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/VxIxRT6C#SFn5fZzYRw6VUN_ZEqyEkw" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/VxIxRT6C#SFn5fZzYRw6VUN_ZEqyEkw" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1406,7 +1573,7 @@ select.tab {
 		
 		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://m.media-amazon.com/images/M/MV5BY2NkZTAxNTQtNDg0YS00ZDdhLTk4OTgtZWQyMzJmODJlYmVkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
+        <img loading="lazy" src="https://m.media-amazon.com/images/M/MV5BY2NkZTAxNTQtNDg0YS00ZDdhLTk4OTgtZWQyMzJmODJlYmVkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg">
 
         <div class="info">
             <h2>PEAK</h2>
@@ -1417,9 +1584,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/5hxCTRAS#osOyKoUApqFxXfNXDPfV6A" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/5hxCTRAS#osOyKoUApqFxXfNXDPfV6A" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1434,7 +1604,7 @@ select.tab {
 		
 		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://content-assets.eneba.games/clp/9159e220-79f7-4fab-9521-8d21e2a25eac.png">
+        <img loading="lazy" src="https://content-assets.eneba.games/clp/9159e220-79f7-4fab-9521-8d21e2a25eac.png">
 
         <div class="info">
             <h2>R.E.P.O.</h2>
@@ -1445,9 +1615,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/tlgwAY7L#12DDg8qL-nEmh_OkEo48Ow" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/tlgwAY7L#12DDg8qL-nEmh_OkEo48Ow" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1462,7 +1635,7 @@ select.tab {
 		
 		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://data.xxlgamer.com/products/6250/vqLF3ijebpqnNX-medium.jpg">
+        <img loading="lazy" src="https://data.xxlgamer.com/products/6250/vqLF3ijebpqnNX-medium.jpg">
 
         <div class="info">
             <h2>RV There Yet?</h2>
@@ -1473,9 +1646,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/IoAglCiC#ESKqmQlacLOic3K8dni1_A" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/IoAglCiC#ESKqmQlacLOic3K8dni1_A" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1484,13 +1660,13 @@ select.tab {
         </div>
     </div>
 
-<div class="game new-game" data-id="gamblewith-yourfriends">
+<div class="game new-game" data-id="gamblewith-yourfriends" data-added="2026-05-07">
         <div class="size-badge">551MB</div>
 		<div class="favorite-btn">⭐</div>
 
         <div class="new-badge">NUOVO</div>
 
-        <img src="https://static-cdn.jtvnw.net/ttv-boxart/1143686580_IGDB-272x380.jpg">
+        <img loading="lazy" src="https://static-cdn.jtvnw.net/ttv-boxart/1143686580_IGDB-272x380.jpg">
 
         <div class="info">
             <h2>Gamble With Your Friends</h2>
@@ -1501,9 +1677,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/lnEWWDzY#IwugpeBafqwE8aiBq5YDJg" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/lnEWWDzY#IwugpeBafqwE8aiBq5YDJg" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1512,13 +1691,13 @@ select.tab {
         </div>
     </div>
 
-<div class="game new-game" data-id="farfar-west">
+<div class="game new-game" data-id="farfar-west" data-added="2026-05-07">
         <div class="size-badge">4,73GB</div>
 		<div class="favorite-btn">⭐</div>
 
         <div class="new-badge">NUOVO</div>
 
-        <img src="https://cdn.loaded.com/media/catalog/product/f/a/farfar.png">
+        <img loading="lazy" src="https://cdn.loaded.com/media/catalog/product/f/a/farfar.png">
 
         <div class="info">
             <h2>Far Far West</h2>
@@ -1529,9 +1708,12 @@ select.tab {
 				<span>Armi</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/BitlUIxY#mzMkOxSL6BPpoh2KoJXBtw" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/BitlUIxY#mzMkOxSL6BPpoh2KoJXBtw" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1540,13 +1722,13 @@ select.tab {
         </div>
     </div>
 
-<div class="game new-game" data-id="dangerous-mountain-together">
+<div class="game new-game" data-id="dangerous-mountain-together" data-added="2026-05-07">
         <div class="size-badge">3,12GB</div>
 		<div class="favorite-btn">⭐</div>
 
         <div class="new-badge">NUOVO</div>
 
-        <img src="https://static-cdn.jtvnw.net/ttv-boxart/129636408_IGDB-272x380.jpg">
+        <img loading="lazy" src="https://static-cdn.jtvnw.net/ttv-boxart/129636408_IGDB-272x380.jpg">
 
         <div class="info">
             <h2>Dangerous Mountain Together</h2>
@@ -1557,9 +1739,12 @@ select.tab {
 				<span>Scalata</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/kjkjQYxA#JbDmoEOywi7Wl9AuS2Y1Iw" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/kjkjQYxA#JbDmoEOywi7Wl9AuS2Y1Iw" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1568,13 +1753,13 @@ select.tab {
         </div>
     </div>
 
-<div class="game new-game" data-id="pummel-party">
+<div class="game new-game" data-id="pummel-party" data-added="2026-05-07">
         <div class="size-badge">1,32GB</div>
 		<div class="favorite-btn">⭐</div>
 
         <div class="new-badge">NUOVO</div>
 
-        <img src="https://cdn2.steamgriddb.com/thumb/5c8f9a6ca0f3295b17fde15204c61ba3.jpg">
+        <img loading="lazy" src="https://cdn2.steamgriddb.com/thumb/5c8f9a6ca0f3295b17fde15204c61ba3.jpg">
 
         <div class="info">
             <h2>Pummel Party</h2>
@@ -1585,9 +1770,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/A7lERZCa#9A3am18igu964tdXHXzPsg" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/A7lERZCa#9A3am18igu964tdXHXzPsg" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1600,7 +1788,7 @@ select.tab {
         <div class="size-badge">1,54GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://imgproxy.eneba.games/YuVkrPMIM99TPE4XfGEa-q34j7ve596RSxBNEl4MyrE/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9a/cDQ4clEwcm1ncnZY/ajE1bk85enhQT2V3/ZkV3ZlZfYUZVQmdp/TGhLMFE0LnBuZw">
+        <img loading="lazy" src="https://imgproxy.eneba.games/YuVkrPMIM99TPE4XfGEa-q34j7ve596RSxBNEl4MyrE/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy9a/cDQ4clEwcm1ncnZY/ajE1bk85enhQT2V3/ZkV3ZlZfYUZVQmdp/TGhLMFE0LnBuZw">
 
         <div class="info">
             <h2>Perfect Heist 2</h2>
@@ -1611,9 +1799,12 @@ select.tab {
 				<span>Rapine</span>
             </div>
 
-            <a class="download" href="https://drive.google.com/drive/folders/1G0iaZKGlYvMceSFKgHsppj5QxDmz0K39?usp=drive_link" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://drive.google.com/drive/folders/1G0iaZKGlYvMceSFKgHsppj5QxDmz0K39?usp=drive_link" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1626,7 +1817,7 @@ select.tab {
         <div class="size-badge">DEMO</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxUr3m3fnf_grpqgvq0TUPhQMOkmY095OUyQ&s">
+        <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxUr3m3fnf_grpqgvq0TUPhQMOkmY095OUyQ&s">
 
         <div class="info">
             <h2>Burglin' Gnomes</h2>
@@ -1637,9 +1828,12 @@ select.tab {
 				<span>PvP</span>
             </div>
 
-            <a class="download" href="https://store.steampowered.com/app/3844970/Burglin_Gnomes/" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://store.steampowered.com/app/3844970/Burglin_Gnomes/" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1652,7 +1846,7 @@ select.tab {
         <div class="size-badge">228MB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://sm.ign.com/ign_za/cover/i/it-has-my-/it-has-my-face_g912.jpg">
+        <img loading="lazy" src="https://sm.ign.com/ign_za/cover/i/it-has-my-/it-has-my-face_g912.jpg">
 
         <div class="info">
             <h2>It Has My Face</h2>
@@ -1663,9 +1857,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/Zl4yXDDS#cxwdPNpE2GQZMMdFXxhkRw" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/Zl4yXDDS#cxwdPNpE2GQZMMdFXxhkRw" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1678,7 +1875,7 @@ select.tab {
         <div class="size-badge">539MB DEMO</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://static-cdn.jtvnw.net/ttv-boxart/326968126_IGDB-272x380.jpg">
+        <img loading="lazy" src="https://static-cdn.jtvnw.net/ttv-boxart/326968126_IGDB-272x380.jpg">
 
         <div class="info">
             <h2>Airport Security Sucks</h2>
@@ -1689,9 +1886,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://store.steampowered.com/app/4285690/Airport_Security_Sucks/" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://store.steampowered.com/app/4285690/Airport_Security_Sucks/" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1706,7 +1906,7 @@ select.tab {
 		
 		<div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIwizO_DsycQ23pM_V687CIwU0jk2rCBZiSw&s">
+        <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIwizO_DsycQ23pM_V687CIwU0jk2rCBZiSw&s">
 
         <div class="info">
             <h2>We Gotta Go!</h2>
@@ -1717,9 +1917,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/Fm0SzIaC#TgmjZKmRLJLBnfY2X6XfTQ" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/Fm0SzIaC#TgmjZKmRLJLBnfY2X6XfTQ" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1732,7 +1935,7 @@ select.tab {
         <div class="size-badge">1,42GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobh60.webp">
+        <img loading="lazy" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobh60.webp">
 
         <div class="info">
             <h2>I Know A Guy</h2>
@@ -1743,9 +1946,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/2b0qm" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/2b0qm" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1758,7 +1964,7 @@ select.tab {
         <div class="size-badge">3,54GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/cobhf3.jpg">
+        <img loading="lazy" src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/cobhf3.jpg">
 
         <div class="info">
             <h2>Anomaly Company</h2>
@@ -1769,9 +1975,12 @@ select.tab {
 				<span>Paranormale</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/4SRwx" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/4SRwx" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1784,7 +1993,7 @@ select.tab {
         <div class="size-badge">3,02GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://www.cdkeyit.it/wp-content/uploads/buy-the-escape-together-cd-key-compare-prices.jpg">
+        <img loading="lazy" src="https://www.cdkeyit.it/wp-content/uploads/buy-the-escape-together-cd-key-compare-prices.jpg">
 
         <div class="info">
             <h2>The Escape Together</h2>
@@ -1795,9 +2004,12 @@ select.tab {
 				<span>1-3 giocatori</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/5yPHA" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/5yPHA" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1810,7 +2022,7 @@ select.tab {
         <div class="size-badge">2,18GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB2iOW0Fw8JL061FqRvmiZg0dajReAac7baw&s">
+        <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB2iOW0Fw8JL061FqRvmiZg0dajReAac7baw&s">
 
         <div class="info">
             <h2>Chained Wheels</h2>
@@ -1821,9 +2033,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/1v22x" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/1v22x" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1837,7 +2052,7 @@ select.tab {
 		<div class="favorite-btn">⭐</div>
         <div class="updated-badge">⚠️ AGGIORNATO ⚠️</div>
 
-        <img src="https://images.g2a.com/470x276/1x1x0/cooking-simulator-2-better-together-pc-steam-key-europe-i10000513749004/027fa1cf5a7241a494207f45">
+        <img loading="lazy" src="https://images.g2a.com/470x276/1x1x0/cooking-simulator-2-better-together-pc-steam-key-europe-i10000513749004/027fa1cf5a7241a494207f45">
 
         <div class="info">
             <h2>Cooking Simulator 2</h2>
@@ -1848,9 +2063,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/1v8ip" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/1v8ip" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1863,7 +2081,7 @@ select.tab {
         <div class="size-badge">658MB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://cdn.loaded.com/496x700/media/catalog/product/n/i/nine_ball_roulette_pc.png">
+        <img loading="lazy" src="https://cdn.loaded.com/496x700/media/catalog/product/n/i/nine_ball_roulette_pc.png">
 
         <div class="info">
             <h2>Nine-Ball Roulette</h2>
@@ -1874,9 +2092,12 @@ select.tab {
 				<span>Biliardo</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/Mikw" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/Mikw" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1889,7 +2110,7 @@ select.tab {
         <div class="size-badge">5,7GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://imgproxy.eneba.games/B0rZC2Mn2bbcVuOZxAjV6yhq7H_5-EwWKkHZXxci-II/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy8x/UEVJaUJnbF94YTlE/bFhpMi0zOG0tT1hZ/Sm9XMVpaa012dVNX/di1ZM0owLmpwZw">
+        <img loading="lazy" src="https://imgproxy.eneba.games/B0rZC2Mn2bbcVuOZxAjV6yhq7H_5-EwWKkHZXxci-II/rs:fit:300/ar:1/czM6Ly9wcm9kdWN0/cy5lbmViYS5nYW1l/cy9wcm9kdWN0cy8x/UEVJaUJnbF94YTlE/bFhpMi0zOG0tT1hZ/Sm9XMVpaa012dVNX/di1ZM0owLmpwZw">
 
         <div class="info">
             <h2>Neighbors Suburban Warfare</h2>
@@ -1900,9 +2121,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/Fms3DIJD#Xv2vYaPKdCovjSOvjeUIBw" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/Fms3DIJD#Xv2vYaPKdCovjSOvjeUIBw" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1915,7 +2139,7 @@ select.tab {
         <div class="size-badge">379MB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://assets-prd.ignimgs.com/2025/10/03/side-effects-button-1759512691005.jpg">
+        <img loading="lazy" src="https://assets-prd.ignimgs.com/2025/10/03/side-effects-button-1759512691005.jpg">
 
         <div class="info">
             <h2>SIDE EFFECTS</h2>
@@ -1926,9 +2150,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/2a7gk" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/2a7gk" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1941,7 +2168,7 @@ select.tab {
         <div class="size-badge">1,03GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrchHAB-YOPNyerW0Oq3Ye5C7prM0TMN8R2w&s">
+        <img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrchHAB-YOPNyerW0Oq3Ye5C7prM0TMN8R2w&s">
 
         <div class="info">
             <h2>YAPYAP</h2>
@@ -1952,9 +2179,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/3wOb4" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/3wOb4" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1967,7 +2197,7 @@ select.tab {
         <div class="size-badge">3,89GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://store-images.s-microsoft.com/image/apps.26366.14523320294659833.0e9cb134-00a8-4d23-9793-93834d8d61ef.9b9e6bbe-69b3-4cd9-8509-3de264dfc1a2">
+        <img loading="lazy" src="https://store-images.s-microsoft.com/image/apps.26366.14523320294659833.0e9cb134-00a8-4d23-9793-93834d8d61ef.9b9e6bbe-69b3-4cd9-8509-3de264dfc1a2">
 
         <div class="info">
             <h2>Police Simulator</h2>
@@ -1978,9 +2208,12 @@ select.tab {
 				<span>Simulazione</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/2Pjrm" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/2Pjrm" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -1993,7 +2226,7 @@ select.tab {
         <div class="size-badge">230MB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobbmi.webp">
+        <img loading="lazy" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobbmi.webp">
 
         <div class="info">
             <h2>Pratfall</h2>
@@ -2004,9 +2237,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/cqtTWJIB#I9jgQ2Zm-2jL3oHvThtkYQ" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/cqtTWJIB#I9jgQ2Zm-2jL3oHvThtkYQ" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -2019,7 +2255,7 @@ select.tab {
         <div class="size-badge">1.41GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://static-cdn.jtvnw.net/ttv-boxart/1867864484_IGDB-272x380.jpg">
+        <img loading="lazy" src="https://static-cdn.jtvnw.net/ttv-boxart/1867864484_IGDB-272x380.jpg">
 
         <div class="info">
             <h2>Night Shippers</h2>
@@ -2030,9 +2266,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/wjV2mRTR#3Kq8nsg_ygS7s5m2rDTm8g" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/wjV2mRTR#3Kq8nsg_ygS7s5m2rDTm8g" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -2045,7 +2284,7 @@ select.tab {
         <div class="size-badge">220MB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://image.api.playstation.com/cdn/EP0633/CUSA06561_00/QjxiTvKvnCKXAggFqKcgOVMfxLnIVlJH.png">
+        <img loading="lazy" src="https://image.api.playstation.com/cdn/EP0633/CUSA06561_00/QjxiTvKvnCKXAggFqKcgOVMfxLnIVlJH.png">
 
         <div class="info">
             <h2>Keep Talking And Nobody Explodes</h2>
@@ -2056,9 +2295,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/0vlFQQjZ#lIV9HwhEn5cg1jJGppyXXw" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/0vlFQQjZ#lIV9HwhEn5cg1jJGppyXXw" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -2071,7 +2313,7 @@ select.tab {
         <div class="size-badge">1,07GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://static-cdn.jtvnw.net/ttv-boxart/1231414719_IGDB-272x380.jpg">
+        <img loading="lazy" src="https://static-cdn.jtvnw.net/ttv-boxart/1231414719_IGDB-272x380.jpg">
 
         <div class="info">
             <h2>One-armed robber</h2>
@@ -2082,9 +2324,12 @@ select.tab {
 				<span>Divertente</span>
             </div>
 
-            <a class="download" href="https://store.steampowered.com/app/2551020/Onearmed_robber/" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://store.steampowered.com/app/2551020/Onearmed_robber/" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -2097,7 +2342,7 @@ select.tab {
         <div class="size-badge">3,00GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://www.gamescore.it/wp-content/uploads/2026/04/Super-Meat-Boy-3D-info.jpg">
+        <img loading="lazy" src="https://www.gamescore.it/wp-content/uploads/2026/04/Super-Meat-Boy-3D-info.jpg">
 
         <div class="info">
             <h2>Super Meat Boy 3D</h2>
@@ -2108,9 +2353,12 @@ select.tab {
 				<span>Livelli</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/2b3fv" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/2b3fv" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -2123,7 +2371,7 @@ select.tab {
         <div class="size-badge">3,84GB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://cdn1.epicgames.com/offer/659883a1ecfc4aeeb5fb69dd4688e734/EGS_TaxiLifeACityDrivingSimulator_Simteract_S2_1200x1600-01eb1ee7f3ff396cff9347719eb3394c">
+        <img loading="lazy" src="https://cdn1.epicgames.com/offer/659883a1ecfc4aeeb5fb69dd4688e734/EGS_TaxiLifeACityDrivingSimulator_Simteract_S2_1200x1600-01eb1ee7f3ff396cff9347719eb3394c">
 
         <div class="info">
             <h2>Taxi Life A City Driving Simulator</h2>
@@ -2134,9 +2382,12 @@ select.tab {
 				<span>Citta'</span>
             </div>
 
-            <a class="download" href="https://1cloudfile.com/1v60p" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/1v60p" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -2149,7 +2400,7 @@ select.tab {
         <div class="size-badge">100MB</div>
 		<div class="favorite-btn">⭐</div>
 
-        <img src="https://data.xxlgamer.com/products/6221/l7JOawoL46xkI7-medium.jpg">
+        <img loading="lazy" src="https://data.xxlgamer.com/products/6221/l7JOawoL46xkI7-medium.jpg">
 
         <div class="info">
             <h2>CloverPit</h2>
@@ -2160,9 +2411,12 @@ select.tab {
 				<span>Gioco d'azzardo</span>
             </div>
 
-            <a class="download" href="https://mega.nz/folder/sqsRgabb#pRrBCLWGwi6re7kJ70j-9Q" target="_blank">
-                Scarica
-            </a>
+            <div class="game-buttons">
+                <a class="download" href="https://mega.nz/folder/sqsRgabb#pRrBCLWGwi6re7kJ70j-9Q" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+            
 			<div class="votes proposals-votes">
                 <button class="upvote">👍 <span>0</span></button>
                 <button class="downvote">👎 <span>0</span></button>
@@ -3263,6 +3517,40 @@ document.querySelector('[data-tab="all"]').addEventListener("click", () => {
     });
 });
 
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const NEW_DAYS = 14;
+    const now = new Date();
+
+    document.querySelectorAll(".game.new-game").forEach(game => {
+
+        const addedDate = game.dataset.added;
+
+        if (!addedDate) return;
+
+        const created = new Date(addedDate);
+
+        const diffTime = now - created;
+
+        const diffDays = diffTime / (1000 * 60 * 60 * 24);
+
+        // dopo 14 giorni
+        if (diffDays >= NEW_DAYS) {
+
+            // rimuove badge NUOVO
+            const badge = game.querySelector(".new-badge");
+
+            if (badge) badge.remove();
+
+            // rimuove classe new-game
+            game.classList.remove("new-game");
+        }
+    });
+
+});
 </script>
 </body>
 </html>
