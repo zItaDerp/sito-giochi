@@ -756,6 +756,40 @@ const gamesData = {
 			rec: "Richiede un processore e un sistema operativo a 64 bit"
 		},
 		download: "https://mega.nz/folder/sqsRgabb#pRrBCLWGwi6re7kJ70j-9Q"
+	},
+
+	"balatro": {
+		title: "Balatro",
+		description: "Il roguelike a tema poker. Balatro è un gioco di costruzione di mazzi in cui formi mani di poker illegali, scopri jolly che stravolgono la partita e attivi combo adrenaliniche e stravaganti, provando una soddisfazione ipnotica. Balatro è un gioco di costruzione di mazzi roguelike ispirato al poker, che si basa sulla creazione di forti sinergie per realizzare grandi vincite. Combina mani di poker valide con jolly unici per creare varie sinergie e costruzioni. Guadagna abbastanza fiche per battere infidi bui, mentre riveli mazzi e mani bonus nascosti man mano che avanzi. Avrai bisogno di qualsiasi vantaggio disponibile per raggiungere il buio boss, battere l'ante finale e assicurarti la vittoria. Schiera abilmente una vasta gamma di potenti strumenti: mazzi, jolly, tarocchi, carte planetarie, carte spettrali e buoni di vario tipo. Usa questi strumenti versatili per innescare combo frenetiche e sovraccaricare le tue mani di poker, dando vita a sinergie elettrizzanti e adrenaliniche. Lanciati nel mondo tipicamente psichedelico di Balatro. Lasciati travolgere dalla colonna sonora synthwave. Rilassati, abbandona la monotonia della vita quotidiana e preparati a raggiungere la concentrazione assoluta nel roguelike definitivo.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/VUyP21iQ_-g?si=8Jj0iTSe_3IQ19Wg" },
+			{ type: "image", src: "https://games.gg/cdn-cgi/image/width=1920,quality=75,format=auto,fit=scale-down,metadata=none,onerror=redirect/https://assets.games.gg/balatro_rich_get_richer_challenge_how_to_make_lots_of_money_hero_2cc3333933.webp" },
+			{ type: "image", src: "https://cdn.mos.cms.futurecdn.net/bZA9i7KrBKbMo3pJ2ykpAF-1200-80.png" },
+			{ type: "image", src: "https://images.kinguin.net/g/carousel-main-mobile/media/images/products/65d4e656547427083e77f6c2_ed6078ddc79395e196659ba6af02c81c.jpg"}
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel core i3<br><strong>MEMORIA:</strong> 1GB di RAM<br><strong>SCHEDA VIDEO:</strong> OpenGL 2.1 compatible graphics card, integrated graphics<br><strong>MEMORIA:</strong> 150MB di spazio disponibile",
+			rec: "Richiede un processore e un sistema operativo a 64 bit"
+		},
+		download: "https://mega.nz/folder/kr9UzJxZ#eymiOfZRVsO0Sabe_MWcrw"
+
+	},
+
+	"gambonanza": {
+		title: "Gambonanza",
+		description: "Gambonanza è un roguelike scacchistico a turni, ambientato su una scacchiera minuscola ma con una posta in gioco più alta. Padroneggia le tattiche, investi le tue vincite e scopri nuove mosse, combinazioni di tessere e pezzi che infrangono le regole. Affronta boss impegnativi e lasciati trasportare da tutti i modi in cui puoi stravolgere le regole degli scacchi tradizionali! Entra nel selvaggio mondo di Gambonanza, dove gli scacchi tradizionali sono stati reinventati in un'avventura roguelike avvincente e ricca di strategia. In questo gioco, la vittoria non consiste solo nel catturare il re, ma nel catturare ogni singolo pezzo sulla scacchiera attraverso sinergie magistrali! Ma fai attenzione, se sprechi troppe mosse la scacchiera crollerà intorno a te... Ogni elemento di Gambonanza lavora in un'armonia folle per aiutarti a costruire la strategia definitiva per superare una serie di spietate sfide contro i boss! Sei pronto a ridefinire gli scacchi? Scopri Gambonanza e intraprendi un'avventura strategica senza precedenti!",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/YWr_RxT4WRg?si=jdQTNkGMVNjOGY53" },
+			{ type: "image", src: "https://cdn.playtester.io/screenshots/gambonanza/gambonanza-computer-boss-battle.webp" },
+			{ type: "image", src: "https://cdn.playtester.io/screenshots/gambonanza/gambonanza-gambit-selection.webp" },
+			{ type: "image", src: "https://play-lh.googleusercontent.com/eK9rtBwRFoGmtuVzhnqD4nDdAl3QNvJnor0duSAa84Y_KS_91XA_IkyngSyIp4VU7pt0mDUyDMmmpIUM7kiZUg=w526-h296-rw" }
+		],
+		requirements: {
+			min: "SISTEMA OPERATIVO: Microsoft® Windows® 10<br><strong>PROCESSORE:</strong> Intel Core i3-3240 (2 * 3400); AMD FX-4300 (4 * 3800)<br><strong>MEMORIA:</strong> 4GB di RAM<br><strong>SCHEDA VIDEO:</strong>  GeForce GTX 560 Ti (1024 VRAM); Radeon HD 7750 (1024 VRAM)<br><strong>DIRECTX:</strong> Versione10<br><strong>MEMORIA:</strong> 450MB di spazio disponibile",
+			rec: ""
+		},
+		download: "https://mega.nz/folder/0m1nCKbB#O_TV1QY7pG5ogV7YiGbBaA"
+
 	}
 	
  };
