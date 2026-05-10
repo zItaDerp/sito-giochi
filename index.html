@@ -35,19 +35,26 @@ body {
 }
 
 .logo {
-    justify-self: start;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    background: linear-gradient(90deg, #00ffcc, #00ccff, #00ffcc);
-    background-size: 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.logo img {
+    height: 52px;
+    width: auto;
 
-    animation: gradientMove 3s linear infinite;
+    object-fit: contain;
 
-    white-space: nowrap;
+    filter:
+        drop-shadow(0 0 10px rgba(0,255,204,0.35))
+        drop-shadow(0 0 20px rgba(0,204,255,0.25));
+
+    transition: 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.04);
 }
 
 @keyframes neonPulse {
@@ -315,9 +322,25 @@ button:active {
 }
 
 .hero {
-	text-align: center;
-	padding: 60px 20px;
-	background: radial-gradient(circle, #00ffcc22, transparent);
+    height: 380px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding:
+        70px 20px 30px;
+
+    background:
+        radial-gradient(circle, #00ffcc22, transparent);
+
+    overflow: hidden;
+
+    position: relative;
 }
 
 .hero h1 {
@@ -328,6 +351,95 @@ button:active {
 
 .hero p {
 	color: #cfcfcf;
+}
+
+.hero-logo {
+    width: min(900px, 102%);
+
+    object-fit: contain;
+
+    margin: 0 0 10px 0;
+
+    filter:
+        drop-shadow(0 0 18px rgba(0,255,204,0.35))
+        drop-shadow(0 0 40px rgba(0,204,255,0.25));
+
+    animation: floatLogo 4s ease-in-out infinite;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+.hero p {
+    color: #e5e5e5;
+
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    margin-top: 10px;
+
+    text-shadow:
+        0 0 10px rgba(0,255,204,0.15);
+
+    opacity: 0.95;
+}
+
+.hero-subtitle {
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #eaffff;
+
+    letter-spacing: 1px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-top: 0;
+
+    position: relative;
+    z-index: 5;
+
+    text-shadow:
+        0 0 10px rgba(0,255,204,0.45),
+        0 0 25px rgba(0,204,255,0.25);
+
+    animation: subtitleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatLogo {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes subtitleGlow {
+
+    from {
+        text-shadow:
+            0 0 8px rgba(0,255,204,0.35),
+            0 0 18px rgba(0,204,255,0.15);
+    }
+
+    to {
+        text-shadow:
+            0 0 14px rgba(0,255,204,0.6),
+            0 0 28px rgba(0,204,255,0.3);
+    }
+
 }
 
 .section-title {
@@ -616,6 +728,7 @@ a:focus {
 
         flex-direction:column;
     }
+
 }
 
 .tags {
@@ -983,6 +1096,26 @@ select.tab {
 	.logo {
 		font-size: 14px;
 	}
+
+    .logo img {
+
+        height: 40px;
+    }
+
+    .hero {
+        height: 300px;
+        padding-top: 75px;
+    }
+
+    .hero-logo {
+        width: 125%;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+        line-height: 1.5;
+        padding: 0 12px;
+    }
 }
 
 .new-badge {
@@ -1088,8 +1221,9 @@ select.tab {
 </nav>
 
 <header class="hero" id="home">
-    <h1>🎮 LA CASA DEI GIOCHI 🎮</h1>
-    <p>Scopri giochi multiplayer da giocare con amici</p>
+
+    <img src="logo.png" alt="La Casa Dei Giochi Logo" class="hero-logo">
+
 </header>
 
 <div class="search-box">
@@ -2425,11 +2559,13 @@ select.tab {
         </div>
     </div>
 
-<div class="game" data-id="balatro">		
+<div class="game new-game" data-id="balatro" data-added="2026-05-10">	
         <div class="size-badge">58MB</div>
 		<div class="favorite-btn">⭐</div>
 
         <img loading="lazy" src="https://store-images.s-microsoft.com/image/apps.51959.14272217582130616.02bf9982-d980-42d9-93e6-372b4b7e36d8.31c1e585-05c9-4f32-b695-4b900c913466">
+
+        <div class="new-badge">NUOVO</div>
 
         <div class="info">
             <h2>Balatro</h2>
@@ -2454,11 +2590,13 @@ select.tab {
         </div>
     </div>
 
-<div class="game" data-id="gambonanza">		
+<div class="game new-game" data-id="gambonanza" data-added="2026-05-10">	
         <div class="size-badge">166MB</div>
 		<div class="favorite-btn">⭐</div>
 
         <img loading="lazy" src="https://www.cdkeyit.it/wp-content/uploads/buy-gambonanza-cd-key-compare-prices.jpeg">
+
+        <div class="new-badge">NUOVO</div>
 
         <div class="info">
             <h2>Gambonanza</h2>
