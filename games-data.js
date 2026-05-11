@@ -790,6 +790,38 @@ const gamesData = {
 		},
 		download: "https://mega.nz/folder/0m1nCKbB#O_TV1QY7pG5ogV7YiGbBaA"
 
+	},
+
+	"rosalie": {
+		title: "Rosalie",
+		description: "Un caotico viaggio on the road in cooperativa per 2 giocatori. Condividete i comandi di un’auto a pedali nei panni di due turisti: siediti a sinistra per girare a sinistra, a destra per girare a destra! Il segreto è la coordinazione! Parti per un bizzarro viaggio on the road nei panni di un turista su un risciò a pedali a due posti! Attraversa paesaggi variegati dove ti ritroverai a imboccare tutte le strade sbagliate. Esplora i dintorni e scatta foto lungo il percorso. Da solo o in coppia, riuscirai a raggiungere la fine del viaggio... o rotolerai giù da una collina, mettendo in discussione il senso stesso della vita? La comunicazione è fondamentale! Ogni giocatore può tirare solo la leva dello sterzo dal proprio lato. Insieme si è più forti. Pedalare e frenare è più efficace quando entrambi i piloti sono coordinati. Quando le cose si fanno frenetiche, niente panico. Cercare di tirare il freno a mano o fare retromarcia contemporaneamente può portare al disastro! Tu curvi a sinistra, io curvo a destra, cosa mai potrebbe andare storto? Tutto. Dalle curve fuori tempo alle frenate frenetiche, la strada verso il traguardo è lastricata di litigi isterici e manovre azzardate. Quando non siete in sintonia e il vostro senso dell'orientamento viene meno, la vostra tranquilla passeggiata sul lungomare si trasforma rapidamente in un disastro totale. Sebbene questo viaggio sia progettato per due, puoi assolutamente metterti in strada da solo. In modalità solo, avrai il pieno controllo dello sterzo e sarai l'unico capitano a bordo... ma questo significa anche che potrai dare la colpa solo a te stesso quando le cose andranno storte! Non riesci a raggiungere il traguardo? Non preoccuparti. Ferma il quadriciclo, fai un respiro profondo e ammira il paesaggio. Il viaggio potrebbe essere una catastrofe, ma almeno la cartolina sarà bellissima.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/Zz5lvwAkHLE?si=SNn85b4kpcHN85Nf" },
+			{ type: "image", src: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4268470/6559c5d323ceaedd270791f3f40a2f049e5197c7/ss_6559c5d323ceaedd270791f3f40a2f049e5197c7.1920x1080.jpg?t=1775937345" },
+			{ type: "image", src: "https://img.gg.deals/05/42/1114151d5579b57eaf3b18331589495b7b87_1920xt1080_S1000.jpg" },
+			{ type: "image", src: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4268470/1022be21bfeed1f191ac39c0849516677ff6e819/ss_1022be21bfeed1f191ac39c0849516677ff6e819.1920x1080.jpg" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10/11<br><strong>PROCESSORE:</strong> Intel Core i7-9700, Intel Core i5 9500, Ryzen 5 2500X<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> GeForce GTX 1050Ti, Radeon RX 6300<br><strong>DIRECTX:</strong> Versione 11<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 4GB di spazio disponibile",
+			rec: "Richiede un processore e un sistema operativo a 64 bit"
+		},
+		download: "https://1cloudfile.com/1velj"
+	},
+
+	"outbound": {
+		title: "Outbound",
+		description: "Esplora un mondo colorato e costruisci la tua casa su ruote. Crea postazioni da lavoro e ottieni energia da sole, vento o acqua. Migliora e personalizza il tuo camper, coltiva e vivi in modo autosufficiente e sostenibile con fino a 3 altri giocatori. Outbound è un accogliente gioco di esplorazione open world ambientato in un futuro prossimo ma utopico. Inizia con un camper vuoto e trasformalo nella casa dei tuoi sogni, per conto tuo o insieme agli amici. Costruisci ed esplora secondo i tuoi ritmi. Raccogli materiali, crea e aggiungi componenti modulari all'interno e sopra al tuo mezzo di trasporto. Sfrutta tecnologie sempre più avanzate e utilizza in modo efficiente l'energia per alimentare la tua dimora. Esplora un mondo colorato nel tuo camper elettrico alimentato con l'energia del sole, del vento o dell'acqua. Scopri punti di riferimento iconici in vari biomi. Costruisci la tua base mobile con un sistema modulare. Personalizza il tuo mezzo di trasporto con vernici, decorazioni e mobili per creare un luogo accogliente perfetto per i tuoi gusti. Crea dei giardini per coltivare varie piante e funghi. Mangia i prodotti crudi oppure cuoci pietanze squisite per soddisfare le tue esigenze in viaggio. Adotta un nuovo amico al Rifugio Zampe e Baffi. Dagli da mangiare, accarezzalo e addestralo ad aiutarti. Parti per un viaggio su strada in vari biomi e costruisci la tua casa su ruote per conto tuo o in modalità cooperativa con fino a 3 altri giocatori.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/mV-9uRMRLWk?si=6VFgHjZKnucDhNuh" },
+			{ type: "image", src: "https://image.api.playstation.com/vulcan/ap/rnd/202506/3010/dfc841b948d5c7db9afe76979f32aed1677ff89299cf3bf1.jpg" },
+			{ type: "image", src: "https://image.api.playstation.com/vulcan/ap/rnd/202512/2209/c8162ff3d545dde19d7d98f77d2bb699b3071eca03372009.jpg" },
+			{ type: "image", src: "https://www.thegamesmachine.it/wp-content/uploads/2024/02/Outbound-scaled.jpg" }
+		],
+		requirements: {
+			min: "SISTEMA OPERATIVO: Windows 10-64 bit<br><strong>PROCESSORE:</strong> Intel Core i3 10100F | Ryzen 3 3100 or equivalent<br><strong>MEMORIA:</strong> 4GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GTX 1050 | AMD RX 570 or equivalent<br><strong>DIRECTX:</strong> Versione 11<br><strong>MEMORIA:</strong> 16GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> DirectX Compatible Sound Card",
+			rec: "SISTEMA OPERATIVO: Windows 11-64 bit<br><strong>PROCESSORE:</strong> Intel i3-12100F | Ryzen 7 1700 or better<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA RTX 3060 | AMD RX 7600XT or better<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 16GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> DirectX Compatible Sound Card"
+		},
+		download: "https://1cloudfile.com/1ven4"
 	}
 	
  };
