@@ -11,3 +11,12 @@ v1.0.0 alpha
 + fixed UI, buttons and voting system
 
 + added dynamic game.html with all games information with description, requirements, download and comments!  
+
+
+11/05/2026
+
++ restilyng of index.html, game.html and mods.html
+
++ new games aviable
+
++ more stability on mobile
