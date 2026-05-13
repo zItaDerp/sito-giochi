@@ -579,7 +579,7 @@ const gamesData = {
 			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10 64bit<br><strong>PROCESSORE:</strong> Intel I3<br><strong>MEMORIA:</strong> 4GB di RAM<br><strong>SCHEDA VIDEO:</strong> Vulkan supported graphics card<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 2GB di spazio disponibile",
 			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 11 64bit<br><strong>PROCESSORE:</strong> Intel I5<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> GTX 1050+<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 2GB di spazio disponibile"
 		},
-		download: "https://1cloudfile.com/Mikw"
+		download: "https://mega.nz/folder/02FEkRzB#7NLdxs_KfB5ihXbYFYhAJA"
 	},
 	
 	"nsw": {
