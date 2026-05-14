@@ -122,7 +122,7 @@ const gamesData = {
 			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10 64-bit<br><strong>PROCESSORE:</strong> Intel Core i5-2500 @ 3,3 GHz (4 CPUs)<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVidia GeForce GTX 1050 Ti<br><strong>MEMORIA:</strong> 6GB di spazio disponibile",
 			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10 64-bit<br><strong>PROCESSORE:</strong> Intel Core i5-6500 @ 3,2 GHz (4 CPUs)<br><strong>MEMORIA:</strong> 16GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVidia GeForce RTX 2060<br><strong>MEMORIA:</strong> 6GB di spazio disponibile"
 		},
-		download: "https://store.steampowered.com/app/4187140/Dont_Panic_It_is_Just_Turbulence/"
+		download: "https://1cloudfile.com/Pi3l"
 	},
 	
 	"the-headliners": {
@@ -785,7 +785,7 @@ const gamesData = {
 			{ type: "image", src: "https://play-lh.googleusercontent.com/eK9rtBwRFoGmtuVzhnqD4nDdAl3QNvJnor0duSAa84Y_KS_91XA_IkyngSyIp4VU7pt0mDUyDMmmpIUM7kiZUg=w526-h296-rw" }
 		],
 		requirements: {
-			min: "SISTEMA OPERATIVO: Microsoft® Windows® 10<br><strong>PROCESSORE:</strong> Intel Core i3-3240 (2 * 3400); AMD FX-4300 (4 * 3800)<br><strong>MEMORIA:</strong> 4GB di RAM<br><strong>SCHEDA VIDEO:</strong>  GeForce GTX 560 Ti (1024 VRAM); Radeon HD 7750 (1024 VRAM)<br><strong>DIRECTX:</strong> Versione10<br><strong>MEMORIA:</strong> 450MB di spazio disponibile",
+			min: "<strong>SISTEMA OPERATIVO:</strong> Microsoft® Windows® 10<br><strong>PROCESSORE:</strong> Intel Core i3-3240 (2 * 3400); AMD FX-4300 (4 * 3800)<br><strong>MEMORIA:</strong> 4GB di RAM<br><strong>SCHEDA VIDEO:</strong>  GeForce GTX 560 Ti (1024 VRAM); Radeon HD 7750 (1024 VRAM)<br><strong>DIRECTX:</strong> Versione10<br><strong>MEMORIA:</strong> 450MB di spazio disponibile",
 			rec: ""
 		},
 		download: "https://mega.nz/folder/0m1nCKbB#O_TV1QY7pG5ogV7YiGbBaA"
@@ -818,10 +818,42 @@ const gamesData = {
 			{ type: "image", src: "https://www.thegamesmachine.it/wp-content/uploads/2024/02/Outbound-scaled.jpg" }
 		],
 		requirements: {
-			min: "SISTEMA OPERATIVO: Windows 10-64 bit<br><strong>PROCESSORE:</strong> Intel Core i3 10100F | Ryzen 3 3100 or equivalent<br><strong>MEMORIA:</strong> 4GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GTX 1050 | AMD RX 570 or equivalent<br><strong>DIRECTX:</strong> Versione 11<br><strong>MEMORIA:</strong> 16GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> DirectX Compatible Sound Card",
-			rec: "SISTEMA OPERATIVO: Windows 11-64 bit<br><strong>PROCESSORE:</strong> Intel i3-12100F | Ryzen 7 1700 or better<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA RTX 3060 | AMD RX 7600XT or better<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 16GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> DirectX Compatible Sound Card"
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10-64 bit<br><strong>PROCESSORE:</strong> Intel Core i3 10100F | Ryzen 3 3100 or equivalent<br><strong>MEMORIA:</strong> 4GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GTX 1050 | AMD RX 570 or equivalent<br><strong>DIRECTX:</strong> Versione 11<br><strong>MEMORIA:</strong> 16GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> DirectX Compatible Sound Card",
+			rec: "<strong>SISTEMA OPERATIVO:</strong> Windows 11-64 bit<br><strong>PROCESSORE:</strong> Intel i3-12100F | Ryzen 7 1700 or better<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA RTX 3060 | AMD RX 7600XT or better<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 16GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> DirectX Compatible Sound Card"
 		},
 		download: "https://1cloudfile.com/1ven4"
+	},
+
+	"spider-roulette": {
+		title: "Spider Roulette",
+		description: "Spider Roulette è un avvincente gioco di società online in cui da 2 a 4 amici si alternano a lanciare bicchieri, cercando di evitare di trovare i ragni degli altri.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/wHEaRSG27JQ?si=Cu1SRS42d7n9WbtL" },
+			{ type: "image", src: "https://images.steamusercontent.com/ugc/11920515800180469992/14C71D8551390904AF051B627DDCA8D300DC27F8/?imw=1024&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" },
+			{ type: "image", src: "https://kotaku.com/igdb/image/upload/t_720p/sc11gae.jpg" },
+			{ type: "image", src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3900650/6d31cc84e492496d78071b15e8096135475f7bcc/ss_6d31cc84e492496d78071b15e8096135475f7bcc.jpg" }
+		],
+		requirements: {
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> 2.40 GHZ i5<br><strong>MEMORIA:</strong> 4GB di RAM<br><strong>SCHEDA VIDEO:</strong> Geforce 820M<br><strong>MEMORIA:</strong> 1.5GB di spazio disponibile<br><strong>NOTE AGGIUNTIVE:</strong> Estimated",
+			rec: ""
+		},
+		download: "https://mega.nz/folder/VvMRkDha#DfYYDcz-9b6QecndoAU0rA"
+	},
+
+	"flock-around": {
+		title: "Flock Around",
+		description: "Flock Around è un gioco multiplayer di birdwatching. Esplora una riserva naturale con gli amici, scatta foto agli uccelli e completa la guida! Il Santuario di Goose Lake ospita numerose specie di uccelli e, se riesci a vederlo, puoi fotografarlo. Completa la guida con le foto di ogni uccello nelle sue diverse pose, dal comune pettirosso agli esemplari più rari ed esotici. Esplora una varietà di biomi, esegui azioni e usa oggetti per attirare le specie e divertiti a fare scherzi ai tuoi amici! Flock Around è pensato per essere uno spazio sociale condiviso dove tu e i tuoi amici potete collaborare per fotografare gli uccelli o voi stessi! Il birdwatching è più bello se condiviso, quindi puoi giocare con un massimo di 10 amici! Colleziona cosmetici e rendi unico il tuo personaggio da birdwatcher, esprimendo la tua personalità e la tua vista da aquila ai tuoi amici. Dopo aver scattato le foto, sviluppale per ottenere denaro da spendere in abiti e andare a fare birdwatching con stile!",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/_eEmBQ4MSGs?si=FPQ3s7VSl_MuUhK0" },
+			{ type: "image", src: "https://cdn.mos.cms.futurecdn.net/miEDnNZGutq62kMk38NTrb.jpg" },
+			{ type: "image", src: "https://cdn.playtester.io/articles/flock-around/flock-around-video-3-poster.webp?t=1769926666732" },
+			{ type: "image", src: "https://s.yimg.com/ny/api/res/1.2/5rPb4ps4XLDImIxFqsSsgg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTUzOQ--/https://media.zenfs.com/en/pc_gamer_708/6342cf832c1146f3742373d39d81318b" }
+		],
+		requirements: {
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10+<br><strong>PROCESSORE:</strong> 2 GHZ<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> GTX 1060<br><strong>MEMORIA:</strong> 4GB di spazio disponibile",
+			rec: ""
+		},
+		download: "https://mega.nz/folder/0lQinYDb#rrLRGUsS_aq0iN0JfHoWfA"
 	}
 	
  };
