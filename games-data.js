@@ -451,7 +451,7 @@ const gamesData = {
 			min: "<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel i5-3570K<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce GTX 970<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 2GB di spazio disponibile",
 			rec: "<br><strong>SISTEMA OPERATIVO:</strong> Windows 11<br><strong>PROCESSORE:</strong> Intel i5-8400<br><strong>MEMORIA:</strong> 16GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce GTX 1070<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 2GB di spazio disponibile"
 		},
-		download: "https://mega.nz/folder/Zl4yXDDS#cxwdPNpE2GQZMMdFXxhkRw"
+		download: "https://mega.nz/folder/gxoRVBgI#cxwdPNpE2GQZMMdFXxhkRw"
 	},
 	
 	"airport-security-sucks": {
@@ -771,7 +771,7 @@ const gamesData = {
 			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel core i3<br><strong>MEMORIA:</strong> 1GB di RAM<br><strong>SCHEDA VIDEO:</strong> OpenGL 2.1 compatible graphics card, integrated graphics<br><strong>MEMORIA:</strong> 150MB di spazio disponibile",
 			rec: "Richiede un processore e un sistema operativo a 64 bit"
 		},
-		download: "https://mega.nz/folder/kr9UzJxZ#eymiOfZRVsO0Sabe_MWcrw"
+		download: "https://mega.nz/folder/VhpxEDhQ#A4uBcY_ezJ2ShXoc2gDlUA"
 
 	},
 

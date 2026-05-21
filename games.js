@@ -1,16 +1,3 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyBziQMB8prSDn4XS7calKH8JEYpi7ja2g8",
-  authDomain: "giochi-commenti.firebaseapp.com",
-  projectId: "giochi-commenti",
-  storageBucket: "giochi-commenti.firebasestorage.app",
-  messagingSenderId: "878667417604",
-  appId: "1:878667417604:web:460f2de9a188fe0adb0d51"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-const db = firebase.firestore();
-
 const params = new URLSearchParams(window.location.search);
 const gameId = params.get("id");
 
@@ -101,18 +88,32 @@ document.getElementById("minReq").innerHTML = game.requirements.min;
 document.getElementById("recReq").innerHTML = game.requirements.rec;
 
 function sendComment() {
+
+  if(!window.currentUserData){
+
+    alert("Attendi il caricamento account");
+
+    return;
+  }
+
   const text = document.getElementById("commentInput").value;
-  const name = document.getElementById("nicknameInput").value;
   const color = document.getElementById("colorPicker").value;
 
-  if (!text.trim() || !name.trim()) return;
+  if (!text.trim()) return;
 
   db.collection("comments")
     .doc(gameId)
     .collection("list")
     .add({
       text,
-      user: name,
+      user: window.currentUserData?.username || "Player",
+
+      avatar:
+      window.currentUserData?.avatar ||
+      "https://i.pravatar.cc/150",
+
+      uid:
+      window.auth?.currentUser?.uid || null,
       color,
       style: null,
       date: Date.now()
@@ -138,8 +139,20 @@ db.collection("comments")
       container.innerHTML += `
         <div class="commentRow">
 
-          <div class="commentUser" style="color:${data.color}">
-            ${data.user}
+          <div class="commentHeader">
+
+            <img
+              class="commentAvatar"
+              src="${data.avatar}">
+
+            <div
+              class="commentUser"
+              style="color:${data.color}">
+
+              ${data.user}
+
+            </div>
+
           </div>
 
           <div class="commentText">

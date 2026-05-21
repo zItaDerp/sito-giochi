@@ -602,7 +602,7 @@ h3 {
 
     border-radius:14px;
 
-    overflow:hidden;
+    overflow:visible;
 
     background:
     rgba(255,255,255,0.03);
@@ -741,6 +741,40 @@ h3 {
     white-space:nowrap;
 
     height:100%;
+}
+
+.commentHeader{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:8px;
+}
+
+.commentAvatar{
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:
+    2px solid rgba(0,255,204,0.3);
+}
+
+.commentFormTable{
+    position:relative;
+    overflow:visible;
+}
+
+.emojiWrapper{
+    position:relative;
+    overflow:visible;
 }
 
 button {
@@ -937,6 +971,17 @@ button:hover {
     transform:translate3d(0,0,0);
 }
 
+#nicknameInput{
+
+    pointer-events:none;
+
+    user-select:none;
+
+    opacity:0.85;
+
+    cursor:default;
+}
+
 </style>
 
 <body>
@@ -995,7 +1040,7 @@ button:hover {
 		<!-- FORM DENTRO LA STESSA TABELLA -->
 		<div class="commentFormTable">
 
-			<input type="text" id="nicknameInput" placeholder="Nickname">
+            <input type="text" id="nicknameInput">
 			<input type="color" id="colorPicker" value="#00ffcc">
 
 			<input type="text" id="commentInput" placeholder="Scrivi un commento...">
@@ -1025,8 +1070,10 @@ button:hover {
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 
 <script src="games-data.js"></script>
+<script src="auth.js"></script>
 <script src="games.js"></script>
 
 <script>
