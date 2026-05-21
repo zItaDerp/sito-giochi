@@ -20,3 +20,17 @@ v1.0.0 alpha
 + new games aviable
 
 + more stability on mobile
+
+
+
+21/05/2026
+
++ added new auth system
+
++ added "trending now" section on the top
+
++ reworked style of the site
+
++ added footer with copyright
+
++ fixed comment's username
