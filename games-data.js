@@ -854,6 +854,38 @@ const gamesData = {
 			rec: ""
 		},
 		download: "https://mega.nz/folder/0lQinYDb#rrLRGUsS_aq0iN0JfHoWfA"
+	},
+
+	"backroom-company": {
+		title: "Backroom Company",
+		description: "La Backroom Company (nota anche come Async Corporation) è un misterioso gruppo che esplora 'Noclip'. Nessuno sa chi l'abbia creato. Segui le tracce degli esploratori scomparsi e trova strani oggetti nelle profondità delle Backrooms. Diventa una cavia per Async Corp. (d'ora in poi Backroom Company) ed esplora lo spazio sconosciuto che si cela dietro il fenomeno Noclip: le 'Backroom'. La tua missione è semplice: catturare fenomeni anomali e trasmettere i dati rimanendo in vita. Raccogli oggetti strani sparsi per le stanze e registra le entità non identificate per lasciare delle prove. I dati che raccogli diventano il tuo punteggio di sopravvivenza e la chiave per la fuga. Fate squadra con i vostri compagni. Ma ricordate: più terrificante di qualsiasi entità potrebbe essere un compagno in preda al panico. (Non importa quanto vi arrabbiate, cercate di non uccidere i vostri compagni di squadra di proposito. Probabilmente.)",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/Mv1dShZrZ24?si=7FeBjtVxXhaTfU-B" },
+			{ type: "image", src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3010460/d703a3afa154c892e0369e472f91d4578e82890d/ss_d703a3afa154c892e0369e472f91d4578e82890d.1920x1080.jpg?t=1765500475" },
+			{ type: "image", src: "https://cdn.xsolla.net/cloud-gaming-bucket-prod/ed3c8e1b-7877-4785-a6a1-6a32f0737dd2.jpg" },
+			{ type: "image", src: "https://media.indiedb.com/images/members/5/4784/4783588/profile/ss_4d24013f225aefb1988e3f372b60a.jpg" }
+		],
+		requirements: {
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows8/10/11<br><strong>PROCESSORE:</strong> i5-10400<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> Hardward raytracing supported graphic card(RTX 2050)<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 5GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> Realteak",
+			rec: "<strong>SISTEMA OPERATIVO:</strong> Windows8/10/11<br><strong>PROCESSORE:</strong> i7-10700<br><strong>MEMORIA:</strong> 12GB di RAM<br><strong>SCHEDA VIDEO:</strong> RTX3060<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 8GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> Realteak"
+		},
+		download: "https://1cloudfile.com/Plzg"
+	},
+
+	"mall-rivals": {
+		title: "Mall Rivals",
+		description: "Simulazione competitiva di un centro commerciale. Da 1 a 8 giocatori aprono negozi nello stesso centro commerciale, lottano per i clienti e sconfiggono i rivali. Gioca in squadra o da solo. Gioco leale o scorretto? A te la scelta. Mappe generate proceduralmente, sistema di gestione del personale, guardie di sicurezza, contrabbandieri e meccaniche di gioco realistiche. Costruisci il tuo negozio, assumi dipendenti e competi con un massimo di 8 giocatori in un centro commerciale caotico dove il successo deriva da decisioni commerciali intelligenti o da astuti sabotaggi. Scegli il negozio che più ti si addice, decoralo come preferisci, riempi gli scaffali e rifornisci il tuo negozio, le regole le decidi tu. Fino a 8 giocatori nello stesso centro commerciale si contendono gli stessi clienti. Prezzi stracciati, strategie di furto o metodi più subdoli come il sabotaggio sono sempre un'opzione. Recatevi nella sala riunioni, proponete nuove politiche e votate insieme agli altri giocatori. Le proposte intelligenti possono darvi un vantaggio decisivo o mandare tutto a monte per gli altri. Hai infranto le regole e ti hanno beccato? La tua faccia finirà su ShameTV, visibile a tutti. Rischiare o andare sul sicuro, a te la scelta. Assumi dipendenti che ti supportino nella tua ascesa!",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/sZzukiNKy9Q?si=0dWP1dRZ54GOJ8e7" },
+			{ type: "image", src: "https://s.pacn.ws/1/p/1f6/921303.4.jpg?v=tc36ou&width=1920" },
+			{ type: "image", src: "https://s.pacn.ws/1/p/1f6/921303.7.jpg?v=tc36ow&width=1920" },
+			{ type: "image", src: "https://kotaku.com/igdb/image/upload/t_720p/sc123jm.jpg" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10(64-bit)<br><strong>PROCESSORE:</strong> Intel Core i3-6100 or AMD FX-6300<br><strong>MEMORIA:</strong> 4GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce GTX 750<br><strong>MEMORIA:</strong> 2GB di spazio disponibile",
+			rec: "Richiede un processore e un sistema operativo a 64 bit"
+		},
+		download: "https://1cloudfile.com/1vi5j"
 	}
 	
  };
