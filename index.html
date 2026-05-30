@@ -211,8 +211,8 @@ body::after{
     }
 }
 
-#home, #giochi {
-    scroll-margin-top: 80px;
+#home, #giochi, .upcoming-section, #proposteSection {
+    scroll-margin-top: 100px;
 }
 
 
@@ -4139,6 +4139,59 @@ select.tab:focus{
     line-height:1.6;
 }
 
+.btn-load-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    width: fit-content;
+    padding: 14px 32px;
+    
+    /* Design Glassmorphism */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    
+    /* Tipografia */
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    
+    /* Animazioni */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effetto bagliore al passaggio */
+.btn-load-more:hover {
+    background: rgba(0, 255, 204, 0.15);
+    border-color: rgba(0, 255, 204, 0.4);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Effetto "shimmer" (linea di luce) */
+.btn-load-more::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn-load-more:hover::after {
+    left: 100%;
+}
+
 </style>
 </head>
 
@@ -4858,6 +4911,7 @@ select.tab:focus{
             <button class="tab active" data-tab="all">🔥 Popolari</button>
             <button class="tab" data-tab="favorites">⭐ Preferiti</button>
             <button class="tab" data-tab="new">🆕 Novità</button>
+            <button class="tab" id="goToUpcoming">🚀 In arrivo</button>
             <button class="tab" id="goToProposals">🧠 Proposte</button>
         </div>
 
@@ -6436,6 +6490,12 @@ select.tab:focus{
     </div>
 </div>
 
+<div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
+    <button id="loadMoreBtn" class="btn-load-more">
+        ⬇️ Mostra altri giochi
+    </button>
+</div>
+
 <div class="container upcoming-section">
 
     <div class="upcoming-header">
@@ -7161,10 +7221,79 @@ function updateCount() {
 
 updateCount();
 
+let currentPage = 1;
+const gamesPerPage = 10;
+const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+function updatePagination() {
+    let visibleCount = 0;
+    const searchValue = searchInput.value.toLowerCase();
+
+    // 1. Prendi i giochi della griglia principale
+    const currentDOMGames = Array.from(document.querySelectorAll("#giochi .game:not(.upcoming-game)"));
+
+    // 2. Filtra in base a Ricerca e Tab selezionato
+    let filteredGames = currentDOMGames.filter(game => {
+        const title = game.querySelector("h2").textContent.toLowerCase();
+        const tags = game.querySelector(".tags")?.textContent.toLowerCase() || "";
+        const isFavorite = favorites.includes(game.querySelector("h2").textContent);
+        const isNew = game.classList.contains("new-game");
+
+        const matchSearch = title.includes(searchValue) || tags.includes(searchValue);
+
+        let matchTab = false;
+        if (activeTab === "all" || activeTab === "home") matchTab = true;
+        if (activeTab === "favorites" && isFavorite) matchTab = true;
+        if (activeTab === "new" && isNew) matchTab = true;
+
+        return matchSearch && matchTab;
+    });
+
+    // 3. Nascondi tutto temporaneamente
+    currentDOMGames.forEach(g => {
+        g.style.display = "none";
+        g.classList.add("hide");
+    });
+
+    // 4. Mostra solo i giochi della pagina attuale
+    const maxVisible = currentPage * gamesPerPage;
+
+    filteredGames.forEach((game, index) => {
+        if (index < maxVisible) {
+            game.style.display = "flex";
+            requestAnimationFrame(() => game.classList.remove("hide"));
+            game.style.animationDelay = `${(index % gamesPerPage) * 35}ms`;
+            visibleCount++;
+        }
+    });
+
+    // 5. Aggiorna interfaccia e contatore
+    counter.textContent = `🎮 ${filteredGames.length} giochi trovati`;
+    noResults.classList.toggle("show", filteredGames.length === 0);
+    favoritesEmpty.style.display = (activeTab === "favorites" && filteredGames.length === 0) ? "block" : "none";
+
+    // 6. Mostra/Nascondi il pulsante "Carica Altro"
+    if (loadMoreBtn) {
+        loadMoreBtn.style.display = filteredGames.length > maxVisible ? "inline-flex" : "none";
+    }
+}
+
+// Evento click sul pulsante
+if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", () => {
+        currentPage++;
+        updatePagination();
+    });
+}
+
 let debounce;
 
 searchInput.addEventListener("input", () => {
     clearTimeout(debounce);
+    debounce = setTimeout(() => {
+        currentPage = 1; // Resetta alla prima pagina quando cerchi
+        updatePagination();
+    }, 150);
 
     debounce = setTimeout(() => {
 
@@ -7453,6 +7582,10 @@ function sortGames(type) {
     const fragment = document.createDocumentFragment();
 	gamesArray.forEach(g => fragment.appendChild(g));
 	container.appendChild(fragment);
+
+    currentPage = 1;
+    updatePagination();
+
 }
 
 function setActiveTab(type) {
@@ -7465,71 +7598,12 @@ const tabs = document.querySelectorAll(".tab");
 
 tabs.forEach(tab => {
     tab.addEventListener("click", () => {
-		activateTab(tab.dataset.tab, false);
-        // reset attivo
-        tabs.forEach(t => t.classList.remove("active"));
-		tab.classList.add("active");
+        const type = tab.dataset.tab;
+        if (!type) return;
 
-		const type = tab.dataset.tab;
-
-		if (type === "all") {
-			document.querySelector('a[href="#giochi"]')?.classList.add("active");
-		}
-
-        if (type === "all") {
-
-            favoritesEmpty.style.display = "none";
-            // mostra tutti
-            games.forEach(game => {
-                game.style.display = "flex";
-            });
-        }
-
-        else if (type === "favorites") {
-
-            renderFavoritesView();
-
-            const visibleFavorites = games.filter(game =>
-                game.style.display !== "none"
-            );
-
-            if (visibleFavorites.length === 0) {
-
-                favoritesEmpty.style.display = "block";
-
-            } else {
-
-                favoritesEmpty.style.display = "none";
-            }
-        }
-
-        else if (type === "new") {
-
-            document.querySelector('[data-tab="new"]').classList.add("active");
-
-            favoritesEmpty.style.display = "none";
-
-            games.forEach(game => {
-
-                const isNew = game.classList.contains("new-game");
-
-                game.style.display = isNew ? "flex" : "none";
-            });
-
-            if (scroll) {
-                document.getElementById("giochi").scrollIntoView({
-                    behavior: "smooth"
-                });
-            }
-        }
-
-        updateCount();
-		setActiveTab(type);
-		updateSectionTitle(type);
-		sortGames(sortSelect.value);
-		
+        activateTab(type, false);
+        sortGames(sortSelect.value); // Questo innescherà la paginazione automatica
     });
-
 });
 
 document.querySelector('a[href="#home"]').addEventListener("click", (e) => {
@@ -7683,36 +7757,22 @@ function showAllGames() {
 
 function activateTab(type, scroll = true) {
     tabs.forEach(t => t.classList.remove("active"));
-
     setActiveTab(type);
     updateNavbarActive(type);
 
-    if (type === "favorites") {
-        document.querySelector('[data-tab="favorites"]').classList.add("active");
-        renderFavoritesView();
+    const tabElement = document.querySelector(`[data-tab="${type}"]`);
+    if(tabElement) tabElement.classList.add("active");
 
-        if (scroll) {
-            document.getElementById("giochi").scrollIntoView({ behavior: "smooth" });
-        }
-    }
-
-    else if (type === "all") {
-        document.querySelector('[data-tab="all"]').classList.add("active");
-        showAllGames();
-
-        if (scroll) {
-            document.getElementById("giochi").scrollIntoView({ behavior: "smooth" });
-        }
-    }
-
-    else if (type === "home") {
-        if (scroll) {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-    }
-
-    updateCount();
     updateSectionTitle(type);
+
+    currentPage = 1; // Resetta la pagina quando cambi scheda
+    updatePagination();
+
+    if (scroll && type !== "home") {
+        document.getElementById("giochi").scrollIntoView({ behavior: "smooth" });
+    } else if (scroll && type === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 }
 
 function updateFavCount() {
@@ -8211,6 +8271,17 @@ document.getElementById("goToProposals").addEventListener("click", () => {
     // evidenzia tab
     document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
     document.getElementById("goToProposals").classList.add("active");
+});
+
+// 🚀 SCROLL A IN ARRIVO
+document.getElementById("goToUpcoming").addEventListener("click", () => {
+    document.querySelector(".upcoming-section").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    // evidenzia tab
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    document.getElementById("goToUpcoming").classList.add("active");
 });
 
 
