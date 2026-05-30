@@ -6488,6 +6488,68 @@ select.tab:focus{
 			</div>
         </div>
     </div>
+
+    <div class="game new-game" data-id="drive-together" data-added="2026-05-30">	
+        <div class="size-badge">676MB</div>
+		<div class="favorite-btn">⭐</div>
+
+        <img class="game-cover" loading="lazy" src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/cob91a.jpg">
+
+        <div class="new-badge">NUOVO</div>
+
+        <div class="info">
+            <h2>Drive Together</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Guida</span>
+				<span>Divertente</span>
+            </div>
+
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/2bjiq" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+            
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
+        </div>
+    </div>
+
+    <div class="game new-game" data-id="pit-of-goblin" data-added="2026-05-30">	
+        <div class="size-badge">300MB</div>
+		<div class="favorite-btn">⭐</div>
+
+        <img class="game-cover" loading="lazy" src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co9111.jpg">
+
+        <div class="new-badge">NUOVO</div>
+
+        <div class="info">
+            <h2>Pit Of Goblin</h2>
+
+            <div class="tags">
+                <span>Multiplayer</span>
+                <span>Avventura</span>
+				<span>Divertente</span>
+            </div>
+
+            <div class="game-buttons">
+                <a class="download" href="https://1cloudfile.com/2bjgn" target="_blank">
+                    ⬇ Scarica
+                </a>
+            </div>
+            
+			<div class="votes proposals-votes">
+                <button class="upvote">👍 <span>0</span></button>
+                <button class="downvote">👎 <span>0</span></button>
+				<div class="vote-percent">0%</div>
+			</div>
+        </div>
+    </div>
 </div>
 
 <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
@@ -7542,14 +7604,19 @@ function sortGames(type) {
 
     const order = orderSelect.value;
 
-    // 📌 PREDEFINITO
+    // Trova questo blocco dentro la funzione sortGames(type):
     if (type === "default") {
-		const fragment = document.createDocumentFragment();
-		
+        const fragment = document.createDocumentFragment();
+    
         originalOrder.forEach(g => container.appendChild(g));
-		container.appendChild(fragment);
-		
+        container.appendChild(fragment);
+    
         reorderGames(); // mantiene i pinnati sopra
+    
+        // AGGIUNGI QUESTE DUE RIGHE QUI:
+        currentPage = 1;
+        updatePagination();
+    
         return;
     }
 

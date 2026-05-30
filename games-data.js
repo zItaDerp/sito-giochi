@@ -886,6 +886,38 @@ const gamesData = {
 			rec: "Richiede un processore e un sistema operativo a 64 bit"
 		},
 		download: "https://1cloudfile.com/1vi5j"
+	},
+
+	"drive-together": {
+		title: "Drive Together",
+		description: "Un'auto. Più piloti. Zero coordinazione. Drive Together è un caotico gioco di guida cooperativo in cui ogni giocatore controlla una parte diversa della stessa auto. Comunicate, coordinatevi e cercate di completare il percorso insieme ai vostri amici. Ogni giocatore è responsabile di un comando diverso dell'auto. Anche i comandi normalmente semplici richiedono una coordinazione perfetta. La comunicazione è l'abilità più importante. I giocatori devono coordinarsi costantemente tra loro per mantenere l'auto in equilibrio, ridurre la velocità prima delle curve o saltare dalle rampe. Anche il più piccolo errore può far uscire di pista l'intera squadra. Ogni percorso presenta diverse difficoltà di guida. I giocatori devono guidare l'auto attraverso rampe, curve strette, ponti stretti e tratti instabili senza perdere il controllo. Alcuni ostacoli richiedono un attento controllo della velocità, mentre altri richiedono una guida precisa e un tempismo perfetto. I giocatori possono gareggiare insieme in gare cooperative, mettersi alla prova nella modalità giocatore singolo o provare diverse impostazioni di gioco.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/TLWomxmBxL0?si=oY88kt5BrmWKr3HJ" },
+			{ type: "image", src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4117320/30c2d41702d811a889104a34fd46461ee5b4e353/ss_30c2d41702d811a889104a34fd46461ee5b4e353.1920x1080.jpg?t=1778864394" },
+			{ type: "image", src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4275070/2c32d09e1e4dbdf16ba0598b16d998ef5b88e8b4/ss_2c32d09e1e4dbdf16ba0598b16d998ef5b88e8b4.1920x1080.jpg?t=1778250400" },
+			{ type: "image", src: "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/drive-together-screenshot-file-d3de07ce.jpg.webp" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel(R) Core(TM) i7-7700HQ (2.80 GHz)<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce GTX 1050 (4 GB)<br><strong>DIRECTX:</strong> Versione 12<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 1GB di spazio disponibile",
+			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 11<br><strong>PROCESSORE:</strong> Intel(R) Core(TM) i7-12700H (2.80 GHz)<br><strong>MEMORIA:</strong> 16GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce RTX 3060 (6 GB)<br><strong>DIRECTX:</strong> Versione 12<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 1GB di spazio disponibile"
+		},
+		download: "https://1cloudfile.com/2bjiq"
+	},
+
+	"pit-of-goblin": {
+		title: "Pit Of Goblin",
+		description: "In questo gioco horror cooperativo online, vestirai i panni di un goblin scaltro, impegnato a esplorare sotterranei, schivare trappole e fuggire dai mostri per sfamare il Re-Regina dei Goblin. Unisciti ai tuoi compagni goblin o agisci da solo, immergendoti nelle profondità e seminando il caos! Se non riuscirai a nutrirli, potresti essere il prossimo pasto! Avete mai sognato di essere i più spregevoli, di vivere una vita così squallida e miserabile che persino i topi vi disprezzerebbero? Beh, in Pit of Goblin, questo accade ogni giorno! Indossate i vostri stivali più puzzolenti e tuffatevi in ​​cripte fatiscenti, caverne spettrali e rovine infestate dai fantasmi. Ogni passo è irto di pericoli e sorprese! Il vostro scopo è quello di saziare l'insaziabile fame del Re Regina. La parte migliore? Potete trascinare con voi i vostri amici goblin in questa miserabile avventura! Unisciti a un massimo di tre amici goblin. Il lavoro di squadra è fondamentale... a meno che, ovviamente, tu non sia il tipo di goblin che preferisce combinare guai! Resterete uniti o vi allontanerete di soppiatto per fare scherzi? In entrambi i casi, sarà un caos goblin. Ogni strisciata attraverso la Fossa è una storia di goblin completamente nuova, che si tratti di schivare trappole mortali o di inciampare nei propri piedi sproporzionati. Nessuna corsa ha lo stesso odore! Più si scende in profondità, più la sfida si fa ardua. Non dimenticate che dovete trovare la via d'uscita... se volete sopravvivere per vedere un altro giorno. Cerca cibo e decidi se consegnare il bottino al Re Regina. Mangialo tu stesso per recuperare energia, oppure vendine una parte al negozio per prepararti alla prossima discesa, ma una sola mossa sbagliata potrebbe significare la fine della tua miserabile esistenza. Sei stato avvertito: la pancia del Re Regina è un pozzo senza fondo. C'è sempre spazio per altro cibo... o goblin! Ti ritroverai a vagare in sotterranei così inquietanti che ti si arricciano persino le unghie dei piedi! Che si tratti di tombe terrificanti, corridoi maledetti o semplicemente delle buffonate dei goblin, niente nella Fossa va liscio. Ogni pasto è un'avventura. Accumulerai il bottino per sopravvivere o giocherai sul sicuro per mantenere contenti il ​​Re e la Regina? La scelta è tua. Ogni immersione nella Fossa offre la possibilità di potenziare il tuo equipaggiamento, ma attenzione: deludere il Re e la Regina potrebbe essere la tua rovina!",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/wXchOeGqEGg?si=oyyFLGWnHAXP8xfg" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/21920/screenshot/pit-of-goblin-pc-steam-wallpaper-2.jpg?v=1773225636" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/21920/screenshot/pit-of-goblin-pc-steam-wallpaper-4.jpg?v=1773225636" },
+			{ type: "image", src: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3253530/ss_0809a69762c541fc716b65d6fc92490379c02a7e.1920x1080.jpg?t=1771518176" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel Core i5-7400 CPU @ 3.00GHz<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GForce GTX 1050<br><strong>DIRECTX:</strong> Versione 11<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 2GB di spazio disponibile",
+			rec: "Richiede un processore e un sistema operativo a 64 bit"
+		},
+		download: "https://1cloudfile.com/2bjgn"
 	}
 	
  };
