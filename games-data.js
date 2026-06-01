@@ -918,6 +918,38 @@ const gamesData = {
 			rec: "Richiede un processore e un sistema operativo a 64 bit"
 		},
 		download: "https://1cloudfile.com/2bjgn"
+	},
+
+	"operation-tango": {
+		title: "Operation Tango",
+		description: "Ne servono due per salvare il mondo in questa avventura di spionaggio cooperativa. Unisciti a un amico come Agente o Hacker—con solo le vostre voci a connettervi—e lavorate insieme per mettere in ginocchio una minaccia globale hi-tech. Un nuovo AGGIORNAMENTO GRATUITO!",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/_NaSaFuCxnU?si=di0XGdUjaB6Aw2Gf" },
+			{ type: "image", src: "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_500/store/software/switch/70010000075135/f1b49c81b1401b949ea2e8cc5bfd103086c75fdeb99a662ee152037f0e48243d" },
+			{ type: "image", src: "https://images.kinguin.net/g/carousel-main-mobile/media/images/products/60b73644a5685300018e181a_8b1cfd58aaada0b3a1282a7fbaff85b4.jpg" },
+			{ type: "image", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuau0osjLQ2O5N6rFNkFkFIacI_BuJinA50Q&s" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Quad-core CPU<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce GTX 1050 or AMD Radeon R9 380<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 3GB di spazio disponibile",
+			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Quad-core CPU<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce GTX 1050 Ti or AMD Radeon RX 570<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 3GB di spazio disponibile"
+		},
+		download: "https://1cloudfile.com/2Rhkj"
+	},
+
+	"thehouse-alwayswins": {
+		title: "The House Always Wins",
+		description: "Costruisci un'attività di alto livello da solo o in cooperativa (1–4 giocatori). Parti da zero, intrattieni gli ospiti e gestisci eventi assurdi — vandali, guasti e persino visite dallo spazio. Non tutti gli ospiti vengono per comportarsi bene. Gestisci graffitari troppo creativi, oche impazzite, fumatori distratti e perfino visitatori dallo spazio. Lo spettacolo deve continuare! Progetta ed espandi il tuo locale da solo o in co-op con gli amici. Assegna ruoli, dividi i compiti e guadagnate insieme. Per fare fortuna non bastano le slot. Aggiungi bar, servi snack e offri intrattenimento per tenere gli ospiti incollati. Cura ogni dettaglio per massimizzare i profitti. Quando scoppia il caos, prendi gli attrezzi e mettiti al lavoro. Ripara le macchine difettose, sostituisci i pezzi rotti e tieni tutto in funzione. Hai mai sognato di gestire un locale dove può succedere di tutto? Da VIP esigenti a imprevisti assurdi: ogni giorno porta nuovi problemi divertenti da risolvere.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/3HkmAJFLxSM?si=aXlpsvfWhkVxTPCw" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/22716/screenshot/the-house-always-wins-pc-steam-wallpaper-1.jpg?v=1779788526" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/22716/screenshot/the-house-always-wins-pc-steam-wallpaper-5.jpg?v=1779788526" },
+			{ type: "image", src: "https://images.igdb.com/igdb/image/upload/t_screenshot_med/sc10gvh.jpg" }
+		],
+		requirements: {
+			min: "<br><strong>SISTEMA OPERATIVO:</strong> Windows 10/11<br><strong>PROCESSORE:</strong> Intel Core i5-10400F or AMD Ryzen 5 3600<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce GTX 1660 or AMD Radeon RX 580<br><strong>DIRECTX:</strong> Versione 11<br><strong>MEMORIA:</strong> 7GB di spazio disponibile<br><strong>NOTE AGGIUNTIVE:</strong> Friends to play with :D",
+			rec: "<br><strong>SISTEMA OPERATIVO:</strong> Windows 10/11<br><strong>PROCESSORE:</strong> IIntel Core i5-13600K or AMD Ryzen 5 5800X3D<br><strong>MEMORIA:</strong> 16GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce RTX 3060 or AMD RX6600XT<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 7GB di spazio disponibile<br><strong>NOTE AGGIUNTIVE:</strong> Friends to play with :D"
+		},
+		download: "https://1cloudfile.com/1vmqp"
 	}
 	
  };
