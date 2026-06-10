@@ -659,7 +659,7 @@ const gamesData = {
 			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10 64-Bit<br><strong>PROCESSORE:</strong> Intel Core i5 / AMD FX-6300<br><strong>MEMORIA:</strong> 8 GB di RAM<br><strong>SCHEDA VIDEO:</strong> GTX 970 / Radeon RX580<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 1 GB di spazio disponibile",
 			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 11 64-Bit<br><strong>PROCESSORE:</strong> Intel i7 / AMD Ryzen 7<br><strong>MEMORIA:</strong> 16 GB di RAM<br><strong>SCHEDA VIDEO:</strong> GTX 1070 / Radeon RX 5700XT<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 1 GB di spazio disponibile"
 		},
-		download: "https://mega.nz/folder/cqtTWJIB#I9jgQ2Zm-2jL3oHvThtkYQ"
+		download: "https://1cloudfile.com/Pspa"
 	},
 
 	"night-shippers": {
@@ -950,6 +950,22 @@ const gamesData = {
 			rec: "<br><strong>SISTEMA OPERATIVO:</strong> Windows 10/11<br><strong>PROCESSORE:</strong> IIntel Core i5-13600K or AMD Ryzen 5 5800X3D<br><strong>MEMORIA:</strong> 16GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce RTX 3060 or AMD RX6600XT<br><strong>DIRECTX:</strong> Versione 12<br><strong>MEMORIA:</strong> 7GB di spazio disponibile<br><strong>NOTE AGGIUNTIVE:</strong> Friends to play with :D"
 		},
 		download: "https://1cloudfile.com/1vmqp"
+	},
+
+	"task-time": {
+		title: "Task Time",
+		description: "Task Time è un party game competitivo ispirato ai giochi televisivi in cui 8 amici si tuffano a capofitto in 6 round di compiti imprevedibili e caos fisico, per finire in cima alla classifica. Da (alcuni dei) creatori di Gang Beasts e Fall Guys, ecco il tuo nuovo gioco preferito con gli amici. Lanciati nel caos sfrenato e porta a termine compiti folli che ti consentono di rimpicciolire i tuoi amici, rubare tutte le loro cose e poi guardarli cadere nella lava! Potresti vincere o fallire miseramente, ma contiamo che non ci siano conseguenze nella vita reale! Ti sentiranno urlare 'Non è giustooo!' senza sosta, ma è proprio questo che vogliamo! Task Time è quel gioco che capisci come funziona in un istante, non riesci mai a prevedere e che non vorrai più smettere di giocare. Con mezzo milione di compiti casuali, non corri mai il rischio di giocare due partite uguali. Quindi, anche il giocatore più maldestro può realizzare una rimonta pazzesca e trionfare. Puoi giocare per la sopravvivenza, usare la malizia o sabotare i tuoi amici: quel che è certo è che Task Time ti regalerà divertimento a palate e altri momenti in cui saranno in bilico amicizie e la tua reputazione!",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/NJw8tB_d9AE?si=61PCZtln1Gvw4nXl" },
+			{ type: "image", src: "https://i0.wp.com/wiredproductions.com/wp-content/uploads/2025/09/TT_SelfieStick-1.jpg?fit=1920%2C1080&ssl=1" },
+			{ type: "image", src: "https://cdn1.epicgames.com/spt-assets/161747be0b4a46f49f1f1d7417e606b9/task-time-1wh0a.jpg?resize=1&w=480&h=270&quality=medium" },
+			{ type: "image", src: "https://cdn1.epicgames.com/spt-assets/161747be0b4a46f49f1f1d7417e606b9/task-time-79wot.jpg?resize=1&w=480&h=270&quality=medium" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel core i5-10400 / AMD Ryzen 3600<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> Nvidia GTX 1650 / AMD Radeon RX 570 (A minimum of 4 GB of VRAM) / Intel A580<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 4GB di spazio disponibile",
+			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel core i7-12700 / AMD Ryzen 7 7600<br><strong>MEMORIA:</strong> 16GB di RAM<br><strong>SCHEDA VIDEO:</strong> Nvidia RTX 2080 / AMD Radeon RX 6700-XT (A minimum of 4 GB of VRAM) / Intel A770<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 4GB di spazio disponibile"
+		},
+		download: "https://1cloudfile.com/Prxv"
 	}
 	
  };
