@@ -435,7 +435,7 @@ const gamesData = {
 			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel Core i5-9400F<br><strong>MEMORIA:</strong> 4GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce GTX 1650<br><strong>MEMORIA:</strong> 5GB di spazio disponibile",
 			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel Core i7-9700K<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GeForce GTX 1070<br><strong>MEMORIA:</strong> 5GB di spazio disponibile"
 		},
-		download: "https://store.steampowered.com/app/3844970/Burglin_Gnomes/"
+		download: "https://1cloudfile.com/2bo6i"
 	},
 	
 	"ithas-myface": {
@@ -966,6 +966,22 @@ const gamesData = {
 			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Intel core i7-12700 / AMD Ryzen 7 7600<br><strong>MEMORIA:</strong> 16GB di RAM<br><strong>SCHEDA VIDEO:</strong> Nvidia RTX 2080 / AMD Radeon RX 6700-XT (A minimum of 4 GB of VRAM) / Intel A770<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 4GB di spazio disponibile"
 		},
 		download: "https://1cloudfile.com/Prxv"
+	},
+
+	"meccha-chameleon": {
+		title: "MECCHA CHAMELEON",
+		description: "Dipingiti per mimetizzarti! 'Meccha Chameleon' è un gioco a nascondino di nuova generazione in cui devi dipingere il tuo corpo di bianco per imitare lo scenario. Individuazione, posa e 'abilità artistiche' sono fondamentali per la sopravvivenza. Inganna i cercatori con tecniche che farebbero impallidire i camaleonti! Supporta partite pubbliche e streaming. Dipingi il tuo corpo! Mimetizzati come un camaleonte in questo gioco a nascondino! Le regole sono semplici. Dividetevi in ​​due squadre: i Cercatori e gli Nascondigli. I Cercatori vincono se trovano tutti entro il tempo limite. Il modo in cui ti nascondi è un po' speciale. Dipingi il tuo corpo di bianco puro per mimetizzarti con lo scenario. Proprio come un camaleonte. Il nascondiglio, la posa e soprattutto le tue abilità artistiche sono la chiave! Inganna gli occhi dei Cercatori con un'imitazione che sorprenderebbe persino un camaleonte. Ovviamente puoi giocare con gli amici, ma anche con persone che non conosci. (Se crei un server non impostato su privato, chiunque può unirsi liberamente.) Gli streamer di videogiochi possono facilmente ospitare partite con la partecipazione degli spettatori. Il numero massimo di giocatori dipende dall'ambiente di rete dell'host. (Si consigliano da 2 a 10 giocatori. Questo numero può aumentare o diminuire in base a futuri test di gioco.)",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/X-65m9poaSY?si=PjGcsBgp-Qv-uIl-" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/22677/screenshot/meccha-chameleon-pc-steam-wallpaper-5.jpg?v=1779293395" },
+			{ type: "image", src: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4704690/0383a711ed93bf8edd848df4b63b331fc44f3ad5/ss_0383a711ed93bf8edd848df4b63b331fc44f3ad5.1920x1080.jpg?t=1781061285" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/22677/screenshot/meccha-chameleon-pc-steam-wallpaper-2.jpg?v=1779293395" }
+		],
+		requirements: {
+			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10-64 bit<br><strong>PROCESSORE:</strong> Intel core i5<br><strong>SCHEDA VIDEO:</strong> DirectX 11 or 12 compatible graphics card",
+			rec: ""
+		},
+		download: "https://1cloudfile.com/2bo6r"
 	}
 	
  };
