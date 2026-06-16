@@ -981,7 +981,7 @@ const gamesData = {
 			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10-64 bit<br><strong>PROCESSORE:</strong> Intel core i5<br><strong>SCHEDA VIDEO:</strong> DirectX 11 or 12 compatible graphics card",
 			rec: ""
 		},
-		download: "https://1cloudfile.com/2bo6r"
+		download: "https://1cloudfile.com/Pv5z"
 	}
 	
  };
