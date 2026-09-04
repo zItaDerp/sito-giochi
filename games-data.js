@@ -981,7 +981,71 @@ const gamesData = {
 			min: "<strong>SISTEMA OPERATIVO:</strong> Windows 10-64 bit<br><strong>PROCESSORE:</strong> Intel core i5<br><strong>SCHEDA VIDEO:</strong> DirectX 11 or 12 compatible graphics card",
 			rec: ""
 		},
-		download: "https://1cloudfile.com/Pv5z"
+		download: "https://1cloudfile.com/2bD24"
+	},
+
+	"frog-sqwad": {
+		title: "Frog Sqwad",
+		description: "🐸Extraction platform cooperativo fino a 8 giocatori dove puoi dondolarti, saltare, catapultare gli amici e mangiare, mangiare, MANGIARE fino a diventare un'enorme Megarana. Collabora con i tuoi amici ranocchi e assaltate le Fogne per la gloria del Re della Palude!🐸. Unisciti a un massimo di 7 amici ranocchi per un'avventura nelle Fogne in preda alle leggi della fisica. Dondolati dai tubi con la tua lingua appiccicosa, spingi enormi pezzi di cibo lungo angusti tunnel, risolvi i problemi a modo tuo e lancia i tuoi amici più lontano che puoi, il tutto a servizio del famelico Re della Palude. Esplora le Fogne in continua evoluzione, dove ogni partita introduce nuovi pericoli, strani incontri e prezioso cibo. Continua a mangiare, continua a crescere e in men che non si dica ti ritroverai a rotolare in giro nei panni di un'enorme Megarana. L'appetito del Re della Palude cresce di giorno in giorno. Spendi le tue sudate monete d'oro per acquistare nuovi giocattoli e gadget che ti permetteranno di affrontare al meglio ogni partita e collabora con i tuoi amici per raggiungere la quota giornaliera. Non temere: il re non è un tipo schizzinoso.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/mSH73U3SBJk?si=Kl69rNdh4X26R7Yv" },
+			{ type: "image", src: "https://xboxwire.thesourcemediaassets.com/sites/2/2026/04/frog-sqwad-original-promo-art-3e8158ee7ee48d654763-1900x1080.jpg" },
+			{ type: "image", src: "https://games.gg/cdn-cgi/image/width=1920,quality=75,format=auto,fit=scale-down,metadata=none,onerror=redirect/https://assets.games.gg/frog_sqwad_june_2026_xbox_pc_hero_172663eb80.webp" },
+			{ type: "image", src: "https://www.gamebrief.net/images/posts/frog-sqwad-tips-guide-2026-squad.webp" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10<br><strong>PROCESSORE:</strong> Core i5-8400 / Ryzen 3 1300<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> GeForce GTX 1060 / Radeon RX 580<br><strong>DIRECTX:</strong> Versione 12<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 2GB di spazio disponibile",
+			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 11<br><strong>PROCESSORE:</strong> Core i5-12400 / Ryzen 5 5600X<br><strong>MEMORIA:</strong> 16GB di RAM<br><strong>SCHEDA VIDEO:</strong> GeForce RTX 2060 / Radeon RX 7600XT<br><strong>DIRECTX:</strong> Versione 12<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 2GB di spazio disponibile"
+		},
+		download: "https://voidfiles.cc/d/97fpxc8hwt"
+	},
+
+	"machine-party": {
+		title: "Machine Party",
+		description: "Machine Party è una raccolta di party game violenti in cui il fallimento è letale. Raduna i tuoi amici e affronta situazioni ad alto rischio per dimostrare che la tua vita vale più della loro. La sopravvivenza è improbabile. Benvenuti a Machine Party. In questa serie di party game pericolosi – e, secondo alcuni, altamente illegali – dovrete ricorrere a ogni trucco possibile per sopravvivere. Cimentatevi in ​​formati classici e in nuove varianti del genere, per sessioni all'insegna del divertimento, delle urla e dell'orrore.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/0EHUmssXyyc?si=9NFND0LTkKbnXcJM" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/22350/screenshot/machine-party-pc-steam-wallpaper-1.jpg?v=1788270445" },
+			{ type: "image", src: "https://www.cdkeyit.it/wp-content/uploads/machine-party-800x500-3.webp" },
+			{ type: "image", src: "https://www.cdkeyit.it/wp-content/uploads/machine-party-800x500-1.webp" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 11<br><strong>PROCESSORE:</strong> Dual Core 2.4 GHz<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> Radeon RX 6500 XT / Nvidia 1660<br><strong>MEMORIA:</strong> 1GB di spazio disponibile<br><strong>NOTE AGGIUNTIVE:</strong> Vulkan support required",
+			rec: "Richiede un processore e un sistema operativo a 64 bit"
+		},
+		download: "https://1cloudfile.com/2RIO4"
+	},
+
+	"how-to-fish": {
+		title: "How to Fish",
+		description: "'How to Fish' è un simulatore di pesca basato sulla fisica per un massimo di 4 giocatori. Bere al volante, o al timone, non è una buona idea, specie se poi finisci per fare naufragio su un isolotto. Per poter tornare a casa dovrai imparare come si pesca.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/GdX4HCbd28Q?si=tQFtxeDxuDwmJ9R7" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/23683/screenshot/how-to-fish-pc-steam-wallpaper-3.jpg?v=1787297248" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/23683/screenshot/how-to-fish-pc-steam-wallpaper-5.jpg?v=1787297248" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/23683/screenshot/how-to-fish-pc-steam-wallpaper-2.jpg?v=1787297248" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10+<br><strong>PROCESSORE:</strong> Intel Core i5-5257U, AMD Ryzen 3 1200 or equivalent<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> GeForce GTX 1050, AMD RX 460 or equivalent<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 1GB di spazio disponibile",
+			rec: "Richiede un processore e un sistema operativo a 64 bit"
+		},
+		download: "https://1cloudfile.com/3xRw5"
+	},
+
+	"moo-who": {
+		title: "Moo Who?",
+		description: "Riesci a suonare come un animale abbastanza bene da sopravvivere? Moo Who è un party game multigiocatore basato sull’imitazione vocale, in cui i giocatori animali si nascondono tra i PNG e fanno versi di animali nel microfono prima che i cacciatori scoprano chi è falso. Moo Who? è un party game multigiocatore basato sull’imitazione vocale, in cui i giocatori animali si nascondono tra mandrie di PNG mentre i cacciatori cercano di capire chi è falso. Ogni giocatore animale deve usare il microfono per imitare la specie assegnata. Mugisci come una mucca. Chioccia come una gallina. Grugnisci come un maiale. Bela come una pecora. Devi solo essere abbastanza credibile da sopravvivere. Non puoi nasconderti in silenzio per sempre. Quando inizia il momento di pressione sonora, fai il verso del tuo animale prima che sia troppo tardi. Se fallisci, compariranno mosche ronzanti intorno a te e renderanno la tua posizione più facile da individuare per i cacciatori. I cacciatori portano un fucile a pompa, ma ogni colpo conta. Spara all’animale sbagliato e sprecherai la tua occasione. Spara al vero giocatore e i cacciatori si avvicineranno alla vittoria. Gioca online con 2-8 giocatori in partite brevi e caotiche piene di panico, sospetti, falsa sicurezza, accuse sbagliate e versi di animali terribili.",
+		media: [
+			{ type: "video", src: "https://www.youtube.com/embed/3akJhO2vYSE?si=gk6uyaq3ty0lntwg" },
+			{ type: "image", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI25vr3udePBfgjuqc9BdPzgcFjzh05n5aDrn7C0BtLF7v0iNdzNCLY5_r&s=10" },
+			{ type: "image", src: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4948000/43809ac4544b8d8a593a401a877db9ab1ba0fb75/ss_43809ac4544b8d8a593a401a877db9ab1ba0fb75.1920x1080.jpg?t=1787331470" },
+			{ type: "image", src: "https://gaming-cdn.com/images/products/23737/screenshot/moo-who-pc-steam-wallpaper-3.jpg?v=1787671834" }
+		],
+		requirements: {
+			min: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10 64 bit<br><strong>PROCESSORE:</strong> Intel Core i5-7400 / AMD Ryzen 3 1200<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GTX 1050 / AMD Radeon RX 560 o equivalente<br><strong>DIRECTX:</strong> Versione 11<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 4GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> Microfono richiesto<br><strong>NOTE AGGIUNTIVE:</strong> Per il multigiocatore online sono richiesti una connessione internet stabile e un microfono funzionante",
+			rec: "Richiede un processore e un sistema operativo a 64 bit<br><strong>SISTEMA OPERATIVO:</strong> Windows 10 / Windows 11 64-bit<br><strong>PROCESSORE:</strong> Intel Core i5-10400 / AMD Ryzen 5 3600<br><strong>MEMORIA:</strong> 8GB di RAM<br><strong>SCHEDA VIDEO:</strong> NVIDIA GTX 1060 / GTX 1650 / AMD Radeon RX 580 o equivalente<br><strong>DIRECTX:</strong> Versione 11<br><strong>RETE:</strong> Connessione internet a banda larga<br><strong>MEMORIA:</strong> 4GB di spazio disponibile<br><strong>SCHEDA AUDIO:</strong> Microfono richiesto<br><strong>NOTE AGGIUNTIVE:</strong> Per il multigiocatore online sono richiesti una connessione internet stabile e un microfono funzionante"
+		},
+		download: "https://1cloudfile.com/3xOwT"
 	}
 	
  };
